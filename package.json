@@ -1,6 +1,6 @@
 {
   "name": "train-to-earn",
-  "homepage": "",
+  "homepage": "https://cryptc.herokuapp.com/home",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
