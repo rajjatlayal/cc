@@ -12,13 +12,13 @@ function Home()  {
             <div className="row landing_page">
                 <div className="banner">
                     {/* <p>BANNER</p> */}
-                    <img src="../images/banner.jpg"/>
+                    <img src={"images/banner.jpg"}/>
                 </div>
                 <div className="second_section">
                     <h3>A Society for the Uncensored</h3>
                     <h3> Unapologetic ***** Of Crypto:</h3>
                     {/* <p>BANNER</p> */}
-                    <p><img src="../images/banner1.jpg"/></p>
+                    <p><img src={"images/banner1.jpg"}/></p>
                     <h3 style={{paddingTop:"20px"}}>**** BEING AN ORDINARY ****</h3>
                     <span>BE A CRYPTOCUNT</span>
                     <h6>What started as a joke with some British CryptoCunts at an NFT meetup, has</h6>
@@ -27,25 +27,25 @@ function Home()  {
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src="../images/img1.jpg"/>
+                                <img src={"images/img1.jpg"}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src="../images/img2.jpg"/>
+                                <img src={"images/img2.jpg"}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src="../images/img3.jpg"/>
+                                <img src={"images/img3.jpg"}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src="../images/img4.jpg"/>
+                                <img src={"images/img4.jpg"}/>
                             </div>
                         </div>
                     </div>
@@ -70,15 +70,15 @@ function Home()  {
                         <h3>IT'S NOT JUST A <span style={{color:"#72F595",fontWeight:"600"}}>COOL AVATAR</span></h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center"}}>
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section1">
-                                <p className="p-1"><img src="../images/avatar.png"/></p>
+                                <p className="p-1"><img src={"images/avatar.png"}/></p>
                             </div>
                             <div className="col-xl-6 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth">
                                 <div className="line arrow-left"></div>
-                                <p className="p-2"><img src="../images/avatar.png"/></p>
+                                <p className="p-2"><img src={"images/avatar.png"}/></p>
                                 <div className="line arrow-right"></div>
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section2">
-                                <p className="p4"><img src="../images/avatar.png"/></p>
+                                <p className="p4"><img src={"images/avatar.png"}/></p>
                             </div>
                         </div>
                     </div>
@@ -87,14 +87,14 @@ function Home()  {
                     <div className="container fifth_section">
                         <h3>Every Mint Gets You A Chance To</h3><h3> Collect The Following:</h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
-                                <div className="under_fifth1 flip-box">
-                                    <h5>1111 Evolved CryptoCunts</h5>
-                                    <div class="flip-box-inner">
-                                        <div class="flip-box-front">
-                                            <img src="../images/collect1.jpg" alt="Paris" style={{width:"100%"}} />
+                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                                <h5>1111 Evolved CryptoCunts</h5>
+                                <div className="flip-card">
+                                    <div className="flip-card-inner">
+                                        <div className="flip-card-front">
+                                        <img src={"images/collect1.jpg"} alt="Avatar"/>
                                         </div>
-                                        <div class="flip-box-back">
+                                        <div className="flip-card-back">
                                             <ul style={{paddingTop:"20px"}}>
                                                 <li>1/1111 Rare Collectable
                                                     <p>a). Like a CryptoCunt but with arms and legs</p>
@@ -114,16 +114,16 @@ function Home()  {
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
-                                <div className="under_fifth1 flip-box">
-                                    <h5>8445 CryptoCunts</h5>
-                                    <div class="flip-box-inner">
-                                        <div class="flip-box-front">
-                                            <img src="../images/collect1.jpg" alt="Paris" style={{width:"100%"}} />
+                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                                <h5>8445 CryptoCunts</h5>
+                                <div className="flip-card">
+                                    <div className="flip-card-inner">
+                                        <div className="flip-card-front">
+                                        <img src={"images/collect2.jpg"} alt="Avatar"/>
                                         </div>
-                                        <div class="flip-box-back">
+                                        <div className="flip-card-back">
                                             <ul style={{paddingTop:"20px"}}>
                                                 <li>1/1111 Rare Collectable
                                                     <p>a). Like a CryptoCunt but with arms and legs</p>
@@ -143,16 +143,16 @@ function Home()  {
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
-                                <div className="under_fifth1 flip-box">
-                                    <h5>222 Anonymous Ape CryptoCunts</h5>
-                                    <div class="flip-box-inner">
-                                        <div class="flip-box-front">
-                                            <img src="../images/collect1.jpg" alt="Paris" style={{width:"100%"}} />
+                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                            <h5>222 Anonymous Ape CryptoCunts</h5>
+                                <div className="flip-card">
+                                    <div className="flip-card-inner">
+                                        <div className="flip-card-front">
+                                        <img src={"images/collect3.jpg"} alt="Avatar"/>
                                         </div>
-                                        <div class="flip-box-back">
+                                        <div className="flip-card-back">
                                             <ul style={{paddingTop:"20px"}}>
                                                 <li>1/1111 Rare Collectable
                                                     <p>a). Like a CryptoCunt but with arms and legs</p>
@@ -172,16 +172,16 @@ function Home()  {
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
-                                <div className="under_fifth1 flip-box">
-                                    <h5>22 Anonymous CryptoCunts W/ Laser Eyes</h5>
-                                    <div class="flip-box-inner">
-                                        <div class="flip-box-front">
-                                            <img src="../images/collect1.jpg" alt="Paris" style={{width:"100%"}} />
+                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                            <h5>22 Anonymous CryptoCunts W/ Laser Eyes</h5>
+                                <div className="flip-card">
+                                    <div className="flip-card-inner">
+                                        <div className="flip-card-front">
+                                        <img src={"images/collect4.jpg"} alt="Avatar"/>
                                         </div>
-                                        <div class="flip-box-back">
+                                        <div className="flip-card-back">
                                             <ul style={{paddingTop:"20px"}}>
                                                 <li>1/1111 Rare Collectable
                                                     <p>a). Like a CryptoCunt but with arms and legs</p>
@@ -201,7 +201,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -265,16 +265,16 @@ function Home()  {
                         <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                 <div className="nineth_image_div">
-                                    <p><img src="../images/roadmap1.jpg"/></p>
+                                    <p><img src={"images/roadmap1.jpg"}/></p>
                                 </div>
                                 <div className="nineth_image_div">
-                                    <p><img src="../images/roadmap2.jpg"/></p>
+                                    <p><img src={"images/roadmap2.jpg"}/></p>
                                 </div>
                                 <div className="nineth_image_div">
-                                    <p><img src="../images/roadmap3.jpg"/></p>
+                                    <p><img src={"images/roadmap3.jpg"}/></p>
                                 </div>
                                 <div className="nineth_image_div">
-                                    <p><img src="../images/roadmap4.jpg"/></p>
+                                    <p><img src={"images/roadmap4.jpg"}/></p>
                                 </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-4 col-sm-4 col-xs-4">
@@ -458,7 +458,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src="../images/crypto_cunt.jpg" /></p>
+                                            <p><img src={"images/crypto_cunt.jpg"} /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -476,7 +476,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src="../images/crypto_cunt.jpg" /></p>
+                                            <p><img src={"images/crypto_cunt.jpg"} /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -494,7 +494,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src="../images/crypto_cunt.jpg" /></p>
+                                            <p><img src={"images/crypto_cunt.jpg"} /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -512,7 +512,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src="../images/crypto_cunt.jpg" /></p>
+                                            <p><img src={"images/crypto_cunt.jpg"} /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -530,7 +530,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src="../images/crypto_cunt.jpg" /></p>
+                                            <p><img src={"images/crypto_cunt.jpg"} /></p>
                                         </div>
                                     </div>
                                 </div>
