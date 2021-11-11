@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Server,PersonFill,LockFill } from 'react-bootstrap-icons';
 
 function Login()  {
@@ -26,7 +27,7 @@ function Login()  {
                           </div>
                         </div>
                         <div>
-                          <button className="login_btn">LOGIN</button>
+                          <Link to="/admin/settings"><button className="login_btn">LOGIN</button></Link>
                         </div>
                       </form>
                     </div>
