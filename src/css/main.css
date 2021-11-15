@@ -791,7 +791,48 @@ ul.tl li .timestamp {
 .settings_form_data {
   display: grid;
 }
+.fourth_section .p-2 {
+  color: #72f595;
+  background: #13212a;
+  font-size: 22px;
+  font-weight: 600;
+  width: 357px;
+  height: 134 px;
+  border-radius: 50%;
+  line-height: 110px;
+  margin: auto;
+}
+img.cent-img {
+  margin-top: -22%;
+  margin-left: 4%;
+}
 
+.col-12.right_banner {
+  background-color: #0f1922;
+  background-image: url("E:\Clients\Octavius new\cc\src\02.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-bottom: 20%;
+}
+.line2.arrow-right {
+  flex-grow: 1;
+  height: 1px;
+  background: #000;
+  position: relative;
+}
+p.p4 img {
+  margin-left: -30%;
+}
+.second_section p {
+  color: rgb(34 55 75);
+  font-size: 80px;
+  font-weight: bold;
+  /* background: #040E17; */
+  padding: 10px 20px;
+  width: 100%;
+  margin: auto;
+  margin-top: 36px;
+}
 @media screen and (max-width: 430px) and (min-width: 300px) {
   .login_right_div {
     display: none;
@@ -800,6 +841,18 @@ ul.tl li .timestamp {
     padding: 50px 24px 50px 24px;
     border-top: 3px solid #4b4b4b;
     border-radius: 4px;
+  }
+  .banner {
+    display: none;
+  }
+  .col-12.right_banner {
+    background-color: #000000;
+    background-image: url("E:\Clients\Octavius new\cc\src\02.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-bottom: 20%;
+    background-position-x: 100%;
+    padding-top: 56%;
   }
   .login_left_div {
     padding-left: 0 !important;
@@ -913,6 +966,7 @@ ul.tl li .timestamp {
     transform: rotate(90deg);
     top: -57%;
     left: 40%;
+    display: none;
   }
 
   .under_sixth2 {
@@ -929,6 +983,7 @@ ul.tl li .timestamp {
     transform: rotate(90deg);
     top: 153%;
     right: 28%;
+    display: none;
   }
 
   .under_fifth1 ul li p {
@@ -936,8 +991,8 @@ ul.tl li .timestamp {
     margin-left: 24px;
   }
   img.cent-img {
-    margin-top: -23%;
-    margin-left: -50%;
+    margin-top: -8%;
+    margin-left: 10%;
   }
   p.p4 img {
     margin-top: 36%;

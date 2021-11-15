@@ -1,5 +1,5 @@
 import React from "react";
-import { Twitter,Discord } from 'react-bootstrap-icons';
+import { Twitter,Discord,Instagram } from 'react-bootstrap-icons';
 
 export default function Navbar() {
   return (
@@ -13,6 +13,7 @@ export default function Navbar() {
                   <ul>
                       <li><span><Twitter color="#72F595" size={20}/></span></li>
                       <li><span><Discord color="#72F595" size={20}/></span></li>
+                      <li><span><Instagram color="#72F595" size={20}/></span></li>
                   </ul>
               </div>
           </div>

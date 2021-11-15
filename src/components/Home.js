@@ -9,10 +9,20 @@ function Home()  {
     return (
         <div className="container-fluid p-0" style={{background:"#0F1922"}}>
             <Navbar/>
+            
+
             <div className="row landing_page">
+            <div className="row banner_image">
+            {/* <div className="col-6">
+                
+            </div> */}
+            <div className="col-12 right_banner">
+                
+            </div>
+            </div>
                 <div className="banner">
                     {/* <p>BANNER</p> */}
-                    <img src={"images/02.png"}/>
+                    {/* <img src={"images/02.png"}/> */}
                 </div>
                 <div className="second_section">
                     <h3>A Society for the Uncensored</h3>
