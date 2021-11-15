@@ -16,7 +16,7 @@ function Home()  {
                 </div>
                 <div className="second_section">
                     <h3>A Society for the Uncensored</h3>
-                    <h3> Unapologetic ***** Of Crypto:</h3>
+                    <h3> Unapologetic Cunts Of Crypto:</h3>
                     {/* <p>BANNER</p> */}
                     <p><img src={"images/cuntmachine (1).png"}/></p>
                     <h3 style={{paddingTop:"20px"}}>FUCK BEING AN ORDINARY CUNT - BE A CRYPTOCUNT</h3>
@@ -54,6 +54,7 @@ function Home()  {
                     <div className="third_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                           
 
                             </div>
                             <div className="col-xl-5 col-lg-3 col-md-3 col-sm-3 col-xs-3 third_section_content">
@@ -74,7 +75,7 @@ function Home()  {
                             </div>
                             <div className="col-xl-6 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth">
                                 <div className="line arrow-left"></div>
-                                <p className="p-2"><img src={"images/a3bd7a_7e7add9c24fd4dc3ba892d2adca6dba0_mv2.png"}/></p>
+                                <p className="p-2"><img className="cent-img" src={"images/a3bd7a_7e7add9c24fd4dc3ba892d2adca6dba0_mv2.png"}/></p>
                                 <div className="line arrow-right"></div>
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section2">
@@ -236,7 +237,7 @@ function Home()  {
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
                                 <div className="under_sixth1">
-                                    <span><QuestionLg size={180} color="#ffffff" /></span>
+                                    <span><img src="images\elon laser.png"/></span>
                                 </div>
                             </div>
                         </div>
@@ -261,10 +262,10 @@ function Home()  {
                         <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                 <div className="nineth_image_div">
-                                    <p><QuestionLg size={180} color="#ffffff" /></p>
+                                    <p><img src="images\a3bd7a_43f73508863d4b7d86310906c566dccc_mv2.png"/></p>
                                 </div>
                                 <div className="nineth_image_div">
-                                    <p><QuestionLg size={180} color="#ffffff" /></p>
+                                    <p><img src="images\Vitalik.png"/></p>
                                 </div>
                                 <div className="nineth_image_div">
                                     <p><img src="images\a3bd7a_43f73508863d4b7d86310906c566dccc_mv2.png"/></p>
@@ -383,50 +384,23 @@ function Home()  {
                     <div className="container thirt_section">
                         <h3 style={{color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>THE CRYPTOCUNTS FAQ</h3>
                         <Accordion show title="Why wait til the morning after 101 days for secondary markets?">
-                        Because you cunts are not loyal!
+                        We want to avoid rugpulls and we also want to do something a little different. This project is built for longevity.
                         </Accordion>
                         <Accordion title="Why does the price double every 10 days?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        We want to reward early holders. We also think that this may create a more stable and higher floor price. 
                         </Accordion>
                         <Accordion title="Why cryptoCunts:">
-                        Because you are a cunt and (hopefully) you own some Crypto!
+                        Started as a joke in a bar amongst some NFT lads and it kind of just evolved ;)
+
                         </Accordion>
                         <Accordion title="Isn’t the word Cunt Bad?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        No, in fact, cunts are good, we all came from them ;) But in all seriousness it’s often used as a term of endearment, especially in the UK and Australia amongst male friends. 
                         </Accordion>
                         <Accordion title="How is it deflationary?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        2 CCs become an ECC, 2 ECCs become a AACC. Less is more and brings more value to holders for the The CryptoCunt Colloseum.
                         </Accordion>
                         <Accordion title="How is there utility?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        If you own any CC you can play the CC game for free. If you don’t want to play you can ‘pimp’ out your CC to players who aren’t CCC holders.  You get to earn a percentage of their bets and winning. The exact tokenomics will be developed.
                         </Accordion>
                     </div>
                 </div>
