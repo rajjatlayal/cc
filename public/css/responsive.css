@@ -1,0 +1,210 @@
+@media only screen and (min-width: 1400px) {
+  .content-2{
+    margin-top: -25em !important;
+  }
+}
+
+@media (max-width:1024px){
+  p{
+    font-size: 36px !important;
+    line-height: 60px !important;
+  }
+  h3 {
+    font-size: 42px;
+    line-height: 52px;
+    letter-spacing: 1px;
+  }
+  .hero-section.hero-2{
+    /* background-image: url(/fitness-crypto/img/fitnes-mockup.png); */
+    height: 100vh;
+    margin-top: -20vh;
+    background-repeat: repeat;
+    background-size: cover;
+  }
+  .hero-content h1 {
+    padding: 12% 0;
+    margin-top: 45%;
+  }
+  .content-2 {
+    padding: 46% 0 72% 0;
+    margin-top: -37em;
+  }
+  ul.imag-shake li {
+    position: absolute;
+    top: 50%;
+    transform: translate(10px, -60%);
+  }
+  .content-info-1 {
+    padding-top: 20%;
+  }
+  ul.profile_list li img {
+    width: 27%;
+    padding: 22px 0 48px 0;
+  }
+  ul.profile_list {
+    margin: 34px 14px;
+    padding: 5% 10%;
+    min-height: 326px;
+    height: 550px;
+  }
+  ul.list_items li {
+    display: inline-block;
+    width: 49%;
+  }
+  ul.list_items li:after {
+    width: 36%;
+  }
+  .col-lg-3.sm-padding.mob-col {
+    width: 50%;
+  }
+  .content-6-1 {
+    padding: 12% 0 8% 0;
+  }
+  input#email{
+    width: 50%;
+  }
+  input#email::placeholder {
+    /*text-transform: uppercase;*/
+    font-size: 23px;
+    /*font-family: 'Cera';*/
+  }
+}
+@media (max-width: 1024px) {
+  .navbar {
+    opacity: 0.95;
+      /* position: fixed; */
+  }
+  .navbar-container.container {
+    max-width: 100%;
+    width: 100%;
+  }
+  .navbar-container input[type="checkbox"],
+  .navbar-container .hamburger-lines {
+    display: block;
+  }
+  .navbar-container {
+    display: block;
+    position: relative;
+    height: 64px;
+  }
+
+  .navbar-container input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 30px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+  }
+
+  .navbar-container .hamburger-lines {
+    display: block;
+    height: 23px;
+    width: 35px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .navbar-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+  }
+
+  .navbar-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .navbar-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .navbar-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .navbar .menu-items {
+    padding-top: 12vh;
+    background: #fff;
+    height: 50vh;
+    max-width: 100%;
+    width: 100%;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    /* margin-left: -40px; */
+    /* padding-left: 50px; */
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 5px 0px 10px 0px #aaa;
+    text-align: center;
+  }
+
+  .navbar .menu-items li {
+    margin-bottom: 1.5rem;
+    /* font-size: 1.3rem; */
+    font-weight: 500;
+    margin-left: -5rem;
+    font-size: 49px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 2rem;
+  }
+  .menu-items a{
+      color:#000;
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+    margin-left: 0px;
+    margin-top: -20px;
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(35deg);
+    background: #000;
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+    background: #000;
+  }
+
+  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-35deg);
+    background: #000;
+  }
+  a.navbar-brand {
+    /* width: 20%; */
+    position: absolute;
+    top: -62px;
+    right: 15px;
+  }
+  a.navbar-brand img{
+      width: 100%;
+  }
+  img.foo_ter_logo {
+      width: 20%;
+  }
+  .rotating {
+      -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    -o-animation: none;
+    animation: none;
+  }
+}

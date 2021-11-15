@@ -1,0 +1,68 @@
+h2 span.text-move, h2 span.r_un{
+	position: absolute;
+    user-select: none;
+    /* padding-left: 8px; */
+    color: #0000;
+    text-transform: uppercase;
+    font-style: italic;
+    -webkit-text-stroke: 2px #55cef263;
+    font-size: 4rem;
+    font-weight: 600 !important;
+    font-family: 'Nunito', sans-serif;
+}
+h2 span.r_un, .content-6-1 h2 span{
+	position: relative;
+}
+
+h2 span.text-move:before, h2 span.r_un:before{
+	content: attr(title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    /* padding-left: 8px; */
+    /* color: #01fe87; */
+    background: -webkit-linear-gradient(#63e3f9, #5ebbf7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #0000;
+    /* text-shadow: 0 0 0.3vw #5fb9f7; */
+    /* border-right: 2px solid #01fe87; */
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+ .content-6-1 h2 span:before{
+	content: attr(title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    /* padding-left: 8px; */
+    /* color: #01fe87; */
+    background: -webkit-linear-gradient(#ff0a4e, #002f4c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #0000;
+    /* text-shadow: 0 0 0.3vw #5fb9f7; */
+    /* border-right: 2px solid #01fe87; */
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+h2 span.r_un:before {
+    top: 5px;
+    /* z-index: -1; */
+}
+.content-6-1 h2 span:before {
+    top: 8px;
+}
+@keyframes animate {
+	0%,
+	10%,
+	100% {
+		width: 0;
+	}
+	70%,
+	90% {
+		width: 100%;
+	}
+}

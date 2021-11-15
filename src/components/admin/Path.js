@@ -1,0 +1,1 @@
+export const Path = 'http://localhost/octivius/src/components/admin/backend/';
