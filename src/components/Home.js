@@ -18,7 +18,7 @@ function Home()  {
                     <h3>A Society for the Uncensored</h3>
                     <h3> Unapologetic Cunts Of Crypto:</h3>
                     {/* <p>BANNER</p> */}
-                    <p><img src={"images/cuntmachine (1).png"}/></p>
+                    <p><img  src={"images/cuntmachine (1).png"}/></p>
                     <h3 style={{paddingTop:"20px"}}>FUCK BEING AN ORDINARY CUNT - BE A CRYPTOCUNT</h3>
                     <span>BE A CRYPTOCUNT</span> 
                     <h6>What started as a joke with some British CryptoCunts at an NFT meetup, has</h6>
@@ -76,7 +76,7 @@ function Home()  {
                             <div className="col-xl-6 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth">
                                 <div className="line arrow-left"></div>
                                 <p className="p-2"><img className="cent-img" src={"images/a3bd7a_7e7add9c24fd4dc3ba892d2adca6dba0_mv2.png"}/></p>
-                                <div className="line arrow-right"></div>
+                                <div className="line2 arrow-right"></div>
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section2">
                                 <p className="p4"><img src={"images/a3bd7a_f24908c6c5484a27a6ed327f86454bf8_mv2.png"}/></p>
@@ -209,7 +209,7 @@ function Home()  {
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
                                 <div className="under_sixth1">
-                                    <span> <img src ="images\a3bd7a_43f73508863d4b7d86310906c566dccc_mv2.png"/> </span>
+                                    <span> <img className="musk-1" src ="images\a3bd7a_43f73508863d4b7d86310906c566dccc_mv2.png"/> </span>
                                 </div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
@@ -232,12 +232,12 @@ function Home()  {
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
                                 <div className="under_sixth1">
-                                    <span><img src ="images\elon laser.png"/></span>
+                                    <span><img className="musk-1" src ="images\elon laser.png"/></span>
                                 </div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
                                 <div className="under_sixth1">
-                                    <span><img src="images\elon laser.png"/></span>
+                                    <span><img className="musk-1" src="images\elon laser.png"/></span>
                                 </div>
                             </div>
                         </div>
@@ -306,52 +306,52 @@ function Home()  {
                     <h3 style={{color:"#ffffff"}}>ROADMAP MOMENTS</h3>
                     <div className="history-tl-container">
                         <ul className="tl">
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item one" ng-repeat="item in retailer_history">
                                 <span>10%</span>
                                 <p className="road_line"></p>
                                 <div className="item-title">Release The CryptoCunt Evolutionary Machine. Here you can burn two CryptoCunts and get an Evolved CryptoCunt. Rarer and more powerful gameplay.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item two" ng-repeat="item in retailer_history">
                                 <span>20%</span>
                                 <p className="road_line"></p>
                                 <div className="item-title">Release The CryptoCunt Aping -In Machine. Here you can burn two Evolved CryptoCunts and get an Anoymous-Ape CryptoCunt. Rarer and more powerful gameplay.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item three" ng-repeat="item in retailer_history">
                                 <span>30%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">We begin developing our PVP, gambling CryptoCunts Colloseum game. Think we are uncensored now; just you wait! tokenomics are comig.</div>
+                                <div className="item-title four">We begin developing our PVP, gambling CryptoCunts Colloseum game. Think we are uncensored now; just you wait! tokenomics are comig.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item four" ng-repeat="item in retailer_history">
                                 <span>40%</span>
                                 <p className="road_line"></p>
                                 <div className="item-title">We open THE UNCENSORED CCC discord channel, exclusive for CCC holders, exclusive for CryptoCunts.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item five" ng-repeat="item in retailer_history">
                                 <span>50%</span>
-                                <p className="road_line"></p>
+                                <p className="road_line fifty"></p>
                                 <div className="item-title">We release the full list of Famous CryptoCunts. CCC holders vote on 20 Famous CryptoCunts not already on our list to create. We will release these as a BIG giveaway when we reach 100%.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item six" ng-repeat="item in retailer_history">
                                 <span>60%</span>
                                 <p className="road_line"></p>
                                 <div className="item-title">A merchandise line EXCLUSIVE for CCC holders gets designed.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item seven" ng-repeat="item in retailer_history">
                                 <span>70%</span>
                                 <p className="road_line"></p>
                                 <div className="item-title">CCC holders and those whitelisted (even those who missed their chance to mint) will have a chance to win 44 Anonymous Ape CryptoCunts.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item eight" ng-repeat="item in retailer_history">
                                 <span>80%</span>
-                                <p className="road_line"></p>
+                                <p className="road_line eighty"></p>
                                 <div className="item-title">The CryptoCunts Gods are revealed;the project creator, the project artist and one OUTSTANDING CCC NFT holder will be selected and immortalized as a CryptoCunt God. In total there will be 3 CryptoCunt Gods with Laser Eyes and 3 CryptoCunt Gods with Lightning eyes. These will be released as a giveaway.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item nine" ng-repeat="item in retailer_history">
                                 <span>90%</span>
                                 <p className="road_line"></p>
                                 <div className="item-title">1000 Eth gets put into the CryptoCunt Colosseum Treasury as future prize money.</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
+                            <li className="tl-item ten" ng-repeat="item in retailer_history">
                                 <span>100%</span>
                                 <div className="item-title">We'll be doing a massive giveaway for the community voted Famous CryptoCunts. In total 20 without laser eyes will be given away.</div>
                             </li>
