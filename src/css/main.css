@@ -808,11 +808,12 @@ img.cent-img {
 }
 
 .col-12.right_banner {
-  background-color: #0f1922;
+  background-color: #000 !important;
   background-image: url("E:\Clients\Octavius new\cc\src\02.png");
   background-position: center center;
   background-repeat: no-repeat;
   padding-bottom: 20%;
+  background-position-x: 80%;
 }
 .line2.arrow-right {
   flex-grow: 1;
@@ -833,6 +834,7 @@ p.p4 img {
   margin: auto;
   margin-top: 36px;
 }
+/*----------- MEDIA QUERY ---------------*/
 @media screen and (max-width: 430px) and (min-width: 300px) {
   .login_right_div {
     display: none;
@@ -841,6 +843,39 @@ p.p4 img {
     padding: 50px 24px 50px 24px;
     border-top: 3px solid #4b4b4b;
     border-radius: 4px;
+  }
+
+  .col-xl-6.col-lg-3.col-md-3.col-sm-3.col-xs-3 img {
+    margin-left: 0% !important;
+    margin-bottom: 47px;
+  }
+
+  .nav-tabs {
+    margin-left: 23px;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    padding: 27px;
+  }
+
+  .nav-item {
+    margin-right: 40px;
+    padding: 15px;
+  }
+
+  .home_navbar_right_div ul {
+    list-style: none;
+    display: inline-flex;
+    width: 100%;
+    justify-content: right;
+    margin-bottom: 0;
+    position: relative;
+    bottom: 22px;
   }
   .banner {
     display: none;
@@ -851,7 +886,7 @@ p.p4 img {
     background-position: center center;
     background-repeat: no-repeat;
     padding-bottom: 20%;
-    background-position-x: 100%;
+    background-position-x: 90%;
     padding-top: 56%;
   }
   .login_left_div {
@@ -992,11 +1027,11 @@ p.p4 img {
   }
   img.cent-img {
     margin-top: -8%;
-    margin-left: 10%;
+    margin-left: 0%;
   }
   p.p4 img {
-    margin-top: 36%;
-    margin-left: 13%;
+    margin-top: 45%;
+    margin-left: 9px;
   }
 
   li.tl-item.one {
@@ -1013,8 +1048,8 @@ p.p4 img {
   li.tl-item.eight {
     margin-bottom: 118% !important;
   }
-  li.tl-item.two {
-    /* margin-bottom: 89% !important; */
+  li.tl-item .two {
+    margin-bottom: 0% !important;
   }
   li.tl-item.five {
     margin-bottom: 40% !important;
@@ -1065,4 +1100,12 @@ p.p4 img {
   .three_img .logo {
     width: auto !important;
   }
+}
+
+h2.hire_us {
+  color: #fff;
+}
+
+.col-xl-6.col-lg-3.col-md-3.col-sm-3.col-xs-3 img {
+  margin-left: 36%;
 }

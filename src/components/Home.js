@@ -64,7 +64,7 @@ function Home()  {
                     <div className="third_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                           
+                            <img src={"images/a3bd7a_53507bf7b67a46d787549cc33e67a30e_mv2.png"} alt="Avatar"/>
 
                             </div>
                             <div className="col-xl-5 col-lg-3 col-md-3 col-sm-3 col-xs-3 third_section_content">
