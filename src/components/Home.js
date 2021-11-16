@@ -1,51 +1,77 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { QuestionLg } from 'react-bootstrap-icons';
 import { Accordion } from 'react-bootstrap-accordion';
 import {Tabs, Tab} from 'react-bootstrap-tabs';
+import { Path } from './admin/Path.js';
 
 function Home()  {
+    const [settingsData, setSettingsData] = useState('');
+    const get_data=()=>{
+		fetch(Path+"get_settings_data.php", { 
+			method: "POST",       
+			body: JSON.stringify({
+				token: localStorage.getItem('token'),
+			}), 	
+		})
+		.then(res => res.json())
+		.then(response=>{
+            setSettingsData(response.updated_data);
+        }
+		)		
+	}
+    useEffect(() => {
+        get_data();
+    }, []);	
     return (
         <div className="container-fluid p-0" style={{background:"#0F1922"}}>
             <Navbar/>
+            
+
             <div className="row landing_page">
+            <div className="row banner_image">
+            {/* <div className="col-6">
+                
+            </div> */}
+            <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+"images/"+settingsData.banner1+"')"}}>
+                
+            </div>
+            </div>
                 <div className="banner">
                     {/* <p>BANNER</p> */}
-                    <img src={"images/banner.jpg"} alt="banner1" />
                 </div>
                 <div className="second_section">
                     <h3>A Society for the Uncensored</h3>
-                    <h3> Unapologetic ***** Of Crypto:</h3>
+                    <h3> Unapologetic Cunts Of Crypto:</h3>
                     {/* <p>BANNER</p> */}
-                    <p><img src={"images/banner1.jpg"} alt="banner2"/></p>
-                    <h3 style={{paddingTop:"20px"}}>**** BEING AN ORDINARY ****</h3>
-                    <span>BE A CRYPTOCUNT</span>
-                    <h6>What started as a joke with some British CryptoCunts at an NFT meetup, has</h6>
-                    <h6>grown into a fully fleshed out utility backed NFT collection.</h6>
+                    <p><img  src={Path+'images/'+settingsData.banner2}/></p>
+                    <h3 style={{paddingTop:"20px"}}>FUCK BEING AN ORDINARY CUNT - BE A CRYPTOCUNT</h3>
+                    <span>{settingsData.title}</span> 
+                    <h6>{settingsData.content}</h6>
                     <div className="row" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src={"images/img1.jpg"} alt="cryto1"/>
+                                <img src={Path+'images/'+settingsData.img1}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src={"images/img2.jpg"} alt="cryto2"/>
+                                <img src={Path+'images/'+settingsData.img2}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src={"images/img3.jpg"} alt="cryto3"/>
+                                <img src={Path+'images/'+settingsData.img3}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 {/* <h5>Img</h5> */}
-                                <img src={"images/img4.jpg"} alt="cryto4"/>
+                                <img src={Path+'images/'+settingsData.img4}/>
                             </div>
                         </div>
                     </div>
@@ -54,6 +80,7 @@ function Home()  {
                     <div className="third_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <img src={"images/a3bd7a_53507bf7b67a46d787549cc33e67a30e_mv2.png"} alt="Avatar"/>
 
                             </div>
                             <div className="col-xl-5 col-lg-3 col-md-3 col-sm-3 col-xs-3 third_section_content">
@@ -70,15 +97,15 @@ function Home()  {
                         <h3>IT'S NOT JUST A <span style={{color:"#72F595",fontWeight:"600"}}>COOL AVATAR</span></h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center"}}>
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section1">
-                                <p className="p-1"><img src={"images/avatar.png"} alt="cryto5"/></p>
+                                <p className="p-1"><img src={Path+'images/'+settingsData.avatar1}/></p>
                             </div>
                             <div className="col-xl-6 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth">
                                 <div className="line arrow-left"></div>
-                                <p className="p-2"><img src={"images/avatar.png"} alt="cryto6"/></p>
-                                <div className="line arrow-right"></div>
+                                <p className="p-2"><img className="cent-img" src={Path+'images/'+settingsData.avatar2}/></p>
+                                <div className="line2 arrow-right"></div>
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section2">
-                                <p className="p4"><img src={"images/avatar.png"} alt="cryto7"/></p>
+                                <p className="p4"><img src={Path+'images/'+settingsData.avatar3}/></p>
                             </div>
                         </div>
                     </div>
@@ -88,11 +115,36 @@ function Home()  {
                         <h3>Every Mint Gets You A Chance To</h3><h3> Collect The Following:</h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
-                                <h5>1111 Evolved CryptoCunts</h5>
+                                <h5>{settingsData.collect_title1}</h5>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={"images/collect1.jpg"} alt="Avatar"/>
+                                        <img src={Path+'images/'+settingsData.collect_img1} alt="Avatar"/>
+                                        </div>
+                                        <div className="flip-card-back">
+                                            <ul style={{paddingTop:"20px"}}>
+                                           
+                                            <li>CryptoCunts Perks: 
+                                                    <p>1/9556 Rare Collectable</p>
+                                                    <p>It’s a beautiful unique CryptoCunt</p>
+                                                    <p>PvP Video GameFi Avatar </p>
+                                                    <p>It’s your CryptoCunt, play with it </p>
+                                                    <p>Stake To Earn </p>
+                                                    <p>Pimp your CryptoCunt to earn passive income </p>
+                                                    <p>Combine 2 CryptoCunts to get 1 Anonymous Ape CryptoCunt (50% chance it has lasers)</p>
+                                            </li>
+                                            </ul>
+                                        
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                                <h5>{settingsData.collect_title2}</h5>
+                                <div className="flip-card">
+                                    <div className="flip-card-inner">
+                                        <div className="flip-card-front">
+                                        <img src={Path+'images/'+settingsData.collect_img2} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back">
                                             <ul style={{paddingTop:"20px"}}>
@@ -117,11 +169,11 @@ function Home()  {
                                 </div> 
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
-                                <h5>8445 CryptoCunts</h5>
+                            <h5>{settingsData.collect_title3}</h5>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={"images/collect2.jpg"} alt="Avatar"/>
+                                        <img src={Path+'images/'+settingsData.collect_img3} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back">
                                             <ul style={{paddingTop:"20px"}}>
@@ -146,40 +198,11 @@ function Home()  {
                                 </div> 
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
-                            <h5>222 Anonymous Ape CryptoCunts</h5>
+                            <h5>{settingsData.collect_title4}</h5>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={"images/collect3.jpg"} alt="Avatar"/>
-                                        </div>
-                                        <div className="flip-card-back">
-                                            <ul style={{paddingTop:"20px"}}>
-                                                <li>1/1111 Rare Collectable
-                                                    <p>a). Like a CryptoCunt but with arms and legs</p>
-                                                    <p>b). 50% buff arms and legs</p>
-                                                    <p>c). 50% skinny arms and legs</p>
-                                                </li>
-                                                <li>PvP Video GameFi Avatar
-                                                    <p>a). It's your Cunt, play with it</p>
-                                                    <p>b). Advanced Gameplay Img</p>
-                                                </li>
-                                                <li>Stake To Earn
-                                                    <p>a). Pimp out your Cunt to earn passive income</p>
-                                                    <p>Combine 2 Evolved CryptoCunts to get 1
-                                                    Anonymous-Ape CryptoCunt (50% chance
-                                                    it has laser-eyes)</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
-                            <h5>22 Anonymous CryptoCunts W/ Laser Eyes</h5>
-                                <div className="flip-card">
-                                    <div className="flip-card-inner">
-                                        <div className="flip-card-front">
-                                        <img src={"images/collect4.jpg"} alt="Avatar"/>
+                                        <img src={Path+'images/'+settingsData.collect_img4} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back">
                                             <ul style={{paddingTop:"20px"}}>
@@ -212,7 +235,7 @@ function Home()  {
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
                                 <div className="under_sixth1">
-                                    <span><QuestionLg size={180} color="#ffffff" /></span>
+                                    <span> <img className="musk-1" src ="images\a3bd7a_43f73508863d4b7d86310906c566dccc_mv2.png"/> </span>
                                 </div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
@@ -235,12 +258,12 @@ function Home()  {
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
                                 <div className="under_sixth1">
-                                    <span><QuestionLg size={180} color="#ffffff" /></span>
+                                    <span><img className="musk-1" src ="images\elon laser.png"/></span>
                                 </div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
                                 <div className="under_sixth1">
-                                    <span><QuestionLg size={180} color="#ffffff" /></span>
+                                    <span><img className="musk-1" src="images\elon laser.png"/></span>
                                 </div>
                             </div>
                         </div>
@@ -265,16 +288,16 @@ function Home()  {
                         <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                 <div className="nineth_image_div">
-                                    <p><img src={"images/roadmap1.jpg"} alt="cryto7"/></p>
+                                    <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
                                 </div>
                                 <div className="nineth_image_div">
-                                    <p><img src={"images/roadmap2.jpg"} alt="cryto8"/></p>
+                                    <p><img src={Path+'images/'+settingsData.greatest_img2}/></p>
                                 </div>
                                 <div className="nineth_image_div">
-                                    <p><img src={"images/roadmap3.jpg"} alt="cryto9"/></p>
+                                    <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
                                 </div>
                                 <div className="nineth_image_div">
-                                    <p><img src={"images/roadmap4.jpg"} alt="cryto10"/></p>
+                                    <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
                                 </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-4 col-sm-4 col-xs-4">
@@ -309,54 +332,54 @@ function Home()  {
                     <h3 style={{color:"#ffffff"}}>ROADMAP MOMENTS</h3>
                     <div className="history-tl-container">
                         <ul className="tl">
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>10%</span>
+                            <li className="tl-item one" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per1}%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">Release The CryptoCunt Evolutionary Machine. Here you can burn two CryptoCunts and get an Evolved CryptoCunt. Rarer and more powerful gameplay.</div>
+                                <div className="item-title">{settingsData.roadmap_content1}</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>20%</span>
+                            <li className="tl-item two" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per2}%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">Release The CryptoCunt Aping -In Machine. Here you can burn two Evolved CryptoCunts and get an Anoymous-Ape CryptoCunt. Rarer and more powerful gameplay.</div>
+                                <div className="item-title">{settingsData.roadmap_content2}</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>30%</span>
+                            <li className="tl-item three" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per3}%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">We begin developing our PVP, gambling CryptoCunts Colloseum game. Think we are uncensored now; just you wait! tokenomics are comig.</div>
+                                <div className="item-title four">{settingsData.roadmap_content3}</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>40%</span>
+                            <li className="tl-item four" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per4}%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">We open THE UNCENSORED CCC discord channel, exclusive for CCC holders, exclusive for CryptoCunts.</div>
+                                <div className="item-title">{settingsData.roadmap_content4}</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>50%</span>
+                            <li className="tl-item five" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per5}%</span>
+                                <p className="road_line fifty"></p>
+                                <div className="item-title">{settingsData.roadmap_content5}</div>
+                            </li>
+                            <li className="tl-item six" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per6}%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">We release the full list of Famous CryptoCunts. CCC holders vote on 20 Famous CryptoCunts not already on our list to create. We will release these as a BIG giveaway when we reach 100%.</div>
+                                <div className="item-title">{settingsData.roadmap_content6}</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>60%</span>
+                            <li className="tl-item seven" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per7}%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">A merchandise line EXCLUSIVE for CCC holders gets designed.</div>
+                                <div className="item-title">{settingsData.roadmap_content7}</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>70%</span>
+                            <li className="tl-item eight" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per8}%</span>
+                                <p className="road_line eighty"></p>
+                                <div className="item-title">{settingsData.roadmap_content8}</div>
+                            </li>
+                            <li className="tl-item nine" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per9}%</span>
                                 <p className="road_line"></p>
-                                <div className="item-title">CCC holders and those whitelisted (even those who missed their chance to mint) will have a chance to win 44 Anonymous Ape CryptoCunts.</div>
+                                <div className="item-title">{settingsData.roadmap_content9}</div>
                             </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>80%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title">The CryptoCunts Gods are revealed;the project creator, the project artist and one OUTSTANDING CCC NFT holder will be selected and immortalized as a CryptoCunt God. In total there will be 3 CryptoCunt Gods with Laser Eyes and 3 CryptoCunt Gods with Lightning eyes. These will be released as a giveaway.</div>
-                            </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>90%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title">1000 Eth gets put into the CryptoCunt Colosseum Treasury as future prize money.</div>
-                            </li>
-                            <li className="tl-item" ng-repeat="item in retailer_history">
-                                <span>100%</span>
-                                <div className="item-title">We'll be doing a massive giveaway for the community voted Famous CryptoCunts. In total 20 without laser eyes will be given away.</div>
+                            <li className="tl-item ten" ng-repeat="item in retailer_history">
+                                <span>{settingsData.roadmap_per10}%</span>
+                                <div className="item-title">{settingsData.roadmap_content10}</div>
                             </li>
                         </ul>
                     </div>
@@ -370,10 +393,10 @@ function Home()  {
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container eleventh_section">
                         <h3 style={{color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>The Video Game</h3>
-                        <p>The CryptoCunt Colosseum is released. Finally you can do more than just look at your cunt. Play for free or bet crypto against your opponents. Pimp out your cunt and earn money off non-CC-holders who want to play with your CryptoCunt.</p>
+                        <p>{settingsData.video_title}</p>
                     </div>
                     <div className="container video_section">
-                        <iframe width="100%" height="300px" src="https://www.youtube.com/embed/FAs3nl1x2Yw" title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
+                        <iframe width="100%" height="300px" src={settingsData.video_link} title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
                     </div>
                 </div>  
                 <div className="row" style={{margin:"0",width:"100%"}}>
@@ -386,58 +409,24 @@ function Home()  {
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container thirt_section">
                         <h3 style={{color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>THE CRYPTOCUNTS FAQ</h3>
-                        <Accordion show title="Why wait til the morning after 101 days for secondary markets?">
-                            We want to avoid rugpulls and we also want to do something a little different. This project is built for longevity.
+                        <Accordion show title={settingsData.faq_title1}>
+                        {settingsData.faq_content1}
                         </Accordion>
-                        <Accordion title="Why does the price double every 10 days?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        <Accordion title={settingsData.faq_title2}>
+                        {settingsData.faq_content2} 
                         </Accordion>
-                        <Accordion title="Why cryptoCunts:">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        <Accordion title={settingsData.faq_title3}>
+                        {settingsData.faq_content3}
+
                         </Accordion>
-                        <Accordion title="Isn’t the word Cunt Bad?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        <Accordion title={settingsData.faq_title4}>
+                        {settingsData.faq_content4}
                         </Accordion>
-                        <Accordion title="How is it deflationary?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        <Accordion title={settingsData.faq_title5}>
+                        {settingsData.faq_content5}
                         </Accordion>
-                        <Accordion title="How is there utility?">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-                            eligendi odit ducimus eos maiores, reiciendis numquam voluptas
-                            cupiditate! Eligendi, aliquid optio voluptates ut quas minus provident
-                            voluptas quam voluptatum corrupti! Lorem ipsum, dolor sit amet
-                            consectetur adipisicing elit. Earum aspernatur assumenda nihil maiores
-                            consequatur voluptate deleniti. Fuga repudiandae fugit facere maiores
-                            eligendi nulla? Exercitationem rerum optio esse tempore accusantium
-                            unde.
+                        <Accordion title={settingsData.faq_title6}>
+                        {settingsData.faq_content6}
                         </Accordion>
                     </div>
                 </div>
@@ -458,7 +447,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src={"images/crypto_cunt.jpg"}  alt="cryto11"/></p>
+                                            <p><img src="images\rotating.png" /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -476,7 +465,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src={"images/crypto_cunt.jpg"}  alt="cryto12"/></p>
+                                            <p><img src="images\rotating.png" /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -494,7 +483,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src={"images/crypto_cunt.jpg"}  alt="cryto13"/></p>
+                                            <p><img src="images\rotating.png"/></p>
                                         </div>
                                     </div>
                                 </div>
@@ -512,7 +501,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src={"images/crypto_cunt.jpg"}  alt="cryto14"/></p>
+                                            <p><img src="images\rotating.png" /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -530,7 +519,7 @@ function Home()  {
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
-                                            <p><img src={"images/crypto_cunt.jpg"}  alt="cryto15"/></p>
+                                            <p><img src={Path+'images/'+settingsData.crypto_cunt_img}/></p>
                                         </div>
                                     </div>
                                 </div>
