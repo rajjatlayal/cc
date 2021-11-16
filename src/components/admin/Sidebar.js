@@ -1,15 +1,22 @@
 /*eslint-disable*/
 import React,{useState,useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory} from "react-router-dom";
 import eventBus from "../../eventBus";
 import { GearFill,Power,XSquare } from 'react-bootstrap-icons';
 
 export default function Sidebar() {
+  let history = useHistory();
   const [viewSidebar, setViewSidebar] = useState('');  
   const changeSidebar=()=>{
     setViewSidebar(false);
     eventBus.dispatch("viewSidebar", { message: false});
   }
+  const logout=()=>{
+		localStorage.setItem('token', '');
+		eventBus.dispatch("token", { message: ''});
+		localStorage.clear();
+		history.push('/admin/login'); 
+	} 
   useEffect(() => {
     if(window.innerWidth<='767'){
       setViewSidebar(false);
@@ -30,10 +37,10 @@ export default function Sidebar() {
         </div>
         <ul className="nav flex-column" id="nav_accordion">  
           <li className="nav-item">
-            <Link to="/settings" className="nav-link"><span><GearFill size={18} color="#ffffff" /></span> Settings</Link>
+            <Link to="/admin/settings" className="nav-link"><span><GearFill size={18} color="#ffffff" /></span> Settings</Link>
           </li>
           <li className="nav-item">
-            <Link to="/login" className="nav-link"><span><Power size={18} color="#ffffff" /></span> Logout</Link>
+            <p onClick={logout}><span><Power size={18} color="#ffffff"/></span> Logout</p>
           </li>
         </ul>
       </div>
