@@ -30,7 +30,7 @@ function Home()  {
             
 
             <div className="row landing_page">
-            <div className="row banner_image">
+            <div className="row banner_image" style={{paddingRight:"0"}}>
             {/* <div className="col-6">
                 
             </div> */}
