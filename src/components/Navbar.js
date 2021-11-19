@@ -39,7 +39,7 @@ export default function Navbar() {
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 home_navbar_right_div">
                   <ul>
-                      <li><Link to="/admin/login" style={{fontSize:"17px",textDecoration:"none",color:"white"}}>Admin login</Link></li>
+                      {/* <li><Link to="/admin/login" style={{fontSize:"17px",textDecoration:"none",color:"white"}}>Admin login</Link></li> */}
                       {settingsData.social_twitter==='1' ?
                       (<li><span onClick={openLink}><Twitter color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_discord==='1' ?
