@@ -2,19 +2,16 @@ import React,{useState,useRef,useEffect} from "react";
 import {useHistory } from "react-router-dom";
 import Sidebar from './Sidebar';
 import AdminNavbar from './AdminNavbar';
-//import file from './settings.json';
-import { GearFill } from 'react-bootstrap-icons';
-import RichTextEditor from 'react-rte';
+import { GearFill,ToggleOn,ToggleOff } from 'react-bootstrap-icons';
 import { Path } from './Path.js';
-// const fs = require('fs');
-//const jsonfile = require('jsonfile');
-// const editJsonFile = require("edit-json-file");
-// let file = editJsonFile(`./settings.json`);
-
+import ReactQuill from 'react-quill'; 
+import 'react-quill/dist/quill.snow.css';
 function Settings()  {
     let history = useHistory();
     const title = useRef(null);
     const content = useRef(null);
+    const section4_title = useRef(null);
+    const section4_content = useRef(null);
     const collect_title1 = useRef(null);
     const collect_title2 = useRef(null);
     const collect_title3 = useRef(null);
@@ -53,6 +50,12 @@ function Settings()  {
     const faq_content4 = useRef(null);
     const faq_content5 = useRef(null);
     const faq_content6 = useRef(null);
+    const title_font = useRef(null);
+    const para_font = useRef(null);
+    const list_font = useRef(null);
+    const subtitle_font = useRef(null);
+    const button_font = useRef(null);
+    const date_time = useRef(null);
 	const [logo, setLogo] = useState('');
 	const [banner1, setBanner1] = useState('');
 	const [banner2, setBanner2] = useState('');
@@ -71,28 +74,32 @@ function Settings()  {
 	const [greatest_img2, setGreatestImg2] = useState('');
 	const [greatest_img3, setGreatestImg3] = useState('');
 	const [greatest_img4, setGreatestImg4] = useState('');
-
-    // const [getCollContent1, setCollContent1] = useState('');
-	// const [getCollContent2, setGreatestImg2] = useState('');
-	// const [getCollContent3, setGreatestImg3] = useState('');
-	// const [getCollContent4, setGreatestImg4] = useState('');
-	// const [getGreatContent, setGreatContent] = useState('');
-
 	const [crypto_cunt_img, setCryptoCuntImg] = useState('');
-    const [ collect_content1,setCollectContent1] = useState(RichTextEditor.createEmptyValue());
-    const [ collect_content2,setCollectContent2] = useState(RichTextEditor.createEmptyValue());
-    const [ collect_content3,setCollectContent3] = useState(RichTextEditor.createEmptyValue());
-    const [ collect_content4,setCollectContent4] = useState(RichTextEditor.createEmptyValue());
-    const [ greatest_content,setGreatestContent] = useState(RichTextEditor.createEmptyValue());
+	const [section4Img, setSection4Img] = useState('');
+	const [giveImg1, setGiveImg1] = useState('');
+	const [giveImg2, setGiveImg2] = useState('');
+	const [giveImg3, setGiveImg3] = useState('');
+    const [ collect_content1,setCollectContent1] = useState('');
+    const [ collect_content2,setCollectContent2] = useState('');
+    const [ collect_content3,setCollectContent3] = useState('');
+    const [ collect_content4,setCollectContent4] = useState('');
+    const [ greatest_content,setGreatestContent] = useState('');
+    const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
+    const [ give_content,setGiveContent] = useState('');
 	const [Opacity, setOpacity] = useState('1');
 	const [PointerEvents, setPointerEvents] = useState('');
     const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});
 	const [Loader, setLoader] = useState(false);
 	const [errors, setErrors] = useState('');
     const [settingsData, setSettingsData] = useState('');
-    const [twitterValue, setTwitterValue] = useState('');
-    const [instagramValue, setInstagramValue] = useState('');
-    const [discordValue, setDiscordValue] = useState('');
+    const [twitterValue, setTwitterValue] = useState(false);
+    const [instagramValue, setInstagramValue] = useState(false);
+    const [discordValue, setDiscordValue] = useState(false);
+    const [cryptocunt, setCryptoCunt] = useState(false);
+    const [ape, setApe] = useState(false);
+    const [famous, setFamous] = useState(false);
+    const [gods, setGods] = useState(false);
+    const [evolved, setEvolved] = useState(false);
     const hide_notification=()=>{
       setNotification({sucess:'',failed:'',show_failed:false,show_success:false});
       setErrors('');
@@ -103,23 +110,55 @@ function Settings()  {
 	   }else if(response.success!=null){
 		   setNotification({success:response.success,failed:'',show_failed:false,show_success:true});
 	   }
+       get_data();
 	   setTimeout(hide_notification, 4000);
     }
     const handleValidation=()=>{
         let formIsValid = false;
           if(title.current.value===''){
             setErrors('Please enter title');		   
-          }
-          else if(content.current.value===''){
+          }else if(content.current.value===''){
             setErrors('Please enter content');	
+          }else if((content.current.value).length>300){
+            setErrors('Maximum content for section 2 should be 300 characters.');	
+          }else if(section4_title.current.value===''){
+            setErrors('Please enter content');	
+          }else if(section4_content.current.value===''){
+            setErrors('Please enter content');	
+          }else if((section4_content.current.value).length>400){
+            setErrors('Maximum content for section 4 should be 400 characters.');	
           }else if(collect_title1.current.value===''){
             setErrors('Please enter collection title1');	
+          }else if(collect_content1===''){
+            setErrors('Please enter collection content1');	
+          }else if(collect_content1.length>500){
+            setErrors('Maximum collection content1 should be 500 characters.');	
           }else if(collect_title2.current.value===''){
             setErrors('Please enter collection title2');	
+          }else if(collect_content2===''){
+            setErrors('Please enter collection content2');	
+          }else if(collect_content2.length>500){
+            setErrors('Maximum collection content2 should be 500 characters.');	
           }else if(collect_title3.current.value===''){
             setErrors('Please enter collection title3');	
+          }else if(collect_content3===''){
+            setErrors('Please enter collection content3');	
+          }else if(collect_content3.length>500){
+            setErrors('Maximum collection content3 should be 500 characters.');	
           }else if(collect_title4.current.value===''){
             setErrors('Please enter collection title4');	
+          }else if(collect_content4===''){
+            setErrors('Please enter content for section 4.');	
+          }else if(collect_content4.length>500){
+            setErrors('Maximum collection content4 should be 500 characters.');	
+          }else if(give_content===''){
+            setErrors('Please enter collection content4');	
+          }else if(give_content.length>600){
+            setErrors('Maximum content for section 7 should be 600 characters.');	
+          }else if(greatest_content===''){
+            setErrors('Please enter greatest roadmap content');	
+          }else if(greatest_content.length>1800){
+            setErrors('Maximum content for section 10 should be 1800 characters.');	
           }else if(roadmap_per1.current.value===''){
             setErrors('Please enter roadmap percentage1');	
           }else if(roadmap_per2.current.value===''){
@@ -142,30 +181,52 @@ function Settings()  {
             setErrors('Please enter roadmap percentage10');	
           }else if(roadmap_content1.current.value===''){
             setErrors('Please enter roadmap content1');	
+          }else if((roadmap_content1.current.value).length>310){
+            setErrors('Maximum roadmap content 1 should be 310 characters.');	
           }else if(roadmap_content2.current.value===''){
             setErrors('Please enter roadmap content2');	
+          }else if((roadmap_content2.current.value).length>310){
+            setErrors('Maximum roadmap content 2 should be 310 characters.');	
           }else if(roadmap_content3.current.value===''){
             setErrors('Please enter roadmap content3');	
+          }else if((roadmap_content3.current.value).length>310){
+            setErrors('Maximum roadmap content 3 should be 310 characters.');	
           }else if(roadmap_content4.current.value===''){
             setErrors('Please enter roadmap content4');	
+          }else if((roadmap_content4.current.value).length>310){
+            setErrors('Maximum roadmap content 4 should be 310 characters.');	
           }else if(roadmap_content5.current.value===''){
             setErrors('Please enter roadmap content5');	
+          }else if((roadmap_content5.current.value).length>310){
+            setErrors('Maximum roadmap content 5 should be 310 characters.');	
           }else if(roadmap_content6.current.value===''){
             setErrors('Please enter roadmap content6');	
+          }else if((roadmap_content6.current.value).length>310){
+            setErrors('Maximum roadmap content 6 should be 310 characters.');	
           }else if(roadmap_content7.current.value===''){
             setErrors('Please enter roadmap content7');	
+          }else if((roadmap_content7.current.value).length>310){
+            setErrors('Maximum roadmap content 7 should be 310 characters.');	
           }else if(roadmap_content8.current.value===''){
             setErrors('Please enter roadmap content8');	
+          }else if((roadmap_content8.current.value).length>310){
+            setErrors('Maximum roadmap content 8 should be 310 characters.');	
           }else if(roadmap_content9.current.value===''){
             setErrors('Please enter roadmap content9');	
+          }else if((roadmap_content9.current.value).length>310){
+            setErrors('Maximum roadmap content 9 should be 310 characters.');	
           }else if(roadmap_content10.current.value===''){
             setErrors('Please enter roadmap content10');	
+          }else if((roadmap_content10.current.value).length>310){
+            setErrors('Maximum roadmap content 10 should be 310 characters.');	
           }else if(video_title.current.value===''){
             setErrors('Please enter video title');	
+          }else if((video_title.current.value).length>300){
+            setErrors('Maximum content for video game should be 300 characters.');	
           }else if(video_link.current.value===''){
             setErrors('Please enter video link');	
           }else if(faq_title1.current.value===''){
-            setErrors('Please enter faq question1');	
+            setErrors('Please enter faq question1');
           }else if(faq_title2.current.value===''){
             setErrors('Please enter faq question2');	
           }else if(faq_title3.current.value===''){
@@ -178,23 +239,51 @@ function Settings()  {
             setErrors('Please enter faq question6');	
           }else if(faq_content1.current.value===''){
             setErrors('Please enter faq answer1');	
+          }else if((faq_content1.current.value).length>500){
+            setErrors('Maximum content for FAQ answer1 should be 500 characters.');	
           }else if(faq_content2.current.value===''){
             setErrors('Please enter faq answer2');	
+          }else if((faq_content2.current.value).length>500){
+            setErrors('Maximum content for FAQ answer2 should be 500 characters.');	
           }else if(faq_content3.current.value===''){
             setErrors('Please enter faq answer3');	
+          }else if((faq_content3.current.value).length>500){
+            setErrors('Maximum content for FAQ answer3 should be 500 characters.');	
           }else if(faq_content4.current.value===''){
             setErrors('Please enter faq answer4');	
+          }else if((faq_content4.current.value).length>500){
+            setErrors('Maximum content for FAQ answer4 should be 500 characters.');	
           }else if(faq_content5.current.value===''){
             setErrors('Please enter faq answer5');	
+          }else if((faq_content5.current.value).length>500){
+            setErrors('Maximum content for FAQ answer5 should be 500 characters.');	
           }else if(faq_content6.current.value===''){
             setErrors('Please enter faq answer6');	
-          }
-          else {
+          }else if((faq_content6.current.value).length>500){
+            setErrors('Maximum content for FAQ answer6 should be 500 characters.');	
+          }else if(crypto_cunt_content===''){
+            setErrors('Please enter cryptocunt content.');	
+          }else if(crypto_cunt_content.length>300){
+            setErrors('Maximum cryptocunt content should be 300 characters.');	
+          }else if(title_font.current.value===''){
+            setErrors('Please enter font size for titles.');	
+          }else if(subtitle_font.current.value===''){
+            setErrors('Please enter font size for subtitles.');	
+          }else if(para_font.current.value===''){
+            setErrors('Please enter font size for paragraphs.');	
+          }else if(list_font.current.value===''){
+            setErrors('Please enter font size for lists.');	
+          }else if(button_font.current.value===''){
+            setErrors('Please enter font size for buttons.');	
+          }else if(date_time.current.value===''){
+            setErrors('Please enter date/time for countdown timer.');	
+          }else {
             setErrors('');
             formIsValid = true;
           }	
         return formIsValid;
     }
+    
     const changeBanner1=(event)=>{
 		setBanner1(event.target.files[0]);
     }
@@ -252,40 +341,82 @@ function Settings()  {
     const changeCryptoCuntImage=(event)=>{
 		setCryptoCuntImg(event.target.files[0]);
     }
+    const changeSection4Img=(event)=>{
+		setSection4Img(event.target.files[0]);
+    }
+    const changeGiveImg1=(event)=>{
+		setGiveImg1(event.target.files[0]);
+    }
+    const changeGiveImg2=(event)=>{
+		setGiveImg2(event.target.files[0]);
+    }
+    const changeGiveImg3=(event)=>{
+		setGiveImg3(event.target.files[0]);
+    }
     const changeCollectContent1=(value)=>{
         setCollectContent1(value);
-        value.toString('html');
     };
     const changeCollectContent2=(value)=>{
         setCollectContent2(value);
-        value.toString('html');
     };
     const changeCollectContent3=(value)=>{
         setCollectContent3(value);
-        value.toString('html');
     };
     const changeCollectContent4=(value)=>{
         setCollectContent4(value);
-        value.toString('html');
     };
     const changeGreatestContent=(value)=>{
         setGreatestContent(value);
-        value.toString('html');
+    };
+    const changeTwitterValue=()=>{
+        setTwitterValue(!twitterValue);
+    };
+    const changeInstagramValue=()=>{
+        setInstagramValue(!instagramValue);
+    };
+    const changeDiscordValue=()=>{
+        setDiscordValue(!discordValue);
+    };
+    const changeGiveContent=(value)=>{
+        setGiveContent(value);
+    };
+    const changeCryptoCuntContent=(value)=>{
+        setCryptoCuntContent(value);
+    };
+    const changeGods=()=>{
+        setGods(!gods);
+    };
+    const changeEvolved=()=>{
+        setEvolved(!evolved);
+    };
+    const changeFamous=()=>{
+        setFamous(!famous);
+    };
+    const changeApe=()=>{
+        setApe(!ape);
+    };
+    const changeCryptoCunt=()=>{
+        setCryptoCunt(!cryptocunt);
     };
     const update_data=(event)=>{
         event.preventDefault();
         const data = new FormData();
+        console.log('send data',collect_content1);
         data.append('title', title.current.value);
         data.append('content', content.current.value);
+        data.append('section4_title', section4_title.current.value);
+        data.append('section4_content', section4_content.current.value);
         data.append('collect_title1', collect_title1.current.value);
         data.append('collect_title2', collect_title2.current.value);
         data.append('collect_title3', collect_title3.current.value);
         data.append('collect_title4', collect_title4.current.value);
-        data.append('collect_content1', collect_content1._cache.html);
-        data.append('collect_content2', collect_content2._cache.html);
-        data.append('collect_content3', collect_content3._cache.html);
-        data.append('collect_content4', collect_content4._cache.html);
-        data.append('greatest_content', greatest_content._cache.html);
+        data.append('collect_content1', collect_content1);
+        data.append('collect_content2', collect_content2);
+        data.append('collect_content3', collect_content3);
+        data.append('collect_content4', collect_content4);
+        data.append('give_content', give_content);
+        data.append('cryptocunt_content', crypto_cunt_content);
+        data.append('greatest_content', greatest_content);
         data.append('roadmap_per1', roadmap_per1.current.value);
         data.append('roadmap_per2', roadmap_per2.current.value);
         data.append('roadmap_per3', roadmap_per3.current.value);
@@ -320,9 +451,12 @@ function Settings()  {
         data.append('faq_content4', faq_content4.current.value);
         data.append('faq_content5', faq_content5.current.value);
         data.append('faq_content6', faq_content6.current.value);
+        data.append('twitter', twitterValue);
+        data.append('discord', discordValue);
+        data.append('instagram', instagramValue);
         data.append('logo', logo);
         data.append('banner1', banner1);
-        data.append('banner2', banner1);
+        data.append('banner2', banner2);
         data.append('collect_img1', collect_img1);
         data.append('collect_img2', collect_img2);
         data.append('collect_img3', collect_img3);
@@ -339,6 +473,21 @@ function Settings()  {
         data.append('greatest_img3', greatest_img3);
         data.append('greatest_img4', greatest_img4);
         data.append('crypto_cunt_img', crypto_cunt_img);
+        data.append('section4_img', section4Img);
+        data.append('give_img1', giveImg1);
+        data.append('give_img2', giveImg2);
+        data.append('give_img3', giveImg3);
+        data.append('cryptocunt', cryptocunt);
+        data.append('ape', ape);
+        data.append('evolved', evolved);
+        data.append('gods', gods);
+        data.append('famous', famous);
+        data.append('title_font', title_font.current.value);
+        data.append('para_font', para_font.current.value);
+        data.append('list_font', list_font.current.value);
+        data.append('date_time', date_time.current.value);
+        data.append('subtitle_font', subtitle_font.current.value);
+        data.append('button_font', button_font.current.value);
         data.append('token', localStorage.getItem('token'));
         if(handleValidation()){	
             setLoader(true);
@@ -353,7 +502,29 @@ function Settings()  {
                 setLoader(false);
                 setOpacity('');
                 setPointerEvents('');
-                get_data();
+                setBanner1('');
+                setLogo('');
+                setBanner2('');
+                setImg1('');
+                setImg2('');
+                setImg3('');
+                setImg4('');
+                setAvatar1('');
+                setAvatar2('');
+                setAvatar3('');
+                setCollectImg1('');
+                setCollectImg2('');
+                setCollectImg3('');
+                setCollectImg4('');
+                setGreatestImg1('');
+                setGreatestImg2('');
+                setGreatestImg3('');
+                setGreatestImg4('');
+                setCryptoCuntImg('');
+                setSection4Img('');
+                setGiveImg1('');
+                setGiveImg2('');
+                setGiveImg3('');
                 show_notification(response.notifications);
                 }
             )
@@ -378,22 +549,61 @@ function Settings()  {
 		.then(res => res.json())
 		.then(response=>{
 				setSettingsData(response.updated_data);
-                setTwitterValue(response.updated_data.social_twitter);
-                setInstagramValue(response.updated_data.social_instagram);
-                setDiscordValue(response.updated_data.social_discord);
+                if(response.updated_data.social_twitter==1){
+                    setTwitterValue(true);
+                }else{
+                    setTwitterValue(false);
+                }
+                if(response.updated_data.social_instagram==1){
+                    setInstagramValue(true);
+                }else{
+                    setInstagramValue(false);
+                }
+                if(response.updated_data.social_discord==1){
+                    setDiscordValue(true);
+                }else{
+                    setDiscordValue(false);
+                }
+                if(response.updated_data.cryptocunts==1){
+                    setCryptoCunt(true);
+                }else{
+                    setCryptoCunt(false);
+                }
+                if(response.updated_data.ape==1){
+                    setApe(true);
+                }else{
+                    setApe(false);
+                }
+                if(response.updated_data.evolved==1){
+                    setEvolved(true);
+                }else{
+                    setEvolved(false);
+                }
+                if(response.updated_data.famous==1){
+                    setFamous(true);
+                }else{
+                    setFamous(false);
+                }
+                if(response.updated_data.gods==1){
+                    setGods(true);
+                }else{
+                    setGods(false);
+                }
                 title.current.value=response.updated_data.title;
                 content.current.value=response.updated_data.content;
+                section4_title.current.value=response.updated_data.section4_title;
+                section4_content.current.value=response.updated_data.section4_content;
                 collect_title1.current.value=response.updated_data.collect_title1;
                 collect_title2.current.value=response.updated_data.collect_title2;
                 collect_title3.current.value=response.updated_data.collect_title3;
                 collect_title4.current.value=response.updated_data.collect_title4;
-                // setCollectContent1(response.updated_data.collect_content1);
-                // console.log('get',response.updated_data.collect_content1);
-                // setCollContent1(response.updated_data.collect_content1);
-                // setCollContent2(response.updated_data.collect_content1);
-                // setCollContent3(response.updated_data.collect_content1);
-                // setCollContent4(response.updated_data.collect_content1);
-                // setCollContent5(response.updated_data.collect_content1);
+                setCollectContent1(response.updated_data.collect_content1);
+                setCollectContent2(response.updated_data.collect_content2);
+                setCollectContent3(response.updated_data.collect_content3);
+                setCollectContent4(response.updated_data.collect_content4);
+                setGreatestContent(response.updated_data.greatest_content);
+                setGiveContent(response.updated_data.give_content);
+                setCryptoCuntContent(response.updated_data.crypto_cunt_content);
                 roadmap_per1.current.value=response.updated_data.roadmap_per1;
                 roadmap_per2.current.value=response.updated_data.roadmap_per2;
                 roadmap_per3.current.value=response.updated_data.roadmap_per3;
@@ -428,6 +638,12 @@ function Settings()  {
                 faq_content4.current.value=response.updated_data.faq_content4;
                 faq_content5.current.value=response.updated_data.faq_content5;
                 faq_content6.current.value=response.updated_data.faq_content6;
+                title_font.current.value=response.updated_data.title_font;
+                para_font.current.value=response.updated_data.para_font;
+                list_font.current.value=response.updated_data.list_font;
+                date_time.current.value=response.updated_data.date_time;
+                subtitle_font.current.value=response.updated_data.subtitle_font;
+                button_font.current.value=response.updated_data.button_font;
 			}
 		)		
 	}
@@ -461,13 +677,13 @@ function Settings()  {
                             <form>
                                 <div className="settings_form_data">
                                     <div className="checkbox_div">
-                                        <input type="checkbox" className="form-control social_links_checkbox" defaultChecked="checked"></input><label>Twitter</label>
+                                        <input type="checkbox" className="social_links_checkbox" checked={twitterValue} onChange={changeTwitterValue}></input><label>Twitter</label>
                                     </div>
                                     <div className="checkbox_div">
-                                        <input type="checkbox" className="form-control social_links_checkbox"></input><label>Discord</label>
+                                        <input type="checkbox" className="social_links_checkbox" checked={discordValue} onChange={changeDiscordValue}></input><label>Discord</label>
                                     </div>
                                     <div className="checkbox_div">
-                                        <input type="checkbox" className="form-control social_links_checkbox"></input><label>Instagram</label>
+                                        <input type="checkbox" className="social_links_checkbox" checked={instagramValue} onChange={changeInstagramValue}></input><label>Instagram</label>
                                     </div>
                                 </div>
                             </form>
@@ -556,6 +772,28 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
+                            <h4>Update Section 4</h4>
+                            <form>
+                                <div className="settings_form_data">
+                                    <img src={Path+'images/'+settingsData.section4_img} className="imgs"></img>
+                                    <div className="form_data">
+                                        <label className="form_label">Image</label>
+                                        <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeSection4Img}></input>
+                                    </div>
+                                    <div className="form_data">
+                                        <label className="form_label">Title</label>
+                                        <textarea className="form-control" ref={section4_title} style={{height:"50px"}}></textarea>
+                                    </div>
+                                    <div className="form_data">
+                                        <label className="form_label">Content</label>
+                                        <textarea className="form-control" ref={section4_content}></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div className="settings_div">
                             <h4>Change cool avatar</h4>
                             <div className="row">
                                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -608,7 +846,7 @@ function Settings()  {
                                             </div>
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <RichTextEditor value={collect_content1} onChange={changeCollectContent1} />
+                                                <ReactQuill value={collect_content1} onChange={changeCollectContent1} />
                                             </div>
                                         </form>
                                     </div>
@@ -626,7 +864,7 @@ function Settings()  {
                                             </div>
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <RichTextEditor  value={collect_content2} onChange={changeCollectContent2} />
+                                                <ReactQuill value={collect_content2} onChange={changeCollectContent2} />
                                             </div>
                                         </form>
                                     </div>
@@ -644,7 +882,7 @@ function Settings()  {
                                             </div>
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <RichTextEditor  value={collect_content3} onChange={changeCollectContent3} />
+                                                <ReactQuill value={collect_content3} onChange={changeCollectContent3} />
                                             </div>
                                         </form>
                                     </div>
@@ -662,7 +900,54 @@ function Settings()  {
                                             </div>
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <RichTextEditor  value={collect_content4} onChange={changeCollectContent4} />
+                                                <ReactQuill value={collect_content4} onChange={changeCollectContent4} />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div className="settings_div">
+                            <h4>Update Section 7</h4>
+                            <div className="row">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="three_img">
+                                        <form>
+                                            <div className="form_data">
+                                                <label className="form_label">Content</label>
+                                                <ReactQuill value={give_content} onChange={changeGiveContent} />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="three_img">
+                                    <img src={Path+'images/'+settingsData.give_img1} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGiveImg1}></input>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="three_img">
+                                    <img src={Path+'images/'+settingsData.give_img2} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGiveImg2}></input>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="three_img">
+                                    <img src={Path+'images/'+settingsData.give_img3} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGiveImg3}></input>
                                             </div>
                                         </form>
                                     </div>
@@ -716,7 +1001,7 @@ function Settings()  {
                                 </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style={{marginTop:"16px"}}>
                                     <label>Content</label>
-                                    <RichTextEditor  value={greatest_content} onChange={changeGreatestContent} />
+                                    <ReactQuill value={greatest_content} onChange={changeGreatestContent} />
                                 </div>
                             </div>
                         </div>
@@ -918,13 +1203,77 @@ function Settings()  {
                             </form>
                         </div>
                     </div>
-                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div className="settings_div" style={{paddingBottom:"198px"}}>
+                            <h4>Crypto Cunts minted</h4>
+                            <form>
+                                <div className="settings_form_data toggle_icons">
+                                    <p><span className="toggle_name">CryptoCunts</span> <span onClick={changeCryptoCunt} className="toggle_icon">
+                                        {cryptocunt ?
+                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                    </span></p>
+                                    <p><span className="toggle_name">Evolved</span> <span onClick={changeEvolved} className="toggle_icon">
+                                        {evolved ?
+                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                    </span></p>
+                                    <p><span className="toggle_name">Anonymous Ape</span> <span onClick={changeApe} className="toggle_icon">
+                                        {ape ?
+                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                    </span></p>
+                                    <p><span className="toggle_name">Famous CryptoCunt</span> <span onClick={changeFamous} className="toggle_icon">
+                                        {famous ?
+                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                    </span></p>
+                                    <p><span className="toggle_name">CryptoCunt Gods</span> <span onClick={changeGods} className="toggle_icon">
+                                        {gods ?
+                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                    </span></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change cryptocunt image</h4>
+                            <h4>Change cryptocunt image and content</h4>
                             <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
                             <form>
                                 <div className="settings_form_data">
                                     <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                </div>
+                                <div>
+                                    <label>Content</label>
+                                    <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent} />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div className="settings_div">
+                            <h4>Change font size</h4>
+                            <form>
+                                <div className="settings_form_data">
+                                    <label>Titles font size (In px)</label>
+                                    <input type="number" className="form-control" ref={title_font}></input>
+                                </div>
+                                <div className="settings_form_data">
+                                    <label>Sub titles font size (In px)</label>
+                                    <input type="number" className="form-control" ref={subtitle_font}></input>
+                                </div>
+                                <div className="settings_form_data">
+                                    <label>Paragraphs font size (In px)</label>
+                                    <input type="number" className="form-control" ref={para_font}></input>
+                                </div>
+                                <div className="settings_form_data">
+                                    <label>Lists font size (In px)</label>
+                                    <input type="number" className="form-control" ref={list_font}></input>
+                                </div>
+                                <div className="settings_form_data">
+                                    <label>Font size for buttons (In px)</label>
+                                    <input type="number" className="form-control" ref={button_font}></input>
+                                </div>
+                                <div className="settings_form_data">
+                                    <label>Date/Time for countdown timer</label>
+                                    <input type="datetime-local" className="form-control" ref={date_time}></input>
                                 </div>
                             </form>
                         </div>

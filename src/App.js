@@ -12,8 +12,8 @@ function App() {
   const history = useHistory();
   return (
     <div className="app">
-      {/* <Router basename={"/"} history= {history}> */}
-      <Router basename={"/cc/"} history= {history}>
+      <Router basename={"/"} history= {history}>
+      {/* <Router basename={"/cc/"} history= {history}> */}
         <Switch>
           <Route exact path="/"
             render={() => {

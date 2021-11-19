@@ -23,7 +23,6 @@ textarea {
   font-family: "Nunito", sans-serif;
 }
 /* admin panel */
-
 .row_class {
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -210,8 +209,9 @@ img.cent-img {
   border-bottom-left-radius: 4px;
   border-color: #c5c7c9;
 }
-.RichTextEditor__root___2QXK- {
-  height: 260px;
+.ql-editor {
+    height: 180px !important;
+    overflow-y: scroll !important;
 }
 
 /*Landing page css*/
@@ -445,7 +445,7 @@ img.cent-img {
 }
 .under_sixth1 {
   background: #000000;
-  padding: 80px;
+  padding: 32px;
   border-radius: 36px;
   margin-bottom: 30px;
 }
@@ -457,17 +457,34 @@ img.cent-img {
   background: #000000;
   border-radius: 36px;
   margin-bottom: 30px;
-  padding: 66px;
+  padding: 20px;
 }
 .under_sixth2 ul li {
   text-align: left;
   color: white;
-  font-size: 15px;
   margin-bottom: 10px;
 }
-.under_sixth2 h5 {
+.under_sixth2 h3 {
   color: white;
   padding-bottom: 14px;
+}.under_sixth2 h3 strong{
+    color: white !important;
+}
+.under_sixth2 h2 {
+    color: white;
+    padding-bottom: 14px;
+    font-size: 22px !important;
+}.under_sixth2 h2 strong{
+    color: white !important;
+}
+.under_sixth2 h1 {
+    color: white;
+    padding-bottom: 14px;
+    font-size: 24px !important;
+}.under_sixth2 h1 strong{
+    color: white !important;
+}.under_sixth2 p{
+    color: white;
 }
 .seventh_section {
   text-align: center;
@@ -508,10 +525,21 @@ img.cent-img {
   color: white;
   margin-bottom: 32px;
 }
-.nineth_div_text h6 {
+.nineth_div_text h3 {
   color: #72f595;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
+  font-size: 18px !important;
 }
+.nineth_div_text h2 {
+    color: #72f595;
+    margin-bottom: 4px;
+    font-size: 22px !important;
+  }
+  .nineth_div_text h1 {
+    color: #72f595;
+    margin-bottom: 4px;
+    font-size: 24px !important;
+  }
 .nineth_div_text {
   text-align: left;
 }
@@ -620,6 +648,7 @@ img.cent-img {
   color: white !important;
   border: none !important;
   border-radius: 24px !important;
+  cursor: pointer;
 }
 .under_tab_content {
   margin-top: 50px;
@@ -734,7 +763,7 @@ ul.tl li .timestamp {
 
 .flip-card {
   background-color: transparent;
-  height: 340px;
+  height: 380px;
   perspective: 1000px;
 }
 .flip_cards h5 {
@@ -742,6 +771,8 @@ ul.tl li .timestamp {
   color: white;
   padding: 12px;
   margin-bottom: 0;
+}.home_navbar_right_div ul li span{
+    cursor:pointer;
 }
 
 .flip-card-inner {
@@ -774,14 +805,25 @@ ul.tl li .timestamp {
 .flip-card-front img {
   width: 100%;
   object-fit: cover;
-  height: 340px;
+  height: 380px;
+}
+.flip-card-back p{
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+.flip-card-back li{
+    margin-bottom: 4px;
+    font-weight: 600;
 }
 
+
 .flip-card-back {
-  background-color: #72f595;
+  background-color: rgb(18, 35, 45);
   color: white;
   transform: rotateY(180deg);
   padding-bottom: 20px;
+  text-align: left;
+  padding: 20px;
 }
 .social_links_checkbox {
   width: 20px !important;
@@ -901,7 +943,7 @@ p.p4 img {
     padding-left: 0 !important;
   }
   .navbar_left_div h4 {
-    font-size: 15px;
+    font-size: 14px;
   }
   .navbar_right_div h5 {
     font-size: 14px;
@@ -966,7 +1008,7 @@ p.p4 img {
 
   .under_sixth1 {
     background: #000000;
-    padding: 34px;
+    padding: 32px;
     border-radius: 36px;
     margin-bottom: 28px;
     /* padding-top: 22px; */
@@ -1071,6 +1113,11 @@ p.p4 img {
   p.road_line.fifty {
     border-left: 1px solid #fff;
     height: 206px;
+  }.banner_img{
+    height: 50px !important;
+    width: 150px !important;
+  }.navbar_left_div{
+      padding: 0 !important;
   }
 }
 @media screen and (max-width: 767px) and (min-width: 431px) {
@@ -1107,6 +1154,9 @@ p.p4 img {
   }
   .three_img .logo {
     width: auto !important;
+  }.banner_img{
+    height: 70px !important;
+    width: 200px !important;
   }
 }
 
@@ -1138,4 +1188,35 @@ h2.hire_us {
   object-fit: contain;
 }.public-DraftEditor-content{
   height: 168px !important;
+}.toggle_name{
+    width: 200px;
+    display: inline-block;
+}.toggle_icon{
+    cursor:pointer;
+}.d-none{
+  display: none;
+}.nav-tabs{
+  margin-top: 20px;
+}.nav-tabs .active{
+  border: 1px solid rgb(16 217 70) !important;
+}.countdown{
+  margin-top:70px !important;
+  text-align: center;
+}.countdown span{
+  color: white;
+  background: #000912;
+  height: 120px;
+  width: 500px;
+  display: inline-block;
+  font-size: 44px;
+  line-height: 112px;
+  font-weight: 600;
+}.countdown p{
+  color: white;
+  background: #000912;
+  height: 88px;
+  width: 500px;
+  display: inline-block;
+  font-size: 44px;
+  font-weight: 600;
 }
