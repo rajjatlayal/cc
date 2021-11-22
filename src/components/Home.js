@@ -353,9 +353,9 @@ function Home()  {
                                 </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                                <div className="nineth_div_text" >
-                                    <p>Each day will have a max whitelist of 100 people. To get on the whitelist, you have to participate in our Discord Games / Competitions etc. Each person on the whitelist can mint up to 2 CryptoCunts to ensure we sell out daily. Don't delay mint your CryptoCunt as soon as possible or live in regret</p>
-                                    <p>Each whitelist represents 1% of our CryptoCunts minted. Secondary Sales will happen on day 101; THE AFTER PARTY we call it. This will prevent rug pulls and make our sales process more of an experience to constantly grow our community while rewarding the earliest HODLRS.</p>   
+                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content }}>
+                                    {/* <p>Each day will have a max whitelist of 100 people. To get on the whitelist, you have to participate in our Discord Games / Competitions etc. Each person on the whitelist can mint up to 2 CryptoCunts to ensure we sell out daily. Don't delay mint your CryptoCunt as soon as possible or live in regret</p>
+                                    <p>Each whitelist represents 1% of our CryptoCunts minted. Secondary Sales will happen on day 101; THE AFTER PARTY we call it. This will prevent rug pulls and make our sales process more of an experience to constantly grow our community while rewarding the earliest HODLRS.</p>    */}
                                 </div>
                             </div>
                         </div>
@@ -367,11 +367,11 @@ function Home()  {
                                 </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                                <div className="nineth_div_text" >
+                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
                                     
-                                    <p>Price to mint starts at 0.01 Eth and doubles every 10 days. This ensures our early minters get the best rewards while also creating momentum on our floor price. Our project is designed to attract whales who will pick up the later CCs.</p>
+                                    {/* <p>Price to mint starts at 0.01 Eth and doubles every 10 days. This ensures our early minters get the best rewards while also creating momentum on our floor price. Our project is designed to attract whales who will pick up the later CCs.</p>
                                     <p>Each day will give existing HODLRS the chance to win 2, 1/1, Famous CryptoCunts.</p>
-                                    <p>Example of how that will work.</p>
+                                    <p>Example of how that will work.</p> */}
                                 </div>
                             </div>
                         </div>
@@ -383,11 +383,11 @@ function Home()  {
                                 </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                                <div className="nineth_div_text" >
-                                    <h6 style={{fontWeight:"600"}}>1% SOLD:</h6>
+                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content2 }}>
+                                    {/* <h6 style={{fontWeight:"600"}}>1% SOLD:</h6>
                                     <h6>Release The Ultimate King Maker Of Crypto, LORD ELON
                                     HIMSELF:</h6>
-                                    <p>Two Elon Musk CryptoCunts (1 with laser eyes, 1 without) will be released. Elon Musk has 24 hrs to claim his cunts before we make it a random giveaway to everyone who owns a CCC NFT and tweets (claim your CryptoCunt @elonmusk @cryptocuntsclub)</p>
+                                    <p>Two Elon Musk CryptoCunts (1 with laser eyes, 1 without) will be released. Elon Musk has 24 hrs to claim his cunts before we make it a random giveaway to everyone who owns a CCC NFT and tweets (claim your CryptoCunt @elonmusk @cryptocuntsclub)</p> */}
                                 </div>
                             </div>
                         </div>
@@ -399,11 +399,11 @@ function Home()  {
                                 </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                                <div className="nineth_div_text" >
-                                    <h6>Release the Founder of Ethereum, THE ALIEN VITALIK
+                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content3 }}>
+                                    {/* <h6>Release the Founder of Ethereum, THE ALIEN VITALIK
                                     BUTERIN:</h6>
                                     <p>Two Vitalik Buterin CryptoCunts (1 with laser eyes, 1 without) will be released. Vitalik Buterin has 24 hrs to claim his cunts before we make it a random giveaway to everyone who owns a CCC NFT and tweets (claim your CryptoCunt</p>
-                                    <h6>@vitalikbuterin @cryptocuntsclub)</h6>
+                                    <h6>@vitalikbuterin @cryptocuntsclub)</h6> */}
                                 </div>
                             </div>
                         </div>

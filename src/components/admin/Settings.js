@@ -110,6 +110,9 @@ function Settings()  {
     const [ collect_content3,setCollectContent3] = useState('');
     const [ collect_content4,setCollectContent4] = useState('');
     const [ greatest_content,setGreatestContent] = useState('');
+    const [ greatest_content1,setGreatestContent1] = useState('');
+    const [ greatest_content2,setGreatestContent2] = useState('');
+    const [ greatest_content3,setGreatestContent3] = useState('');
     const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
     const [ give_content,setGiveContent] = useState('');
 	const [Opacity, setOpacity] = useState('1');
@@ -204,7 +207,19 @@ function Settings()  {
           }else if(greatest_content===''){
             setErrors('Please enter greatest roadmap content');	
           }else if(greatest_content.length>1800){
-            setErrors('Maximum content for section 10 should be 1800 characters.');	
+            setErrors('Maximum content1 for section 10 should be 1800 characters.');	
+          }else if(greatest_content1===''){
+            setErrors('Please enter greatest roadmap content');	
+          }else if(greatest_content1.length>1800){
+            setErrors('Maximum content2 for section 10 should be 1800 characters.');	
+          }else if(greatest_content2===''){
+            setErrors('Please enter greatest roadmap content');	
+          }else if(greatest_content2.length>1800){
+            setErrors('Maximum content3 for section 10 should be 1800 characters.');	
+          }else if(greatest_content3===''){
+            setErrors('Please enter greatest roadmap content');	
+          }else if(greatest_content3.length>1800){
+            setErrors('Maximum content4 for section 10 should be 1800 characters.');	
           }else if(sec11_heading.current.value===''){
             setErrors('Please enter heading for section 11');	
           }else if(roadmap_per1.current.value===''){
@@ -441,6 +456,15 @@ function Settings()  {
     const changeGreatestContent=(value)=>{
         setGreatestContent(value);
     };
+    const changeGreatestContent1=(value)=>{
+        setGreatestContent1(value);
+    };
+    const changeGreatestContent2=(value)=>{
+        setGreatestContent2(value);
+    };
+    const changeGreatestContent3=(value)=>{
+        setGreatestContent3(value);
+    };
     const changeTwitterValue=()=>{
         setTwitterValue(!twitterValue);
     };
@@ -510,6 +534,9 @@ function Settings()  {
         data.append('give_content', give_content);
         data.append('cryptocunt_content', crypto_cunt_content);
         data.append('greatest_content', greatest_content);
+        data.append('greatest_content1', greatest_content1);
+        data.append('greatest_content2', greatest_content2);
+        data.append('greatest_content3', greatest_content3);
         data.append('roadmap_per1', roadmap_per1.current.value);
         data.append('roadmap_per2', roadmap_per2.current.value);
         data.append('roadmap_per3', roadmap_per3.current.value);
@@ -723,6 +750,9 @@ function Settings()  {
                 setCollectContent3(response.updated_data.collect_content3);
                 setCollectContent4(response.updated_data.collect_content4);
                 setGreatestContent(response.updated_data.greatest_content);
+                setGreatestContent1(response.updated_data.greatest_content1);
+                setGreatestContent2(response.updated_data.greatest_content2);
+                setGreatestContent3(response.updated_data.greatest_content3);
                 setGiveContent(response.updated_data.give_content);
                 setCryptoCuntContent(response.updated_data.crypto_cunt_content);
                 roadmap_per1.current.value=response.updated_data.roadmap_per1;
@@ -1139,49 +1169,61 @@ function Settings()  {
                                     <label className="form_label">Heading</label>
                                     <textarea className="form-control" ref={sec10_heading} style={{height:"50px"}}></textarea>
                                 </div>
-                                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.greatest_img1} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg1}></input>
                                             </div>
+                                            <div>
+                                                <label style={{textAlign:"left",width:"100%"}}>Content</label>
+                                                <ReactQuill value={greatest_content} onChange={changeGreatestContent} />
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.greatest_img2} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg2}></input>
                                             </div>
+                                            <div>
+                                                <label style={{textAlign:"left",width:"100%"}}>Content</label>
+                                                <ReactQuill value={greatest_content1} onChange={changeGreatestContent1} />
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.greatest_img3} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg3}></input>
                                             </div>
+                                            <div>
+                                                <label style={{textAlign:"left",width:"100%"}}>Content</label>
+                                                <ReactQuill value={greatest_content2} onChange={changeGreatestContent2} />
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.greatest_img4} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg4}></input>
                                             </div>
+                                            <div>
+                                                <label style={{textAlign:"left",width:"100%"}}>Content</label>
+                                                <ReactQuill value={greatest_content3} onChange={changeGreatestContent3} />
+                                            </div>
                                         </form>
                                     </div>
-                                </div>
-                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style={{marginTop:"16px"}}>
-                                    <label>Content</label>
-                                    <ReactQuill value={greatest_content} onChange={changeGreatestContent} />
                                 </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style={{marginTop:"16px"}}>
                                     <label>Under section content</label>
