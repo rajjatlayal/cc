@@ -3,6 +3,7 @@ import {Switch,useHistory , Route,BrowserRouter as Router,Redirect } from 'react
 import Home from './components/Home';
 import AdminLogin from './components/admin/AdminLogin';
 import Settings from './components/admin/Settings';
+import ChangePassword from './components/admin/ChangePassword';
 import 'bootstrap/dist/css/bootstrap.min.css'
 // @ts-ignore
 import 'bootstrap/dist/js/bootstrap.min.js'
@@ -24,6 +25,7 @@ function App() {
           <Route path="/home" exact component={Home}/>
           <Route path="/admin/login" exact component={AdminLogin}/>
           <Route path="/admin/settings" exact component={Settings}/>
+          <Route path="/admin/change_password" exact component={ChangePassword}/>
         </Switch>
       </Router>
     </div>

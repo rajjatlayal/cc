@@ -56,6 +56,20 @@ function Settings()  {
     const subtitle_font = useRef(null);
     const button_font = useRef(null);
     const date_time = useRef(null);
+
+    const first_title = useRef(null);
+    const second_title = useRef(null);
+    const avatar_title = useRef(null);
+    const sec6_heading = useRef(null);
+    const sec7_heading = useRef(null);
+    const sec10_heading = useRef(null);
+    const sec11_heading = useRef(null);
+    const sec13_heading = useRef(null);
+    const sec15_heading = useRef(null);
+    const sec16_heading = useRef(null);
+    const sec17_heading = useRef(null);
+
+
 	const [logo, setLogo] = useState('');
 	const [banner1, setBanner1] = useState('');
 	const [banner2, setBanner2] = useState('');
@@ -115,8 +129,12 @@ function Settings()  {
     }
     const handleValidation=()=>{
         let formIsValid = false;
-          if(title.current.value===''){
-            setErrors('Please enter title');		   
+          if(first_title.current.value===''){
+            setErrors('Please enter first title');		   
+          }else if(second_title.current.value===''){
+            setErrors('Please enter second title');		   
+          }else if(title.current.value===''){
+            setErrors('Please enter third title');		   
           }else if(content.current.value===''){
             setErrors('Please enter content');	
           }else if((content.current.value).length>300){
@@ -127,6 +145,10 @@ function Settings()  {
             setErrors('Please enter content');	
           }else if((section4_content.current.value).length>400){
             setErrors('Maximum content for section 4 should be 400 characters.');	
+          }else if(avatar_title.current.value===''){
+            setErrors('Please enter heading for section 5');	
+          }else if(sec6_heading.current.value===''){
+            setErrors('Please enter heading for section 6');	
           }else if(collect_title1.current.value===''){
             setErrors('Please enter collection title1');	
           }else if(collect_content1===''){
@@ -151,14 +173,20 @@ function Settings()  {
             setErrors('Please enter content for section 4.');	
           }else if(collect_content4.length>500){
             setErrors('Maximum collection content4 should be 500 characters.');	
+          }else if(sec7_heading.current.value===''){
+            setErrors('Please enter heading for section 7');	
           }else if(give_content===''){
             setErrors('Please enter collection content4');	
           }else if(give_content.length>600){
             setErrors('Maximum content for section 7 should be 600 characters.');	
+          }else if(sec10_heading.current.value===''){
+            setErrors('Please enter heading for section 10');	
           }else if(greatest_content===''){
             setErrors('Please enter greatest roadmap content');	
           }else if(greatest_content.length>1800){
             setErrors('Maximum content for section 10 should be 1800 characters.');	
+          }else if(sec11_heading.current.value===''){
+            setErrors('Please enter heading for section 11');	
           }else if(roadmap_per1.current.value===''){
             setErrors('Please enter roadmap percentage1');	
           }else if(roadmap_per2.current.value===''){
@@ -219,12 +247,16 @@ function Settings()  {
             setErrors('Please enter roadmap content10');	
           }else if((roadmap_content10.current.value).length>310){
             setErrors('Maximum roadmap content 10 should be 310 characters.');	
+          }else if(sec13_heading.current.value===''){
+            setErrors('Please enter heading for section 13');	
           }else if(video_title.current.value===''){
             setErrors('Please enter video title');	
           }else if((video_title.current.value).length>300){
             setErrors('Maximum content for video game should be 300 characters.');	
           }else if(video_link.current.value===''){
             setErrors('Please enter video link');	
+          }else if(sec15_heading.current.value===''){
+            setErrors('Please enter heading for section 15');	
           }else if(faq_title1.current.value===''){
             setErrors('Please enter faq question1');
           }else if(faq_title2.current.value===''){
@@ -261,6 +293,10 @@ function Settings()  {
             setErrors('Please enter faq answer6');	
           }else if((faq_content6.current.value).length>500){
             setErrors('Maximum content for FAQ answer6 should be 500 characters.');	
+          }else if(sec16_heading.current.value===''){
+            setErrors('Please enter heading for section 16');	
+          }else if(sec17_heading.current.value===''){
+            setErrors('Please enter heading for section 17');	
           }else if(crypto_cunt_content===''){
             setErrors('Please enter cryptocunt content.');	
           }else if(crypto_cunt_content.length>300){
@@ -401,7 +437,18 @@ function Settings()  {
     const update_data=(event)=>{
         event.preventDefault();
         const data = new FormData();
-        console.log('send data',collect_content1);
+        data.append('first_title', first_title.current.value);
+        data.append('second_title', second_title.current.value);
+        data.append('avatar_title', avatar_title.current.value);
+        data.append('sec6_heading', sec6_heading.current.value);
+        data.append('sec7_heading', sec7_heading.current.value);
+        data.append('sec10_heading', sec10_heading.current.value);
+        data.append('sec11_heading', sec11_heading.current.value);
+        data.append('sec13_heading', sec13_heading.current.value);
+        data.append('sec15_heading', sec15_heading.current.value);
+        data.append('sec16_heading', sec16_heading.current.value);
+        data.append('sec17_heading', sec17_heading.current.value);
+        
         data.append('title', title.current.value);
         data.append('content', content.current.value);
         data.append('section4_title', section4_title.current.value);
@@ -589,6 +636,18 @@ function Settings()  {
                 }else{
                     setGods(false);
                 }
+
+                first_title.current.value=response.updated_data.first_title;
+                second_title.current.value=response.updated_data.second_title;
+                sec6_heading.current.value=response.updated_data.sec6_heading;
+                sec7_heading.current.value=response.updated_data.sec7_heading;
+                sec10_heading.current.value=response.updated_data.sec10_heading;
+                sec11_heading.current.value=response.updated_data.sec11_heading;
+                sec13_heading.current.value=response.updated_data.sec13_heading;
+                sec15_heading.current.value=response.updated_data.sec15_heading;
+                sec16_heading.current.value=response.updated_data.sec16_heading;
+                sec17_heading.current.value=response.updated_data.sec17_heading;
+
                 title.current.value=response.updated_data.title;
                 content.current.value=response.updated_data.content;
                 section4_title.current.value=response.updated_data.section4_title;
@@ -717,7 +776,15 @@ function Settings()  {
                             <form>
                                 <div className="settings_form_data">
                                     <div className="form_data">
-                                        <label className="form_label">Title</label>
+                                        <label className="form_label">First title</label>
+                                        <textarea className="form-control" ref={first_title} style={{height:"50px"}}></textarea>
+                                    </div>
+                                    <div className="form_data">
+                                        <label className="form_label">Second title</label>
+                                        <textarea className="form-control" ref={second_title} style={{height:"50px"}}></textarea>
+                                    </div>
+                                    <div className="form_data">
+                                        <label className="form_label">Third title</label>
                                         <input type="text" className="form-control" ref={title}></input>
                                     </div>
                                     <div className="form_data">
@@ -794,8 +861,12 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change cool avatar</h4>
+                            <h4>Update section 5</h4>
                             <div className="row">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={avatar_title} style={{height:"50px"}}></textarea>
+                                </div>
                                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.avatar1} className="imgs"></img>
@@ -831,8 +902,12 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change cryptocunts collections</h4>
+                            <h4>Update section 6</h4>
                             <div className="row">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={sec6_heading} style={{height:"50px"}}></textarea>
+                                </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.collect_img1} className="imgs"></img>
@@ -913,6 +988,10 @@ function Settings()  {
                             <h4>Update Section 7</h4>
                             <div className="row">
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={sec7_heading} style={{height:"50px"}}></textarea>
+                                </div>
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="three_img">
                                         <form>
                                             <div className="form_data">
@@ -957,8 +1036,12 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change details of the greatest roadmap</h4>
+                            <h4>Update section 10</h4>
                             <div className="row">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={sec10_heading} style={{height:"50px"}}></textarea>
+                                </div>
                                 <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.greatest_img1} className="imgs"></img>
@@ -1008,9 +1091,13 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change roadmap moments</h4>
+                            <h4>Update section 11</h4>
                             <form>
                             <div className="row">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={sec11_heading} style={{height:"50px"}}></textarea>
+                                </div>
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div className="form_data">
                                         <label className="form_label">Percent</label>
@@ -1117,9 +1204,13 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change video game</h4>
+                            <h4>Update section 13</h4>
                             <form>
                             <div className="row">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={sec13_heading} style={{height:"50px"}}></textarea>
+                                </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="form_data">
                                         <label className="form_label">title</label>
@@ -1136,9 +1227,13 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change FAQs</h4>
+                            <h4>Update section 15</h4>
                             <form>
                             <div className="row">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={sec15_heading} style={{height:"50px"}}></textarea>
+                                </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="form_data">
                                         <label className="form_label">Question 1</label>
@@ -1205,7 +1300,11 @@ function Settings()  {
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div" style={{paddingBottom:"198px"}}>
-                            <h4>Crypto Cunts minted</h4>
+                            <h4>Update section 16</h4>
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label className="form_label">Heading</label>
+                                <textarea className="form-control" ref={sec16_heading} style={{height:"50px"}}></textarea>
+                            </div>
                             <form>
                                 <div className="settings_form_data toggle_icons">
                                     <p><span className="toggle_name">CryptoCunts</span> <span onClick={changeCryptoCunt} className="toggle_icon">
@@ -1234,7 +1333,11 @@ function Settings()  {
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change cryptocunt image and content</h4>
+                            <h4>Update section 17</h4>
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label className="form_label">Heading</label>
+                                <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
+                            </div>
                             <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
                             <form>
                                 <div className="settings_form_data">

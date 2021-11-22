@@ -102,5 +102,30 @@ $result_array['subtitle_font']=$fetch['subtitle_font'];
 $result_array['date_time']=date('Y-m-d\TH:i:s', strtotime($fetch['date_time']));
 $result_array['show_date_time']=date('M d, Y H:i:s', strtotime($fetch['date_time']));
 
+
+$result_array['first_title']=$fetch['first_title'];
+$result_array['second_title']=$fetch['second_title'];
+$result_array['avatar_title']=$fetch['avatar_title'];
+$result_array['sec6_heading']=$fetch['sec6_heading'];
+$result_array['sec7_heading']=$fetch['sec7_heading'];
+$result_array['sec10_heading']=$fetch['sec10_heading'];
+$result_array['sec11_heading']=$fetch['sec11_heading'];
+$result_array['sec13_heading']=$fetch['sec13_heading'];
+$result_array['sec15_heading']=$fetch['sec15_heading'];
+$result_array['sec16_heading']=$fetch['sec16_heading'];
+$result_array['sec17_heading']=$fetch['sec17_heading'];
+$result_array['sec8_heading']=$fetch['sec8_heading'];
+$result_array['sec8_content']=$fetch['sec8_content'];
+$result_array['sec9_heading']=$fetch['sec9_heading'];
+$result_array['sec9_content']=$fetch['sec9_content'];
+$result_array['sec12_heading']=$fetch['sec12_heading'];
+$result_array['sec12_content']=$fetch['sec12_content'];
+$result_array['sec14_heading']=$fetch['sec14_heading'];
+$result_array['sec14_content']=$fetch['sec14_content'];
+$result_array['text_under10']=$fetch['text_under10'];
+$result_array['sec9_img']=$fetch['sec9_img'];
+$result_array['sec12_img']=$fetch['sec12_img'];
+$result_array['sec14_img']=$fetch['sec14_img'];
+
 $result = array('updated_data' => $result_array);
 echo json_encode($result);

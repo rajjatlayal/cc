@@ -88,18 +88,18 @@ function Home()  {
                 {showCountDown &&
                 (<span id="countdown"></span>)}
                 {!showCountDown &&
-                (<p><button className="mint_now" style={{fontSize:settingsData.button_font+'px'}}>MINT NOW</button></p>)}
+                (<button className="mint_now" style={{fontSize:settingsData.button_font+'px'}}>MINT NOW</button>)}
             </div> 
             </div>
                 <div className="banner">
                     {/* <p>BANNER</p> */}
                 </div>
                 <div className="second_section">
-                    <h3 style={{fontSize:settingsData.title_font+'px'}}>A Society for the Uncensored</h3>
-                    <h3 style={{fontSize:settingsData.title_font+'px'}}> Unapologetic Cunts Of Crypto:</h3>
+                    <h3 style={{fontSize:settingsData.title_font+'px'}}>{settingsData.first_title}</h3>
+                    {/* <h3 style={{fontSize:settingsData.title_font+'px'}}> Unapologetic Cunts Of Crypto:</h3> */}
                     {/* <p>BANNER</p> */}
                     <p><img  src={Path+'images/'+settingsData.banner2}/></p>
-                    <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px"}}>FUCK BEING AN ORDINARY CUNT - BE A CRYPTOCUNT</h3>
+                    <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px"}}>{settingsData.second_title}</h3>
                     <span style={{fontSize:settingsData.subtitle_font+'px'}}>{settingsData.title}</span> 
                     <h6 style={{fontSize:settingsData.para_font+'px'}}>{settingsData.content}</h6>
                     <div className="row" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
@@ -132,41 +132,44 @@ function Home()  {
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="third_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <div className="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-12" style={{textAlign:"center"}}>
                             <img src={Path+'images/'+settingsData.section4_img} alt="Avatar"/>
 
                             </div>
-                            <div className="col-xl-5 col-lg-3 col-md-3 col-sm-3 col-xs-3 third_section_content">
+                            <div className="col-xl-5 col-lg-3 col-md-9 col-sm-9 col-xs-12 third_section_content">
                                 <h5 style={{fontSize:settingsData.subtitle_font+'px'}}>{settingsData.section4_title}</h5>
                                 <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.section4_content}</p>
                             </div>
-                            <div className="col-xl-1 col-lg-3 col-md-3 col-sm-3 col-xs-3 third_section_content"></div>
+                            <div className="col-xl-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 third_section_content"></div>
                         </div>
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fourth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px'}}>IT'S NOT JUST A <span style={{color:"#72F595",fontWeight:"600"}}>COOL AVATAR</span></h3>
+                        <h3 style={{fontSize:settingsData.title_font+'px'}}>{settingsData.avatar_title}
+                        {/* <span style={{color:"#72F595",fontWeight:"600"}}>COOL AVATAR</span> */}
+                        </h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center"}}>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section1">
+                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth_section1">
                                 <p className="p-1"><img src={Path+'images/'+settingsData.avatar1}/></p>
                             </div>
-                            <div className="col-xl-6 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth">
+                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth">
                                 <div className="line arrow-left"></div>
                                 <p className="p-2"><img className="cent-img" src={Path+'images/'+settingsData.avatar2}/></p>
                                 <div className="line2 arrow-right"></div>
                             </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 under_fourth_section2">
-                                <p className="p4"><img src={Path+'images/'+settingsData.avatar3}/></p>
+                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth_section2">
+                                <p className="p-3"><img src={Path+'images/'+settingsData.avatar3}/></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fifth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px'}}>Every Mint Gets You A Chance To</h3><h3 style={{fontSize:settingsData.title_font+'px'}}> Collect The Following:</h3>
+                        <h3 style={{fontSize:settingsData.title_font+'px'}}>{settingsData.sec6_heading}</h3>
+                        {/* <h3 style={{fontSize:settingsData.title_font+'px'}}> Collect The Following:</h3> */}
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
                                 <h5>{settingsData.collect_title1}</h5>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
@@ -190,7 +193,7 @@ function Home()  {
                                     </div>
                                 </div> 
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
                                 <h5>{settingsData.collect_title2}</h5>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
@@ -219,7 +222,7 @@ function Home()  {
                                     </div>
                                 </div> 
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
                             <h5>{settingsData.collect_title3}</h5>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
@@ -248,7 +251,7 @@ function Home()  {
                                     </div>
                                 </div> 
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 under_fifth1">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
                             <h5>{settingsData.collect_title4}</h5>
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
@@ -282,14 +285,15 @@ function Home()  {
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container sixth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px'}}><span style={{color:"#72F595",fontWeight:"600"}}>CRYPTOCUNTS</span> THAT ARE</h3><h3 style={{fontSize:settingsData.title_font+'px'}}>ONLY AVAILABLE FROM GIVEAWAYS:</h3>
+                        {/* <h3 style={{fontSize:settingsData.title_font+'px'}}><span style={{color:"#72F595",fontWeight:"600"}}>CRYPTOCUNTS</span> THAT ARE</h3> */}
+                        <h3 style={{fontSize:settingsData.title_font+'px'}}>{settingsData.sec7_heading}</h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div className="under_sixth1">
                                     <span> <img className="musk-1" src ={Path+'images/'+settingsData.give_img1}/> </span>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div className="under_sixth2" dangerouslySetInnerHTML={{ __html: settingsData.give_content }} style={{fontSize:settingsData.list_font+'px'}}>
                                     {/* <h5>111 Famous CryptoCunts Perks:</h5>
                                     <ul>
@@ -307,12 +311,12 @@ function Home()  {
                                     </ul> */}
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div className="under_sixth1">
                                     <span><img className="musk-1" src ={Path+'images/'+settingsData.give_img2}/></span>
                                 </div>
                             </div>
-                            <div className="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4">
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div className="under_sixth1">
                                     <span><img className="musk-1" src={Path+'images/'+settingsData.give_img3}/></span>
                                 </div>
@@ -322,22 +326,25 @@ function Home()  {
                 </div>
                 <div className="row" style={{margin:"0",width:"100%",background:"#12232D",padding:"50px 0px"}}>
                     <div className="container seventh_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>THE FOREPLAY</h3><h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px"}}>BEFORE THE MINT</h3>
-                        <p style={{fontSize:settingsData.para_font+'px'}}>1. Reach critical mass on our Discord & Twitter. We'll gauge this by interest and activity</p>
-                        <p style={{fontSize:settingsData.para_font+'px'}}>2. Announce How To Get On Our First Day Whitelist (Limited to 100 Wallets/Discord Members)</p>
+                        {/* <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>THE FOREPLAY</h3> */}
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px"}}>{settingsData.sec8_heading}</h3>
+                        {/* <p style={{fontSize:settingsData.para_font+'px'}}>1. Reach critical mass on our Discord & Twitter. We'll gauge this by interest and activity</p> */}
+                        <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.sec8_content}</p>
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container eighth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>THE GREATEST ROADMAP ON THE</h3><h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px"}}>METAVERSE AND 100 DAYS OF GAMES:</h3>
-                        <p style={{fontSize:settingsData.para_font+'px'}}>Emperor Titus was an OG cunt and after the Colosseum was built in 80 AD he had 100 days of games. In honor of these events we will MINT our CCC NFTS with our own 100 days of games and the greatest roadmap on the NFT metaverse</p>
-                        <h5 style={{fontSize:settingsData.subtitle_font+'px',color:"#72F595",marginTop:"50px"}}>THE DETAILS</h5>
+                        {/* <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>THE GREATEST ROADMAP ON THE</h3> */}
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px"}}>{settingsData.sec9_heading}</h3>
+                        <p><img  src={Path+'images/'+settingsData.sec9_img}/></p>
+                        <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.sec9_content}</p>
+                        <h5 style={{fontSize:settingsData.subtitle_font+'px',color:"#72F595",marginTop:"50px"}}>{settingsData.sec10_heading}</h5>
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container nineth_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
                                 </div>
@@ -351,7 +358,7 @@ function Home()  {
                                     <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
                                 </div>
                             </div>
-                            <div className="col-xl-9 col-lg-9 col-md-4 col-sm-4 col-xs-4">
+                            <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
                                 <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content }} style={{fontSize:settingsData.para_font+'px'}}>
                                     {/* <p>Each day will have a max whitelist of 100 people. To get on the whitelist, you have to participate in our Discord Games / Competitions etc. Each person on the whitelist can mint up to 2 CryptoCunts to ensure we sell out daily. Don't delay mint your CryptoCunt as soon as possible or live in regret</p>
                                     <p>Each whitelist represents 1% of our CryptoCunts minted. Secondary Sales will happen on day 101; THE AFTER PARTY we call it. This will prevent rug pulls and make our sales process more of an experience to constantly grow our community while rewarding the earliest HODLRS.</p>
@@ -373,14 +380,14 @@ function Home()  {
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container tenth_section">
-                        <p style={{fontSize:settingsData.para_font+'px'}}>Each day before our launch and during our 100 days of games we will run a giveaway</p>
-                        <p style={{fontSize:settingsData.para_font+'px'}}>with an NFT influencer in order to grow our community and spread our awareness.</p>
+                    <div className="container tenth_section" style={{maxWidth:"800px"}}>
+                        <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.text_under10}</p>
+                        {/* <p style={{fontSize:settingsData.para_font+'px'}}>with an NFT influencer in order to grow our community and spread our awareness.</p> */}
                     </div>
                 </div>
                 <div className="container roadmap">
-                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>OTHER BIG</h3>
-                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff"}}>ROADMAP MOMENTS</h3>
+                    {/* <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>OTHER BIG</h3> */}
+                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff"}}>{settingsData.sec11_heading}</h3>
                     <div className="history-tl-container">
                         <ul className="tl">
                             <li className="tl-item one" ng-repeat="item in retailer_history">
@@ -437,13 +444,14 @@ function Home()  {
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container eighth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>The After Party</h3>
-                        <p style={{fontSize:settingsData.para_font+'px'}}>The CryptoCunts rarity data will be added to Rarity.Tools, Rarity Sniper, & NFTEXP.io as well as OpenSea and other Ethereum based 66secondary markets. Sell your cunts at your own peril. You might never get one back.</p>
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>{settingsData.sec12_heading}</h3>
+                        <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.sec12_content}</p>
+                        <img  src={Path+'images/'+settingsData.sec12_img}/>
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container eleventh_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>The Video Game</h3>
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>{settingsData.sec13_heading}</h3>
                         <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.video_title}</p>
                     </div>
                     <div className="container video_section">
@@ -452,14 +460,15 @@ function Home()  {
                 </div>  
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container twelth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>CRYPTOCUNT.CLUB store opens:</h3>
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>Only HOLDERS can buy this CUNTASTIC clothing and merch.</h3>
-                        <p style={{fontSize:settingsData.para_font+'px'}}>THE DRIP: ALL CRYPTOCUNTS will get airdropped CC tokens which they can use to bet against other players in the CryptoCunt Colloseum game. New players will have to purchase CC tokens to place bets further enhancing the tokenomics and bringing value to the CCC community.</p>
+                        {/* <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>CRYPTOCUNT.CLUB store opens:</h3> */}
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>{settingsData.sec14_heading}</h3>
+                        <img  src={Path+'images/'+settingsData.sec14_img}/>
+                        <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.sec14_content}</p>
                     </div>
                 </div> 
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container thirt_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>THE CRYPTOCUNTS FAQ</h3>
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>{settingsData.sec15_heading}</h3>
                         <Accordion show title={settingsData.faq_title1}>
                         <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.faq_content1}</p>
                         </Accordion>
@@ -484,7 +493,7 @@ function Home()  {
                 {(settingsData.cryptocunts ==='1' || settingsData.evolved ==='1' || settingsData.ape ==='1' ||settingsData.famous ==='1' ||settingsData.gods ==='1') &&
                 (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fourt_section" id="exTab1">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>Crypto Cunts minted so far</h3>
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>{settingsData.sec16_heading}</h3>
 
                         <ul className="nav nav-tabs mb-3" id="ex1" role="tablist">
                             {settingsData.cryptocunts==='1' &&

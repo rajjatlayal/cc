@@ -17,9 +17,10 @@ function Login()  {
       setNotification({sucess:'',failed:'',show_failed:false,show_success:false});
       setErrors('');
     }
-    const show_notification=(response)=>{	   
+    const show_notification=(response)=>{	
+      console.log('sdfsd');   
 	   if(response.failed!=null){
-		   setNotification({success:'',failed:global.siteText[0][response.failed],show_failed:true,show_success:false});
+		   setNotification({success:'',failed:response.failed,show_failed:true,show_success:false});
 	   }else if(response.success!=null){
 		   setNotification({success:response.success,failed:'',show_failed:false,show_success:true});
 	   }
@@ -42,7 +43,6 @@ function Login()  {
     const data = new FormData();
     data.append('username', username.current.value);
     data.append('password', pwd.current.value);
-    console.log(handleValidation());
     if(handleValidation()){	
       setLoader(true);
       setOpacity('0.5');
@@ -53,13 +53,16 @@ function Login()  {
       })
       .then(res => res.json())
       .then(response=>{
-        //console.log(response);	
         setLoader(false);
-				setOpacity('');
-				setPointerEvents('');
-        localStorage.setItem('token', response.token);
-        eventBus.dispatch("token", { message: response.token});
-        history.push('/admin/settings');
+        setOpacity('');
+        setPointerEvents('');
+        if(response.failed==='done'){
+          localStorage.setItem('token', response.token);
+          eventBus.dispatch("token", { message: response.token});
+          history.push('/admin/settings');
+        }else{
+          show_notification(response);
+        }
         }
       )
       .catch(err => {
