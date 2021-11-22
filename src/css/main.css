@@ -1493,7 +1493,7 @@ h2.hire_us {
 }.twelth_section img{
   width: 100%;
 }.flip-card-back span{
-  color: white;
+  color: white !important;
 }.flip-card-back p strong{
   color: white;
 }
