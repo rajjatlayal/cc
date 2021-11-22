@@ -68,6 +68,15 @@ function Settings()  {
     const sec15_heading = useRef(null);
     const sec16_heading = useRef(null);
     const sec17_heading = useRef(null);
+    const sec8_heading = useRef(null);
+    const sec8_content = useRef(null);
+    const sec9_heading = useRef(null);
+    const sec9_content = useRef(null);
+    const sec12_heading = useRef(null);
+    const sec12_content = useRef(null);
+    const sec14_heading = useRef(null);
+    const sec14_content = useRef(null);
+    const text_under10 = useRef(null);
 
 
 	const [logo, setLogo] = useState('');
@@ -93,6 +102,9 @@ function Settings()  {
 	const [giveImg1, setGiveImg1] = useState('');
 	const [giveImg2, setGiveImg2] = useState('');
 	const [giveImg3, setGiveImg3] = useState('');
+	const [sec14Img, setSec14Img] = useState('');
+	const [sec12Img, setSec12Img] = useState('');
+	const [sec9Img, setSec9Img] = useState('');
     const [ collect_content1,setCollectContent1] = useState('');
     const [ collect_content2,setCollectContent2] = useState('');
     const [ collect_content3,setCollectContent3] = useState('');
@@ -179,6 +191,14 @@ function Settings()  {
             setErrors('Please enter collection content4');	
           }else if(give_content.length>600){
             setErrors('Maximum content for section 7 should be 600 characters.');	
+          }else if(sec8_heading.current.value===''){
+            setErrors('Please enter heading for section 8');	
+          }else if(sec8_content.current.value===''){
+            setErrors('Please enter content for section 8');	
+          }else if(sec9_heading.current.value===''){
+            setErrors('Please enter heading for section 9');	
+          }else if(sec9_content.current.value===''){
+            setErrors('Please enter content for section 9');	
           }else if(sec10_heading.current.value===''){
             setErrors('Please enter heading for section 10');	
           }else if(greatest_content===''){
@@ -247,6 +267,10 @@ function Settings()  {
             setErrors('Please enter roadmap content10');	
           }else if((roadmap_content10.current.value).length>310){
             setErrors('Maximum roadmap content 10 should be 310 characters.');	
+          }else if(sec12_heading.current.value===''){
+            setErrors('Please enter heading for section 12');	
+          }else if(sec12_content.current.value===''){
+            setErrors('Please enter content for section 12');	
           }else if(sec13_heading.current.value===''){
             setErrors('Please enter heading for section 13');	
           }else if(video_title.current.value===''){
@@ -255,6 +279,10 @@ function Settings()  {
             setErrors('Maximum content for video game should be 300 characters.');	
           }else if(video_link.current.value===''){
             setErrors('Please enter video link');	
+          }else if(sec14_heading.current.value===''){
+            setErrors('Please enter heading for section 14');	
+          }else if(sec14_content.current.value===''){
+            setErrors('Please enter content for section 14');	
           }else if(sec15_heading.current.value===''){
             setErrors('Please enter heading for section 15');	
           }else if(faq_title1.current.value===''){
@@ -389,6 +417,15 @@ function Settings()  {
     const changeGiveImg3=(event)=>{
 		setGiveImg3(event.target.files[0]);
     }
+    const changeSec9Img=(event)=>{
+		setSec9Img(event.target.files[0]);
+    }
+    const changeSec12Img=(event)=>{
+		setSec12Img(event.target.files[0]);
+    }
+    const changeSec14Img=(event)=>{
+		setSec14Img(event.target.files[0]);
+    }
     const changeCollectContent1=(value)=>{
         setCollectContent1(value);
     };
@@ -448,6 +485,15 @@ function Settings()  {
         data.append('sec15_heading', sec15_heading.current.value);
         data.append('sec16_heading', sec16_heading.current.value);
         data.append('sec17_heading', sec17_heading.current.value);
+        data.append('sec8_heading', sec8_heading.current.value);
+        data.append('sec8_content', sec8_content.current.value);
+        data.append('sec9_heading', sec9_heading.current.value);
+        data.append('sec9_content', sec9_content.current.value);
+        data.append('sec12_heading', sec12_heading.current.value);
+        data.append('sec12_content', sec12_content.current.value);
+        data.append('sec14_heading', sec14_heading.current.value);
+        data.append('sec14_content', sec14_content.current.value);
+        data.append('text_under10', text_under10.current.value);
         
         data.append('title', title.current.value);
         data.append('content', content.current.value);
@@ -525,6 +571,9 @@ function Settings()  {
         data.append('give_img2', giveImg2);
         data.append('give_img3', giveImg3);
         data.append('cryptocunt', cryptocunt);
+        data.append('sec9_img', sec9Img);
+        data.append('sec12_img', sec12Img);
+        data.append('sec14_img', sec14Img);
         data.append('ape', ape);
         data.append('evolved', evolved);
         data.append('gods', gods);
@@ -572,6 +621,9 @@ function Settings()  {
                 setGiveImg1('');
                 setGiveImg2('');
                 setGiveImg3('');
+                setSec9Img('');
+                setSec12Img('');
+                setSec14Img('');
                 show_notification(response.notifications);
                 }
             )
@@ -639,6 +691,7 @@ function Settings()  {
 
                 first_title.current.value=response.updated_data.first_title;
                 second_title.current.value=response.updated_data.second_title;
+                avatar_title.current.value=response.updated_data.avatar_title;
                 sec6_heading.current.value=response.updated_data.sec6_heading;
                 sec7_heading.current.value=response.updated_data.sec7_heading;
                 sec10_heading.current.value=response.updated_data.sec10_heading;
@@ -647,6 +700,15 @@ function Settings()  {
                 sec15_heading.current.value=response.updated_data.sec15_heading;
                 sec16_heading.current.value=response.updated_data.sec16_heading;
                 sec17_heading.current.value=response.updated_data.sec17_heading;
+                sec8_heading.current.value=response.updated_data.sec8_heading;
+                sec8_content.current.value=response.updated_data.sec8_content;
+                sec9_heading.current.value=response.updated_data.sec9_heading;
+                sec9_content.current.value=response.updated_data.sec9_content;
+                sec12_heading.current.value=response.updated_data.sec12_heading;
+                sec12_content.current.value=response.updated_data.sec12_content;
+                sec14_heading.current.value=response.updated_data.sec14_heading;
+                sec14_content.current.value=response.updated_data.sec14_content;
+                text_under10.current.value=response.updated_data.text_under10;
 
                 title.current.value=response.updated_data.title;
                 content.current.value=response.updated_data.content;
@@ -1034,6 +1096,41 @@ function Settings()  {
                             </div>
                         </div>
                     </div>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                        <div className="settings_div">
+                        <h4>Update section 8</h4>
+                            <form>
+                                <div className="form_data">
+                                    <label className="form_label">Title</label>
+                                    <textarea className="form-control" ref={sec8_heading} style={{height:"50px"}}></textarea>
+                                </div>
+                                <div className="form_data">
+                                    <label className="form_label">Content</label>
+                                    <textarea className="form-control" ref={sec8_content}></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                        <div className="settings_div">
+                        <h4>Update section 9</h4>
+                        <img src={Path+'images/'+settingsData.sec9_img} className="banner_img"></img>
+                            <form>
+                                <div className="form_data">
+                                    <label className="form_label">Image</label>
+                                    <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeSec9Img}></input>
+                                </div>
+                                <div className="form_data">
+                                    <label className="form_label">Title</label>
+                                    <textarea className="form-control" ref={sec9_heading} style={{height:"50px"}}></textarea>
+                                </div>
+                                <div className="form_data">
+                                    <label className="form_label">Content</label>
+                                    <textarea className="form-control" ref={sec9_content}></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
                             <h4>Update section 10</h4>
@@ -1085,6 +1182,10 @@ function Settings()  {
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style={{marginTop:"16px"}}>
                                     <label>Content</label>
                                     <ReactQuill value={greatest_content} onChange={changeGreatestContent} />
+                                </div>
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style={{marginTop:"16px"}}>
+                                    <label>Under section content</label>
+                                    <textarea className="form-control" ref={text_under10}></textarea>
                                 </div>
                             </div>
                         </div>
@@ -1202,6 +1303,26 @@ function Settings()  {
                             </form>
                         </div>
                     </div>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                        <div className="settings_div">
+                        <h4>Update section 12</h4>
+                        <img src={Path+'images/'+settingsData.sec12_img} className="banner_img"></img>
+                            <form>
+                                <div className="form_data">
+                                    <label className="form_label">Image</label>
+                                    <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeSec12Img}></input>
+                                </div>
+                                <div className="form_data">
+                                    <label className="form_label">Title</label>
+                                    <textarea className="form-control" ref={sec12_heading} style={{height:"50px"}}></textarea>
+                                </div>
+                                <div className="form_data">
+                                    <label className="form_label">Content</label>
+                                    <textarea className="form-control" ref={sec12_content}></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
                             <h4>Update section 13</h4>
@@ -1222,6 +1343,26 @@ function Settings()  {
                                     </div>
                                 </div>
                             </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                        <div className="settings_div">
+                        <h4>Update section 14</h4>
+                        <img src={Path+'images/'+settingsData.sec14_img} className="banner_img"></img>
+                            <form>
+                                <div className="form_data">
+                                    <label className="form_label">Image</label>
+                                    <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeSec14Img}></input>
+                                </div>
+                                <div className="form_data">
+                                    <label className="form_label">Title</label>
+                                    <textarea className="form-control" ref={sec14_heading} style={{height:"50px"}}></textarea>
+                                </div>
+                                <div className="form_data">
+                                    <label className="form_label">Content</label>
+                                    <textarea className="form-control" ref={sec14_content}></textarea>
+                                </div>
                             </form>
                         </div>
                     </div>

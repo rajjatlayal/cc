@@ -12,6 +12,23 @@ $result_array=array();
 $first_title=mysqli_real_escape_string($conn,$_POST['first_title']);
 $second_title=mysqli_real_escape_string($conn,$_POST['second_title']);
 $avatar_title=mysqli_real_escape_string($conn,$_POST['avatar_title']);
+$sec6_heading=mysqli_real_escape_string($conn,$_POST['sec6_heading']);
+$sec7_heading=mysqli_real_escape_string($conn,$_POST['sec7_heading']);
+$sec10_heading=mysqli_real_escape_string($conn,$_POST['sec10_heading']);
+$sec11_heading=mysqli_real_escape_string($conn,$_POST['sec11_heading']);
+$sec13_heading=mysqli_real_escape_string($conn,$_POST['sec13_heading']);
+$sec15_heading=mysqli_real_escape_string($conn,$_POST['sec15_heading']);
+$sec16_heading=mysqli_real_escape_string($conn,$_POST['sec16_heading']);
+$sec17_heading=mysqli_real_escape_string($conn,$_POST['sec17_heading']);
+$sec8_heading=mysqli_real_escape_string($conn,$_POST['sec8_heading']);
+$sec8_content=mysqli_real_escape_string($conn,$_POST['sec8_content']);
+$sec9_heading=mysqli_real_escape_string($conn,$_POST['sec9_heading']);
+$sec9_content=mysqli_real_escape_string($conn,$_POST['sec9_content']);
+$sec12_heading=mysqli_real_escape_string($conn,$_POST['sec12_heading']);
+$sec12_content=mysqli_real_escape_string($conn,$_POST['sec12_content']);
+$sec14_heading=mysqli_real_escape_string($conn,$_POST['sec14_heading']);
+$sec14_content=mysqli_real_escape_string($conn,$_POST['sec14_content']);
+$text_under10=mysqli_real_escape_string($conn,$_POST['text_under10']);
 
 
 $title=$_POST['title'];
@@ -507,12 +524,63 @@ if($_FILES['give_img2']['size']!=0){
 
 	$query=mysqli_query($conn,"update settings set give_img2='$gen_name23' where id=$id");
 }
+if($_FILES['sec9_img']['size']!=0){
+	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+	// $fetch12=mysqli_fetch_assoc($query12);
+	// if($fetch12['give_img2']!=''){
+	// 	unlink('images/'.$fetch12['give_img2']);
+	// }
+
+	$date = date('Y-m-d h:i:s a', time());
+	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
+	$get_number = $d->getTimestamp();
+	$extension = strtolower(pathinfo($_FILES['sec9_img']['name'], PATHINFO_EXTENSION));
+	$target_file = "images/".$get_number.".".$extension;
+	move_uploaded_file($_FILES['sec9_img']["tmp_name"], "images/".$get_number.".".$extension);
+	$gen_name24=$get_number.".".$extension;
+
+	$query=mysqli_query($conn,"update settings set sec9_img='$gen_name24' where id=$id");
+}
+if($_FILES['sec12_img']['size']!=0){
+	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+	// $fetch12=mysqli_fetch_assoc($query12);
+	// if($fetch12['give_img2']!=''){
+	// 	unlink('images/'.$fetch12['give_img2']);
+	// }
+
+	$date = date('Y-m-d h:i:s a', time());
+	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
+	$get_number = $d->getTimestamp();
+	$extension = strtolower(pathinfo($_FILES['sec12_img']['name'], PATHINFO_EXTENSION));
+	$target_file = "images/".$get_number.".".$extension;
+	move_uploaded_file($_FILES['sec12_img']["tmp_name"], "images/".$get_number.".".$extension);
+	$gen_name25=$get_number.".".$extension;
+
+	$query=mysqli_query($conn,"update settings set sec12_img='$gen_name25' where id=$id");
+}
+if($_FILES['sec14_img']['size']!=0){
+	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+	// $fetch12=mysqli_fetch_assoc($query12);
+	// if($fetch12['give_img2']!=''){
+	// 	unlink('images/'.$fetch12['give_img2']);
+	// }
+
+	$date = date('Y-m-d h:i:s a', time());
+	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
+	$get_number = $d->getTimestamp();
+	$extension = strtolower(pathinfo($_FILES['sec14_img']['name'], PATHINFO_EXTENSION));
+	$target_file = "images/".$get_number.".".$extension;
+	move_uploaded_file($_FILES['sec14_img']["tmp_name"], "images/".$get_number.".".$extension);
+	$gen_name26=$get_number.".".$extension;
+
+	$query=mysqli_query($conn,"update settings set sec14_img='$gen_name26' where id=$id");
+}
 
 
 
 
 
-$query=mysqli_query($conn,"update settings set title='$title',content='$content',collect_title1='$collect_title1',collect_title2='$collect_title2',collect_title3='$collect_title3',collect_title4='$collect_title4',roadmap_per1='$roadmap_per1',roadmap_per2='$roadmap_per2',roadmap_per3='$roadmap_per3',roadmap_per4='$roadmap_per4',roadmap_per5='$roadmap_per5',roadmap_per6='$roadmap_per6',roadmap_per7='$roadmap_per7',roadmap_per8='$roadmap_per8',roadmap_per9='$roadmap_per9',roadmap_per10='$roadmap_per10',roadmap_content1='$roadmap_content1',roadmap_content2='$roadmap_content2',roadmap_content3='$roadmap_content3',roadmap_content4='$roadmap_content4',roadmap_content5='$roadmap_content5',roadmap_content6='$roadmap_content6',roadmap_content7='$roadmap_content7',roadmap_content8='$roadmap_content8',roadmap_content9='$roadmap_content9',roadmap_content10='$roadmap_content10',video_title='$video_title',video_link='$video_link',faq_title1='$faq_title1',faq_title2='$faq_title2',faq_title3='$faq_title3',faq_title4='$faq_title4',faq_title5='$faq_title5',faq_title6='$faq_title6',faq_content1='$faq_content1',faq_content2='$faq_content2',faq_content3='$faq_content3',faq_content4='$faq_content4',faq_content5='$faq_content5', faq_content6='$faq_content6',collect_content1='$collect_content1',collect_content2='$collect_content2',collect_content3='$collect_content3',collect_content4='$collect_content4',greatest_content='$greatest_content',social_discord='$discord',social_instagram='$instagram',social_twitter='$twitter',section4_title='$section4_title',section4_content='$section4_content',give_content='$give_content',cryptocunt_content='$cryptocunt_content',CryptoCunts='$cryptocunt',Evolved='$evolved',AnonymousApe='$ape',FamousCryptoCunt='$famous',CryptoCuntGods='$gods',title_font='$title_font',para_font='$para_font',list_font='$list_font',date_time='$date_time',button_font='$button_font',subtitle_font='$subtitle_font',first_title='$first_title',second_title='$second_title',avatar_title='$avatar_title' where id=$id");
+$query=mysqli_query($conn,"update settings set title='$title',content='$content',collect_title1='$collect_title1',collect_title2='$collect_title2',collect_title3='$collect_title3',collect_title4='$collect_title4',roadmap_per1='$roadmap_per1',roadmap_per2='$roadmap_per2',roadmap_per3='$roadmap_per3',roadmap_per4='$roadmap_per4',roadmap_per5='$roadmap_per5',roadmap_per6='$roadmap_per6',roadmap_per7='$roadmap_per7',roadmap_per8='$roadmap_per8',roadmap_per9='$roadmap_per9',roadmap_per10='$roadmap_per10',roadmap_content1='$roadmap_content1',roadmap_content2='$roadmap_content2',roadmap_content3='$roadmap_content3',roadmap_content4='$roadmap_content4',roadmap_content5='$roadmap_content5',roadmap_content6='$roadmap_content6',roadmap_content7='$roadmap_content7',roadmap_content8='$roadmap_content8',roadmap_content9='$roadmap_content9',roadmap_content10='$roadmap_content10',video_title='$video_title',video_link='$video_link',faq_title1='$faq_title1',faq_title2='$faq_title2',faq_title3='$faq_title3',faq_title4='$faq_title4',faq_title5='$faq_title5',faq_title6='$faq_title6',faq_content1='$faq_content1',faq_content2='$faq_content2',faq_content3='$faq_content3',faq_content4='$faq_content4',faq_content5='$faq_content5', faq_content6='$faq_content6',collect_content1='$collect_content1',collect_content2='$collect_content2',collect_content3='$collect_content3',collect_content4='$collect_content4',greatest_content='$greatest_content',social_discord='$discord',social_instagram='$instagram',social_twitter='$twitter',section4_title='$section4_title',section4_content='$section4_content',give_content='$give_content',cryptocunt_content='$cryptocunt_content',CryptoCunts='$cryptocunt',Evolved='$evolved',AnonymousApe='$ape',FamousCryptoCunt='$famous',CryptoCuntGods='$gods',title_font='$title_font',para_font='$para_font',list_font='$list_font',date_time='$date_time',button_font='$button_font',subtitle_font='$subtitle_font',first_title='$first_title',second_title='$second_title',avatar_title='$avatar_title',sec6_heading='$sec6_heading',sec7_heading='$sec7_heading',sec10_heading='$sec10_heading',sec11_heading='$sec11_heading',sec13_heading='$sec13_heading',sec15_heading='$sec15_heading',sec16_heading='$sec16_heading',sec17_heading='$sec17_heading',sec8_heading='$sec8_heading',sec8_content='$sec8_content',sec9_heading='$sec9_heading',sec9_content='$sec9_content',sec12_heading='$sec12_heading',sec12_content='$sec12_content',sec14_heading='$sec14_heading',sec14_content='$sec14_content',text_under10='$text_under10' where id=$id");
 
 if($query){
 	$result_array['success']='Data updated successfully.';
