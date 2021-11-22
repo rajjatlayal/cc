@@ -1494,6 +1494,6 @@ h2.hire_us {
   width: 100%;
 }.flip-card-back span{
   color: white !important;
-}.flip-card-back p strong{
+}.flip-card-back p b{
   color: white !important;
 }
