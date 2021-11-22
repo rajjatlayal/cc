@@ -538,7 +538,6 @@ img.cent-img {
   margin-bottom: 30px;
 }
 .nineth_div_text h3 {
-  color: #72f595;
   margin-bottom: 4px;
   font-size: 18px !important;
   line-height: 35px;
@@ -566,17 +565,14 @@ img.cent-img {
   margin-bottom: 32px;
 }
 .nineth_div_text h3 {
-  color: #72f595;
   margin-bottom: 4px;
   font-size: 18px !important;
 }
 .nineth_div_text h2 {
-  color: #72f595;
   margin-bottom: 4px;
   font-size: 22px !important;
 }
 .nineth_div_text h1 {
-  color: #72f595;
   margin-bottom: 4px;
   font-size: 24px !important;
 }
@@ -1497,5 +1493,7 @@ h2.hire_us {
 }.twelth_section img{
   width: 100%;
 }.flip-card-back span{
+  color: white;
+}.flip-card-back p strong{
   color: white;
 }

@@ -81,7 +81,7 @@ function Login()  {
               <div className="row row_class">
                 <div className="login_left_div col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" style={{paddingRight:"0",margin:"auto"}}>
                     <div className="admin_div">
-                      <h2>Admin Login</h2>
+                      <h2 style={{color:"black"}}>Admin Login</h2>
                       <p>Sign in to your account</p>
                       {notification.show_success ? (<div className="alert alert-success" id="success2">{notification.success}
                         <button type="button" className="close" data-dismiss="alert"></button>
