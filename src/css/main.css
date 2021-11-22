@@ -552,6 +552,10 @@ img.cent-img {
   width: 100%;
   height: 180px;
   object-fit: contain;
+}.nineth_div_text h1, h2, h3, h4, h5, h6 {
+  color: #72f595;
+}.nineth_image_div span{
+  color: white;
 }
 .nineth_section {
   text-align: center;
@@ -1492,4 +1496,6 @@ h2.hire_us {
   }
 }.twelth_section img{
   width: 100%;
+}.flip-card-back span{
+  color: white;
 }
