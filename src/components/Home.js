@@ -10,6 +10,7 @@ function Home()  {
     const [settingsData, setSettingsData] = useState('');
     const [active_class, setActiveClass] = useState('cryptocunt');
     const [currentDate, setCurrentDate] = useState('');
+    const [faq, setFaq] = useState("");
     const [showCountDown, setShowCountDown] = useState(true);
     const get_countdown=(date_time)=>{
         var countDownDate = new Date(date_time).getTime();
@@ -48,6 +49,7 @@ function Home()  {
 		.then(res => res.json())
 		.then(response=>{
             setSettingsData(response.updated_data);
+            setFaq(response.updated_data.faq_content1);
             if(response.updated_data.cryptocunts==='1'){
                 setActiveClass('cryptocunt');
             }else if(response.updated_data.evolved==='1'){
@@ -70,12 +72,10 @@ function Home()  {
     };
     useEffect(() => {
         get_data();
-    }, []);	
+    }, [faq]);	
     return (
         <div className="container-fluid p-0" style={{background:"#0F1922"}}>
             <Navbar/>
-            
-
             <div className="row landing_page" style={{width:"100%",margin:"0"}}>
             <div className="row banner_image" style={{width:"100%",margin:"0",padding:"0"}}>
             <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+"images/"+settingsData.banner1+"')"}}>
@@ -361,9 +361,11 @@ function Home()  {
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container thirt_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec15_heading}</h3>
-                        <Accordion show title={settingsData.faq_title1}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content1}</p>
-                        </Accordion>
+                        <div className="accor1">
+                            <Accordion show title={settingsData.faq_title1}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{faq}</p>
+                            </Accordion>
+                        </div>
                         <Accordion title={settingsData.faq_title2}>
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content2}</p> 
                         </Accordion>

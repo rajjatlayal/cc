@@ -547,12 +547,15 @@ img.cent-img {
 }
 .nineth_div_text h3 {
   margin-bottom: 4px;
+  color: #72f595;
 }
 .nineth_div_text h2 {
   margin-bottom: 4px;
+  color: #72f595;
 }
 .nineth_div_text h1 {
   margin-bottom: 4px;
+  color: #72f595;
 }
 .nineth_div_text {
   text-align: left;
@@ -821,6 +824,7 @@ ul.tl li .timestamp {
 .flip-card-back p {
   margin-bottom: 4px;
   font-weight: 600;
+  color: white;
 }
 .flip-card-back li {
   margin-bottom: 4px;
@@ -1462,10 +1466,21 @@ h2.hire_us {
   .third_section .col-xl-5 {
     width: 48%;
   }
-}.twelth_section img{
+}
+.twelth_section img{
   width: 100%;
 }.flip-card-back span{
   color: white !important;
-}.flip-card-back p b, strong{
+}.flip-card-back p b{
   color: white !important;
+}.ql-editor p b{
+  color: black !important;
+}.ql-editor h1,h2,h3,h4,h5,p{
+  color: black;
+}.accordion-body p{
+  color: white;
+}.flip-card-back p strong{
+  color: white !important;
+}.ql-editor p strong{
+  color: black !important;
 }

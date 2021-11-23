@@ -999,7 +999,7 @@ function Settings()  {
                                             </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <ReactQuill value={collect_content1} onChange={changeCollectContent1} />
+                                                <ReactQuill value={collect_content1} onChange={changeCollectContent1} style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1017,7 +1017,7 @@ function Settings()  {
                                             </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <ReactQuill value={collect_content2} onChange={changeCollectContent2} />
+                                                <ReactQuill value={collect_content2} onChange={changeCollectContent2}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1035,7 +1035,7 @@ function Settings()  {
                                             </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <ReactQuill value={collect_content3} onChange={changeCollectContent3} />
+                                                <ReactQuill value={collect_content3} onChange={changeCollectContent3}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1053,7 +1053,7 @@ function Settings()  {
                                             </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
-                                                <ReactQuill value={collect_content4} onChange={changeCollectContent4} />
+                                                <ReactQuill value={collect_content4} onChange={changeCollectContent4}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1178,7 +1178,7 @@ function Settings()  {
                                             </div>
                                             <div>
                                                 <label style={{textAlign:"left",width:"100%"}}>Content</label>
-                                                <ReactQuill value={greatest_content1} onChange={changeGreatestContent1} />
+                                                <ReactQuill value={greatest_content1} onChange={changeGreatestContent1}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1206,7 +1206,7 @@ function Settings()  {
                                             </div>
                                             <div>
                                                 <label style={{textAlign:"left",width:"100%"}}>Content</label>
-                                                <ReactQuill value={greatest_content3} onChange={changeGreatestContent3} />
+                                                <ReactQuill value={greatest_content3} onChange={changeGreatestContent3}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1514,7 +1514,7 @@ function Settings()  {
                                 </div>
                                 <div>
                                     <label>Content</label>
-                                    <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent} />
+                                    <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
                                 </div>
                             </form>
                         </div>
