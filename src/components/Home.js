@@ -91,10 +91,10 @@ function Home()  {
                 <div className="banner">
                 </div>
                 <div className="second_section">
-                    <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.first_title}</h3>
+                    <h1 style={{fontSize:settingsData.head_font+'px',fontWeight:settingsData.head_weight,color:"white"}}>{settingsData.first_title}</h1>
                     <p><img  src={Path+'images/'+settingsData.banner2}/></p>
                     <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px",fontWeight:settingsData.title_weight}}>{settingsData.second_title}</h3>
-                    <span style={{fontSize:settingsData.subtitle_font+'px',fontWeight:settingsData.subtitle_weight}}>{settingsData.title}</span> 
+                    <span style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.title}</span> 
                     <h6 style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.content}</h6>
                     <div className="row" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">

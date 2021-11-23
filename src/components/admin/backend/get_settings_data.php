@@ -107,6 +107,8 @@ $result_array['para_weight']=$fetch['para_weight'];
 $result_array['list_weight']=$fetch['list_weight'];
 $result_array['button_weight']=$fetch['button_weight'];
 $result_array['subtitle_weight']=$fetch['subtitle_weight'];
+$result_array['head_font']=$fetch['head_font'];
+$result_array['head_weight']=$fetch['head_weight'];
 $result_array['date_time']=date('Y-m-d\TH:i:s', strtotime($fetch['date_time']));
 $result_array['show_date_time']=date('M d, Y H:i:s', strtotime($fetch['date_time']));
 

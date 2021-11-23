@@ -55,6 +55,13 @@ function Settings()  {
     const list_font = useRef(null);
     const subtitle_font = useRef(null);
     const button_font = useRef(null);
+    const title_weight = useRef(null);
+    const para_weight = useRef(null);
+    const list_weight = useRef(null);
+    const subtitle_weight = useRef(null);
+    const button_weight = useRef(null);
+    const head_font = useRef(null);
+    const head_weight = useRef(null);
     const date_time = useRef(null);
 
     const first_title = useRef(null);
@@ -152,34 +159,22 @@ function Settings()  {
             setErrors('Please enter third title');		   
           }else if(content.current.value===''){
             setErrors('Please enter content');	
-          }else if((content.current.value).length>300){
-            setErrors('Maximum content for section 2 should be 300 characters.');	
           }else if(section4_title.current.value===''){
             setErrors('Please enter content');	
           }else if(section4_content.current.value===''){
             setErrors('Please enter content');	
-          }else if((section4_content.current.value).length>400){
-            setErrors('Maximum content for section 4 should be 400 characters.');	
           }else if(avatar_title.current.value===''){
             setErrors('Please enter heading for section 5');	
           }else if(sec6_heading.current.value===''){
             setErrors('Please enter heading for section 6');	
           }else if(collect_content1===''){
             setErrors('Please enter collection content1');	
-          }else if(collect_content1.length>500){
-            setErrors('Maximum collection content1 should be 500 characters.');	
           }else if(collect_content2===''){
             setErrors('Please enter collection content2');	
-          }else if(collect_content2.length>500){
-            setErrors('Maximum collection content2 should be 500 characters.');	
           }else if(collect_content3===''){
             setErrors('Please enter collection content3');	
-          }else if(collect_content3.length>500){
-            setErrors('Maximum collection content3 should be 500 characters.');	
           }else if(collect_content4===''){
             setErrors('Please enter content for section 4.');	
-          }else if(collect_content4.length>500){
-            setErrors('Maximum collection content4 should be 500 characters.');	
           }else if(sec8_heading.current.value===''){
             setErrors('Please enter heading for section 8');	
           }else if(sec8_content.current.value===''){
@@ -192,20 +187,12 @@ function Settings()  {
             setErrors('Please enter heading for section 10');	
           }else if(greatest_content===''){
             setErrors('Please enter greatest roadmap content');	
-          }else if(greatest_content.length>1800){
-            setErrors('Maximum content1 for section 10 should be 1800 characters.');	
           }else if(greatest_content1===''){
             setErrors('Please enter greatest roadmap content');	
-          }else if(greatest_content1.length>1800){
-            setErrors('Maximum content2 for section 10 should be 1800 characters.');	
           }else if(greatest_content2===''){
             setErrors('Please enter greatest roadmap content');	
-          }else if(greatest_content2.length>1800){
-            setErrors('Maximum content3 for section 10 should be 1800 characters.');	
           }else if(greatest_content3===''){
             setErrors('Please enter greatest roadmap content');	
-          }else if(greatest_content3.length>1800){
-            setErrors('Maximum content4 for section 10 should be 1800 characters.');	
           }else if(sec11_heading.current.value===''){
             setErrors('Please enter heading for section 11');	
           }else if(roadmap_per1.current.value===''){
@@ -230,44 +217,24 @@ function Settings()  {
             setErrors('Please enter roadmap percentage10');	
           }else if(roadmap_content1.current.value===''){
             setErrors('Please enter roadmap content1');	
-          }else if((roadmap_content1.current.value).length>310){
-            setErrors('Maximum roadmap content 1 should be 310 characters.');	
           }else if(roadmap_content2.current.value===''){
             setErrors('Please enter roadmap content2');	
-          }else if((roadmap_content2.current.value).length>310){
-            setErrors('Maximum roadmap content 2 should be 310 characters.');	
           }else if(roadmap_content3.current.value===''){
             setErrors('Please enter roadmap content3');	
-          }else if((roadmap_content3.current.value).length>310){
-            setErrors('Maximum roadmap content 3 should be 310 characters.');	
           }else if(roadmap_content4.current.value===''){
             setErrors('Please enter roadmap content4');	
-          }else if((roadmap_content4.current.value).length>310){
-            setErrors('Maximum roadmap content 4 should be 310 characters.');	
           }else if(roadmap_content5.current.value===''){
             setErrors('Please enter roadmap content5');	
-          }else if((roadmap_content5.current.value).length>310){
-            setErrors('Maximum roadmap content 5 should be 310 characters.');	
           }else if(roadmap_content6.current.value===''){
             setErrors('Please enter roadmap content6');	
-          }else if((roadmap_content6.current.value).length>310){
-            setErrors('Maximum roadmap content 6 should be 310 characters.');	
           }else if(roadmap_content7.current.value===''){
             setErrors('Please enter roadmap content7');	
-          }else if((roadmap_content7.current.value).length>310){
-            setErrors('Maximum roadmap content 7 should be 310 characters.');	
           }else if(roadmap_content8.current.value===''){
             setErrors('Please enter roadmap content8');	
-          }else if((roadmap_content8.current.value).length>310){
-            setErrors('Maximum roadmap content 8 should be 310 characters.');	
           }else if(roadmap_content9.current.value===''){
             setErrors('Please enter roadmap content9');	
-          }else if((roadmap_content9.current.value).length>310){
-            setErrors('Maximum roadmap content 9 should be 310 characters.');	
           }else if(roadmap_content10.current.value===''){
             setErrors('Please enter roadmap content10');	
-          }else if((roadmap_content10.current.value).length>310){
-            setErrors('Maximum roadmap content 10 should be 310 characters.');	
           }else if(sec12_heading.current.value===''){
             setErrors('Please enter heading for section 12');	
           }else if(sec12_content.current.value===''){
@@ -276,8 +243,6 @@ function Settings()  {
             setErrors('Please enter heading for section 13');	
           }else if(video_title.current.value===''){
             setErrors('Please enter video title');	
-          }else if((video_title.current.value).length>300){
-            setErrors('Maximum content for video game should be 300 characters.');	
           }else if(video_link.current.value===''){
             setErrors('Please enter video link');	
           }else if(sec14_heading.current.value===''){
@@ -300,46 +265,46 @@ function Settings()  {
             setErrors('Please enter faq question6');	
           }else if(faq_content1.current.value===''){
             setErrors('Please enter faq answer1');	
-          }else if((faq_content1.current.value).length>500){
-            setErrors('Maximum content for FAQ answer1 should be 500 characters.');	
           }else if(faq_content2.current.value===''){
             setErrors('Please enter faq answer2');	
-          }else if((faq_content2.current.value).length>500){
-            setErrors('Maximum content for FAQ answer2 should be 500 characters.');	
           }else if(faq_content3.current.value===''){
             setErrors('Please enter faq answer3');	
-          }else if((faq_content3.current.value).length>500){
-            setErrors('Maximum content for FAQ answer3 should be 500 characters.');	
           }else if(faq_content4.current.value===''){
             setErrors('Please enter faq answer4');	
-          }else if((faq_content4.current.value).length>500){
-            setErrors('Maximum content for FAQ answer4 should be 500 characters.');	
           }else if(faq_content5.current.value===''){
             setErrors('Please enter faq answer5');	
-          }else if((faq_content5.current.value).length>500){
-            setErrors('Maximum content for FAQ answer5 should be 500 characters.');	
           }else if(faq_content6.current.value===''){
             setErrors('Please enter faq answer6');	
-          }else if((faq_content6.current.value).length>500){
-            setErrors('Maximum content for FAQ answer6 should be 500 characters.');	
           }else if(sec16_heading.current.value===''){
             setErrors('Please enter heading for section 16');	
           }else if(sec17_heading.current.value===''){
             setErrors('Please enter heading for section 17');	
           }else if(crypto_cunt_content===''){
             setErrors('Please enter cryptocunt content.');	
-          }else if(crypto_cunt_content.length>300){
-            setErrors('Maximum cryptocunt content should be 300 characters.');	
+          }else if(head_font.current.value===''){
+            setErrors('Please enter font size for first heading.');	
+          }else if(head_weight.current.value===''){
+            setErrors('Please enter font weight for first heading.');	
           }else if(title_font.current.value===''){
             setErrors('Please enter font size for titles.');	
+          }else if(title_weight.current.value===''){
+            setErrors('Please enter font weight for titles.');	
           }else if(subtitle_font.current.value===''){
             setErrors('Please enter font size for subtitles.');	
+          }else if(subtitle_weight.current.value===''){
+            setErrors('Please enter font weight for subtitles.');	
           }else if(para_font.current.value===''){
             setErrors('Please enter font size for paragraphs.');	
+          }else if(para_weight.current.value===''){
+            setErrors('Please enter font weight for paragraphs.');	
           }else if(list_font.current.value===''){
             setErrors('Please enter font size for lists.');	
+          }else if(list_weight.current.value===''){
+            setErrors('Please enter font weight for lists.');	
           }else if(button_font.current.value===''){
             setErrors('Please enter font size for buttons.');	
+          }else if(button_weight.current.value===''){
+            setErrors('Please enter font weight for buttons.');	
           }else if(date_time.current.value===''){
             setErrors('Please enter date/time for countdown timer.');	
           }else {
@@ -597,6 +562,13 @@ function Settings()  {
         data.append('date_time', date_time.current.value);
         data.append('subtitle_font', subtitle_font.current.value);
         data.append('button_font', button_font.current.value);
+        data.append('title_weight', title_weight.current.value);
+        data.append('para_weight', para_weight.current.value);
+        data.append('list_weight', list_weight.current.value);
+        data.append('subtitle_weight', subtitle_weight.current.value);
+        data.append('button_weight', button_weight.current.value);
+        data.append('head_font', head_font.current.value);
+        data.append('head_weight', head_weight.current.value);
         data.append('token', localStorage.getItem('token'));
         if(handleValidation()){	
             setLoader(true);
@@ -781,6 +753,13 @@ function Settings()  {
                 date_time.current.value=response.updated_data.date_time;
                 subtitle_font.current.value=response.updated_data.subtitle_font;
                 button_font.current.value=response.updated_data.button_font;
+                title_weight.current.value=response.updated_data.title_weight;
+                para_weight.current.value=response.updated_data.para_weight;
+                list_weight.current.value=response.updated_data.list_weight;
+                subtitle_weight.current.value=response.updated_data.subtitle_weight;
+                button_weight.current.value=response.updated_data.button_weight;
+                head_font.current.value=response.updated_data.head_font;
+                head_weight.current.value=response.updated_data.head_weight;
 			}
 		)		
 	}
@@ -1523,30 +1502,84 @@ function Settings()  {
                         <div className="settings_div">
                             <h4>Change font size</h4>
                             <form>
-                                <div className="settings_form_data">
-                                    <label>Titles font size (In px)</label>
-                                    <input type="number" className="form-control" ref={title_font}></input>
-                                </div>
-                                <div className="settings_form_data">
-                                    <label>Sub titles font size (In px)</label>
-                                    <input type="number" className="form-control" ref={subtitle_font}></input>
-                                </div>
-                                <div className="settings_form_data">
-                                    <label>Paragraphs font size (In px)</label>
-                                    <input type="number" className="form-control" ref={para_font}></input>
-                                </div>
-                                <div className="settings_form_data">
-                                    <label>Lists font size (In px)</label>
-                                    <input type="number" className="form-control" ref={list_font}></input>
-                                </div>
-                                <div className="settings_form_data">
-                                    <label>Font size for buttons (In px)</label>
-                                    <input type="number" className="form-control" ref={button_font}></input>
-                                </div>
-                                <div className="settings_form_data">
-                                    <label>Date/Time for countdown timer</label>
-                                    <input type="datetime-local" className="form-control" ref={date_time}></input>
-                                </div>
+                                <div className="row" style={{width:"100%",margin:"0"}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>First heading font size (In px)</label>
+                                            <input type="number" className="form-control" ref={head_font}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Font weight for first heading (Ex. 100, 200)</label>
+                                            <input type="number" className="form-control" ref={head_weight}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Titles font size (In px)</label>
+                                            <input type="number" className="form-control" ref={title_font}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Font weight for titles (Ex. 100, 200)</label>
+                                            <input type="number" className="form-control" ref={title_weight}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Sub titles font size (In px)</label>
+                                            <input type="number" className="form-control" ref={subtitle_font}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Font weight for subtitles (Ex. 100, 200)</label>
+                                            <input type="number" className="form-control" ref={subtitle_weight}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Paragraphs font size (In px)</label>
+                                            <input type="number" className="form-control" ref={para_font}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Font weight for paragraphs (Ex. 100, 200)</label>
+                                            <input type="number" className="form-control" ref={para_weight}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Lists font size (In px)</label>
+                                            <input type="number" className="form-control" ref={list_font}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Font weight for lists (Ex. 100, 200)</label>
+                                            <input type="number" className="form-control" ref={list_weight}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Font size for buttons (In px)</label>
+                                            <input type="number" className="form-control" ref={button_font}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="settings_form_data">
+                                            <label>Font weight for buttons (Ex. 100, 200)</label>
+                                            <input type="number" className="form-control" ref={button_weight}></input>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label>Date/Time for countdown timer</label>
+                                        <input type="datetime-local" className="form-control" ref={date_time}></input>
+                                    </div>
+                                </div>    
                             </form>
                         </div>
                     </div>
