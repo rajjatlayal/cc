@@ -121,6 +121,12 @@ function Settings()  {
     const [ greatest_content2,setGreatestContent2] = useState('');
     const [ greatest_content3,setGreatestContent3] = useState('');
     const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
+    
+    const [ gods_img,setGodsImage] = useState('');
+    const [ ape_img,setApeImg] = useState('');
+    const [ famous_img,setFamousImage] = useState('');
+    // const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
+
     //const [ give_content,setGiveContent] = useState('');
 	const [Opacity, setOpacity] = useState('1');
 	const [PointerEvents, setPointerEvents] = useState('');
@@ -1444,56 +1450,134 @@ function Settings()  {
                             </form>
                         </div>
                     </div>
-                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div" style={{paddingBottom:"124px"}}>
                             <h4>Update section 15</h4>
-                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <label className="form_label">Heading</label>
-                                <textarea className="form-control" ref={sec16_heading} style={{height:"50px"}}></textarea>
+                            <div className="row" style={{width:"100%",margin:"0"}}> 
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label className="form_label">Heading</label>
+                                    <textarea className="form-control" ref={sec16_heading} style={{height:"50px"}}></textarea>
+                                    <form>
+                                        <div className="settings_form_data toggle_icons">
+                                            <p><span className="toggle_name">CryptoCunts</span> <span onClick={changeCryptoCunt} className="toggle_icon">
+                                                {cryptocunt ?
+                                                (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                            </span></p>
+                                            <p><span className="toggle_name">Evolved</span> <span onClick={changeEvolved} className="toggle_icon">
+                                                {evolved ?
+                                                (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                            </span></p>
+                                            <p><span className="toggle_name">Anonymous Ape</span> <span onClick={changeApe} className="toggle_icon">
+                                                {ape ?
+                                                (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                            </span></p>
+                                            <p><span className="toggle_name">Famous CryptoCunt</span> <span onClick={changeFamous} className="toggle_icon">
+                                                {famous ?
+                                                (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                            </span></p>
+                                            <p><span className="toggle_name">CryptoCunt Gods</span> <span onClick={changeGods} className="toggle_icon">
+                                                {gods ?
+                                                (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                            </span></p>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div style={{marginTop:"12px"}}>
+                                        <h4>Change Image & Content for cryptocunts</h4>
+                                        {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label className="form_label">Heading</label>
+                                            <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
+                                        </div> */}
+                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                            </div>
+                                            <div>
+                                                <label>Content</label>
+                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div style={{marginTop:"12px"}}>
+                                        <h4>Change Image & Content for evolved</h4>
+                                        {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label className="form_label">Heading</label>
+                                            <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
+                                        </div> */}
+                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                            </div>
+                                            <div>
+                                                <label>Content</label>
+                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div style={{marginTop:"12px"}}>
+                                        <h4>Change Image & Content for anonymous ape</h4>
+                                        {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label className="form_label">Heading</label>
+                                            <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
+                                        </div> */}
+                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                            </div>
+                                            <div>
+                                                <label>Content</label>
+                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div style={{marginTop:"12px"}}>
+                                        <h4>Change Image & Content for famous cryptoCunt</h4>
+                                        {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label className="form_label">Heading</label>
+                                            <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
+                                        </div> */}
+                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                            </div>
+                                            <div>
+                                                <label>Content</label>
+                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div style={{marginTop:"12px"}}>
+                                        <h4>Change Image & Content for cryptoCunt gods</h4>
+                                        {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label className="form_label">Heading</label>
+                                            <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
+                                        </div> */}
+                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <form>
+                                            <div className="settings_form_data">
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                            </div>
+                                            <div>
+                                                <label>Content</label>
+                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <form>
-                                <div className="settings_form_data toggle_icons">
-                                    <p><span className="toggle_name">CryptoCunts</span> <span onClick={changeCryptoCunt} className="toggle_icon">
-                                        {cryptocunt ?
-                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
-                                    </span></p>
-                                    <p><span className="toggle_name">Evolved</span> <span onClick={changeEvolved} className="toggle_icon">
-                                        {evolved ?
-                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
-                                    </span></p>
-                                    <p><span className="toggle_name">Anonymous Ape</span> <span onClick={changeApe} className="toggle_icon">
-                                        {ape ?
-                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
-                                    </span></p>
-                                    <p><span className="toggle_name">Famous CryptoCunt</span> <span onClick={changeFamous} className="toggle_icon">
-                                        {famous ?
-                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
-                                    </span></p>
-                                    <p><span className="toggle_name">CryptoCunt Gods</span> <span onClick={changeGods} className="toggle_icon">
-                                        {gods ?
-                                        (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
-                                    </span></p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <div className="settings_div">
-                            <h4>Update section 16</h4>
-                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <label className="form_label">Heading</label>
-                                <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
-                            </div> */}
-                            <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
-                            <form>
-                                <div className="settings_form_data">
-                                    <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
-                                </div>
-                                <div>
-                                    <label>Content</label>
-                                    <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
-                                </div>
-                            </form>
                         </div>
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">

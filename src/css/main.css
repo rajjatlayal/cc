@@ -899,6 +899,7 @@ ul.tl li .timestamp {
 }
 .settings_form_data {
   display: grid;
+  
 }
 .fourth_section .p-2 {
   color: #72f595;
@@ -918,10 +919,14 @@ img.cent-img {
 .col-12.right_banner {
   background-color: #000 !important;
   /* background-image: url("E:\Clients\Octavius new\cc\src\02.png"); */
-  background-position: center center;
+  /* background-position: center center;
   background-repeat: no-repeat;
   padding-bottom: 40%;
-  background-position-x: 80%;
+  background-position-x: 80%; */
+  min-height: 400px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .line2.arrow-right {
   flex-grow: 1;
@@ -1013,12 +1018,12 @@ p.p4 img {
   }
   .right_banner {
     background-color: #000000;
-    /* background-image: url("E:\Clients\Octavius new\cc\src\02.png"); */
+    /* background-image: url("E:\Clients\Octavius new\cc\src\02.png");
     background-position: center center;
     background-repeat: no-repeat;
     padding-bottom: 20%;
     background-position-x: 90%;
-    padding-top: 56%;
+    padding-top: 56%; */
   }
   .login_left_div {
     padding-left: 0 !important;
@@ -1283,9 +1288,9 @@ px
     margin: 0;
     padding-left: 20px;
   }
-  .right_banner {
+  /* .right_banner {
     background-position-x: 90% !important;
-  }
+  } */
   .p-3 {
     text-align: center;
     margin-top: 100px;
@@ -1372,10 +1377,10 @@ px
     height: 300px;
     margin-bottom: 50px;
   }
-  .right_banner {
+  /* .right_banner {
     background-position-x: 90% !important;
     padding-bottom: 58% !important;
-  }
+  } */
   .section1_img img {
     margin-bottom: 20px;
   }
@@ -1443,10 +1448,10 @@ px
     height: 200px;
     margin-bottom: 50px;
   }
-  .right_banner {
+  /* .right_banner {
     background-position-x: 90% !important;
     padding-bottom: 36% !important;
-  }
+  } */
   .third_section .row div img {
     width: 100%;
   }
@@ -1506,6 +1511,10 @@ h2.hire_us {
 }
 .toggle_icon {
   cursor: pointer;
+  
+}.toggle_icons{
+  margin-top: 16px;
+  display: inline-flex;
 }
 .d-none {
   display: none;
@@ -1548,9 +1557,9 @@ h2.hire_us {
   .third_section .col-xl-5 {
     width: 48%;
   }
-  .col-12.right_banner {
+  /* .col-12.right_banner {
     background-position-x: 70% !important;
-  }
+  } */
 }
 .twelth_section img {
   width: 100%;
