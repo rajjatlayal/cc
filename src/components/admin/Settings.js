@@ -1445,7 +1445,7 @@ function Settings()  {
                         </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <div className="settings_div" style={{paddingBottom:"198px"}}>
+                        <div className="settings_div" style={{paddingBottom:"124px"}}>
                             <h4>Update section 15</h4>
                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label className="form_label">Heading</label>
