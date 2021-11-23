@@ -83,6 +83,11 @@ $faq_content4=mysqli_real_escape_string($conn,$_POST['faq_content4']);
 $faq_content5=mysqli_real_escape_string($conn,$_POST['faq_content5']);
 $faq_content6=mysqli_real_escape_string($conn,$_POST['faq_content6']);
 $cryptocunt_content=mysqli_real_escape_string($conn,$_POST['cryptocunt_content']);
+$ape_content=mysqli_real_escape_string($conn,$_POST['ape_content']);
+$famous_content=mysqli_real_escape_string($conn,$_POST['famous_content']);
+$gods_content=mysqli_real_escape_string($conn,$_POST['gods_content']);
+$evolved_content=mysqli_real_escape_string($conn,$_POST['evolved_content']);
+
 $title_font=$_POST['title_font'];
 $para_font=$_POST['para_font'];
 $list_font=$_POST['list_font'];
@@ -431,8 +436,48 @@ if($_FILES['sec14_img']['size']!=0){
 	$gen_name26=$_FILES['sec14_img']['name'];
 	$query=mysqli_query($conn,"update settings set sec14_img='$gen_name26' where id=$id");
 }
+if($_FILES['ape_img']['size']!=0){
+	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+	// $fetch12=mysqli_fetch_assoc($query12);
+	// if($fetch12['give_img2']!=''){
+	// 	unlink('images/'.$fetch12['give_img2']);
+	// }
+	move_uploaded_file($_FILES['ape_img']["tmp_name"], "images/".$_FILES['ape_img']['name']);
+	$gen_name26=$_FILES['ape_img']['name'];
+	$query=mysqli_query($conn,"update settings set ape_img='$gen_name26' where id=$id");
+}
+if($_FILES['famous_img']['size']!=0){
+	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+	// $fetch12=mysqli_fetch_assoc($query12);
+	// if($fetch12['give_img2']!=''){
+	// 	unlink('images/'.$fetch12['give_img2']);
+	// }
+	move_uploaded_file($_FILES['famous_img']["tmp_name"], "images/".$_FILES['famous_img']['name']);
+	$gen_name26=$_FILES['famous_img']['name'];
+	$query=mysqli_query($conn,"update settings set famous_img='$gen_name26' where id=$id");
+}
+if($_FILES['evolved_img']['size']!=0){
+	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+	// $fetch12=mysqli_fetch_assoc($query12);
+	// if($fetch12['give_img2']!=''){
+	// 	unlink('images/'.$fetch12['give_img2']);
+	// }
+	move_uploaded_file($_FILES['evolved_img']["tmp_name"], "images/".$_FILES['evolved_img']['name']);
+	$gen_name26=$_FILES['evolved_img']['name'];
+	$query=mysqli_query($conn,"update settings set evolved_img='$gen_name26' where id=$id");
+}
+if($_FILES['gods_img']['size']!=0){
+	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+	// $fetch12=mysqli_fetch_assoc($query12);
+	// if($fetch12['give_img2']!=''){
+	// 	unlink('images/'.$fetch12['give_img2']);
+	// }
+	move_uploaded_file($_FILES['gods_img']["tmp_name"], "images/".$_FILES['gods_img']['name']);
+	$gen_name26=$_FILES['gods_img']['name'];
+	$query=mysqli_query($conn,"update settings set gods_img='$gen_name26' where id=$id");
+}
 
-$query=mysqli_query($conn,"update settings set title='$title',content='$content',roadmap_per1='$roadmap_per1',roadmap_per2='$roadmap_per2',roadmap_per3='$roadmap_per3',roadmap_per4='$roadmap_per4',roadmap_per5='$roadmap_per5',roadmap_per6='$roadmap_per6',roadmap_per7='$roadmap_per7',roadmap_per8='$roadmap_per8',roadmap_per9='$roadmap_per9',roadmap_per10='$roadmap_per10',roadmap_content1='$roadmap_content1',roadmap_content2='$roadmap_content2',roadmap_content3='$roadmap_content3',roadmap_content4='$roadmap_content4',roadmap_content5='$roadmap_content5',roadmap_content6='$roadmap_content6',roadmap_content7='$roadmap_content7',roadmap_content8='$roadmap_content8',roadmap_content9='$roadmap_content9',roadmap_content10='$roadmap_content10',video_title='$video_title',video_link='$video_link',faq_title1='$faq_title1',faq_title2='$faq_title2',faq_title3='$faq_title3',faq_title4='$faq_title4',faq_title5='$faq_title5',faq_title6='$faq_title6',faq_content1='$faq_content1',faq_content2='$faq_content2',faq_content3='$faq_content3',faq_content4='$faq_content4',faq_content5='$faq_content5', faq_content6='$faq_content6',collect_content1='$collect_content1',collect_content2='$collect_content2',collect_content3='$collect_content3',collect_content4='$collect_content4',greatest_content='$greatest_content',greatest_content1='$greatest_content1',greatest_content2='$greatest_content2',greatest_content3='$greatest_content3',social_discord='$discord',social_instagram='$instagram',social_twitter='$twitter',section4_title='$section4_title',section4_content='$section4_content',cryptocunt_content='$cryptocunt_content',CryptoCunts='$cryptocunt',Evolved='$evolved',AnonymousApe='$ape',FamousCryptoCunt='$famous',CryptoCuntGods='$gods',title_font='$title_font',para_font='$para_font',list_font='$list_font',date_time='$date_time',button_font='$button_font',subtitle_font='$subtitle_font',first_title='$first_title',second_title='$second_title',avatar_title='$avatar_title',sec6_heading='$sec6_heading',sec10_heading='$sec10_heading',sec11_heading='$sec11_heading',sec13_heading='$sec13_heading',sec15_heading='$sec15_heading',sec16_heading='$sec16_heading',sec8_heading='$sec8_heading',sec8_content='$sec8_content',sec9_heading='$sec9_heading',sec9_content='$sec9_content',sec12_heading='$sec12_heading',sec12_content='$sec12_content',sec14_heading='$sec14_heading',sec14_content='$sec14_content',text_under10='$text_under10',title_weight='$title_weight',para_weight='$para_weight',list_weight='$list_weight',button_weight='$button_weight',subtitle_weight='$subtitle_weight',head_font='$head_font',head_weight='$head_weight' where id=$id");
+$query=mysqli_query($conn,"update settings set title='$title',content='$content',roadmap_per1='$roadmap_per1',roadmap_per2='$roadmap_per2',roadmap_per3='$roadmap_per3',roadmap_per4='$roadmap_per4',roadmap_per5='$roadmap_per5',roadmap_per6='$roadmap_per6',roadmap_per7='$roadmap_per7',roadmap_per8='$roadmap_per8',roadmap_per9='$roadmap_per9',roadmap_per10='$roadmap_per10',roadmap_content1='$roadmap_content1',roadmap_content2='$roadmap_content2',roadmap_content3='$roadmap_content3',roadmap_content4='$roadmap_content4',roadmap_content5='$roadmap_content5',roadmap_content6='$roadmap_content6',roadmap_content7='$roadmap_content7',roadmap_content8='$roadmap_content8',roadmap_content9='$roadmap_content9',roadmap_content10='$roadmap_content10',video_title='$video_title',video_link='$video_link',faq_title1='$faq_title1',faq_title2='$faq_title2',faq_title3='$faq_title3',faq_title4='$faq_title4',faq_title5='$faq_title5',faq_title6='$faq_title6',faq_content1='$faq_content1',faq_content2='$faq_content2',faq_content3='$faq_content3',faq_content4='$faq_content4',faq_content5='$faq_content5', faq_content6='$faq_content6',collect_content1='$collect_content1',collect_content2='$collect_content2',collect_content3='$collect_content3',collect_content4='$collect_content4',greatest_content='$greatest_content',greatest_content1='$greatest_content1',greatest_content2='$greatest_content2',greatest_content3='$greatest_content3',social_discord='$discord',social_instagram='$instagram',social_twitter='$twitter',section4_title='$section4_title',section4_content='$section4_content',cryptocunt_content='$cryptocunt_content',CryptoCunts='$cryptocunt',Evolved='$evolved',AnonymousApe='$ape',FamousCryptoCunt='$famous',CryptoCuntGods='$gods',title_font='$title_font',para_font='$para_font',list_font='$list_font',date_time='$date_time',button_font='$button_font',subtitle_font='$subtitle_font',first_title='$first_title',second_title='$second_title',avatar_title='$avatar_title',sec6_heading='$sec6_heading',sec10_heading='$sec10_heading',sec11_heading='$sec11_heading',sec13_heading='$sec13_heading',sec15_heading='$sec15_heading',sec16_heading='$sec16_heading',sec8_heading='$sec8_heading',sec8_content='$sec8_content',sec9_heading='$sec9_heading',sec9_content='$sec9_content',sec12_heading='$sec12_heading',sec12_content='$sec12_content',sec14_heading='$sec14_heading',sec14_content='$sec14_content',text_under10='$text_under10',title_weight='$title_weight',para_weight='$para_weight',list_weight='$list_weight',button_weight='$button_weight',subtitle_weight='$subtitle_weight',head_font='$head_font',head_weight='$head_weight',ape_content='$ape_content',famous_content='$famous_content',gods_content='$gods_content',evolved_content='$evolved_content' where id=$id");
 
 if($query){
 	$result_array['success']='Data updated successfully.';

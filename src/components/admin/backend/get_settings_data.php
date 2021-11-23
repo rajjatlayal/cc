@@ -137,5 +137,14 @@ $result_array['sec9_img']=$fetch['sec9_img'];
 $result_array['sec12_img']=$fetch['sec12_img'];
 $result_array['sec14_img']=$fetch['sec14_img'];
 
+$result_array['evolved_content']=$fetch['evolved_content'];
+$result_array['ape_content']=$fetch['ape_content'];
+$result_array['famous_content']=$fetch['famous_content'];
+$result_array['gods_content']=$fetch['gods_content'];
+$result_array['evolved_img']=$fetch['evolved_img'];
+$result_array['ape_img']=$fetch['ape_img'];
+$result_array['famous_img']=$fetch['famous_img'];
+$result_array['gods_img']=$fetch['gods_img'];
+
 $result = array('updated_data' => $result_array);
 echo json_encode($result);

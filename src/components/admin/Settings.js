@@ -649,6 +649,10 @@ function Settings()  {
                 setSec9Img('');
                 setSec12Img('');
                 setSec14Img('');
+                setFamousImg('');
+                setApeImg('');
+                setGodsImg('');
+                setEvolvedImg('');
                 show_notification(response.notifications);
                 }
             )
@@ -751,6 +755,10 @@ function Settings()  {
                 setGreatestContent1(response.updated_data.greatest_content1);
                 setGreatestContent2(response.updated_data.greatest_content2);
                 setGreatestContent3(response.updated_data.greatest_content3);
+                setFamousContent(response.updated_data.famous_content);
+                setApeContent(response.updated_data.ape_content);
+                setGodsContent(response.updated_data.gods_content);
+                setEvolvedContent(response.updated_data.evolved_content);
                 //setGiveContent(response.updated_data.give_content);
                 setCryptoCuntContent(response.updated_data.crypto_cunt_content);
                 roadmap_per1.current.value=response.updated_data.roadmap_per1;
@@ -1544,14 +1552,14 @@ function Settings()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <img src={Path+'images/'+settingsData.evolved_img} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
-                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeEvolvedImg}></input>
                                             </div>
                                             <div>
                                                 <label>Content</label>
-                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                                <ReactQuill value={evolved_content} onChange={changeEvolvedContent}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1563,14 +1571,14 @@ function Settings()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <img src={Path+'images/'+settingsData.ape_img} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
-                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeApeImg}></input>
                                             </div>
                                             <div>
                                                 <label>Content</label>
-                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                                <ReactQuill value={ape_content} onChange={changeApeContent}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1582,14 +1590,14 @@ function Settings()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <img src={Path+'images/'+settingsData.famous_img} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
-                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeFamousImg}></input>
                                             </div>
                                             <div>
                                                 <label>Content</label>
-                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                                <ReactQuill value={famous_content} onChange={changeFamousContent}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
@@ -1601,14 +1609,14 @@ function Settings()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <img src={Path+'images/'+settingsData.gods_img} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
-                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGodsImg}></input>
                                             </div>
                                             <div>
                                                 <label>Content</label>
-                                                <ReactQuill value={crypto_cunt_content} onChange={changeCryptoCuntContent}  style={{color:"black"}} />
+                                                <ReactQuill value={gods_content} onChange={changeGodsContent}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>

@@ -425,40 +425,40 @@ function Home()  {
                             <div className={active_class==='evolved' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Evolved</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.crypto_cunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.crypto_cunt_img} /></p>
+                                        <p><img src={Path+'images/'+settingsData.evolved_img} /></p>
                                     </div>
                                 </div>
                             </div>
                             <div className={active_class==='ape' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Anonymous Ape</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.crypto_cunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.crypto_cunt_img} /></p>
+                                        <p><img src={Path+'images/'+settingsData.ape_img} /></p>
                                     </div>
                                 </div>
                             </div>
                             <div className={active_class==='famous' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Famous CryptoCunt</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.crypto_cunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.crypto_cunt_img} /></p>
+                                        <p><img src={Path+'images/'+settingsData.famous_img} /></p>
                                     </div>
                                 </div>
                             </div>
                             <div className={active_class==='gods' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunt Gods</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.crypto_cunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.crypto_cunt_img} /></p>
+                                        <p><img src={Path+'images/'+settingsData.gods_img} /></p>
                                     </div>
                                 </div>
                             </div>
