@@ -13,7 +13,7 @@ $first_title=mysqli_real_escape_string($conn,$_POST['first_title']);
 $second_title=mysqli_real_escape_string($conn,$_POST['second_title']);
 $avatar_title=mysqli_real_escape_string($conn,$_POST['avatar_title']);
 $sec6_heading=mysqli_real_escape_string($conn,$_POST['sec6_heading']);
-$sec7_heading=mysqli_real_escape_string($conn,$_POST['sec7_heading']);
+//$sec7_heading=mysqli_real_escape_string($conn,$_POST['sec7_heading']);
 $sec10_heading=mysqli_real_escape_string($conn,$_POST['sec10_heading']);
 $sec11_heading=mysqli_real_escape_string($conn,$_POST['sec11_heading']);
 $sec13_heading=mysqli_real_escape_string($conn,$_POST['sec13_heading']);
@@ -33,10 +33,10 @@ $text_under10=mysqli_real_escape_string($conn,$_POST['text_under10']);
 
 $title=$_POST['title'];
 $content=mysqli_real_escape_string($conn,$_POST['content']);
-$collect_title1=$_POST['collect_title1'];
-$collect_title2=$_POST['collect_title2'];
-$collect_title3=$_POST['collect_title3'];
-$collect_title4=$_POST['collect_title4'];
+// $collect_title1=$_POST['collect_title1'];
+// $collect_title2=$_POST['collect_title2'];
+// $collect_title3=$_POST['collect_title3'];
+// $collect_title4=$_POST['collect_title4'];
 $collect_content1=mysqli_real_escape_string($conn,$_POST['collect_content1']);
 $collect_content2=mysqli_real_escape_string($conn,$_POST['collect_content2']);
 $collect_content3=mysqli_real_escape_string($conn,$_POST['collect_content3']);
@@ -47,7 +47,7 @@ $greatest_content2=mysqli_real_escape_string($conn,$_POST['greatest_content2']);
 $greatest_content3=mysqli_real_escape_string($conn,$_POST['greatest_content3']);
 $section4_title=mysqli_real_escape_string($conn,$_POST['section4_title']);
 $section4_content=mysqli_real_escape_string($conn,$_POST['section4_content']);
-$give_content=mysqli_real_escape_string($conn,$_POST['give_content']);
+//$give_content=mysqli_real_escape_string($conn,$_POST['give_content']);
 $roadmap_per1=$_POST['roadmap_per1'];
 $roadmap_per2=$_POST['roadmap_per2'];
 $roadmap_per3=$_POST['roadmap_per3'];
@@ -459,74 +459,74 @@ if($_FILES['crypto_cunt_img']['size']!=0){
 
 	$query=mysqli_query($conn,"update settings set crypto_cunt_img='$gen_name19' where id=$id");
 }
-if($_FILES['section4_img']['size']!=0){
-	// $query12=mysqli_query($conn,"select section4_img from settings where id='$id'");
-	// $fetch12=mysqli_fetch_assoc($query12);
-	// if($fetch12['section4_img']!=''){
-	// 	unlink('images/'.$fetch12['section4_img']);
-	// }
+// if($_FILES['section4_img']['size']!=0){
+// 	// $query12=mysqli_query($conn,"select section4_img from settings where id='$id'");
+// 	// $fetch12=mysqli_fetch_assoc($query12);
+// 	// if($fetch12['section4_img']!=''){
+// 	// 	unlink('images/'.$fetch12['section4_img']);
+// 	// }
 
-	$date = date('Y-m-d h:i:s a', time());
-	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
-	$get_number = $d->getTimestamp();
-	$extension = strtolower(pathinfo($_FILES['section4_img']['name'], PATHINFO_EXTENSION));
-	$target_file = "images/".$get_number.".".$extension;
-	move_uploaded_file($_FILES['section4_img']["tmp_name"], "images/".$get_number.".".$extension);
-	$gen_name20=$get_number.".".$extension;
+// 	$date = date('Y-m-d h:i:s a', time());
+// 	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
+// 	$get_number = $d->getTimestamp();
+// 	$extension = strtolower(pathinfo($_FILES['section4_img']['name'], PATHINFO_EXTENSION));
+// 	$target_file = "images/".$get_number.".".$extension;
+// 	move_uploaded_file($_FILES['section4_img']["tmp_name"], "images/".$get_number.".".$extension);
+// 	$gen_name20=$get_number.".".$extension;
 
-	$query=mysqli_query($conn,"update settings set section4_img='$gen_name20' where id=$id");
-}
-if($_FILES['give_img1']['size']!=0){
-	// $query12=mysqli_query($conn,"select give_img1 from settings where id='$id'");
-	// $fetch12=mysqli_fetch_assoc($query12);
-	// if($fetch12['give_img1']!=''){
-	// 	unlink('images/'.$fetch12['give_img1']);
-	// }
+// 	$query=mysqli_query($conn,"update settings set section4_img='$gen_name20' where id=$id");
+// }
+// if($_FILES['give_img1']['size']!=0){
+// 	// $query12=mysqli_query($conn,"select give_img1 from settings where id='$id'");
+// 	// $fetch12=mysqli_fetch_assoc($query12);
+// 	// if($fetch12['give_img1']!=''){
+// 	// 	unlink('images/'.$fetch12['give_img1']);
+// 	// }
 
-	$date = date('Y-m-d h:i:s a', time());
-	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
-	$get_number = $d->getTimestamp();
-	$extension = strtolower(pathinfo($_FILES['give_img1']['name'], PATHINFO_EXTENSION));
-	$target_file = "images/".$get_number.".".$extension;
-	move_uploaded_file($_FILES['give_img1']["tmp_name"], "images/".$get_number.".".$extension);
-	$gen_name21=$get_number.".".$extension;
+// 	$date = date('Y-m-d h:i:s a', time());
+// 	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
+// 	$get_number = $d->getTimestamp();
+// 	$extension = strtolower(pathinfo($_FILES['give_img1']['name'], PATHINFO_EXTENSION));
+// 	$target_file = "images/".$get_number.".".$extension;
+// 	move_uploaded_file($_FILES['give_img1']["tmp_name"], "images/".$get_number.".".$extension);
+// 	$gen_name21=$get_number.".".$extension;
 
-	$query=mysqli_query($conn,"update settings set give_img1='$gen_name21' where id=$id");
-}
-if($_FILES['give_img3']['size']!=0){
-	// $query12=mysqli_query($conn,"select give_img3 from settings where id='$id'");
-	// $fetch12=mysqli_fetch_assoc($query12);
-	// if($fetch12['give_img3']!=''){
-	// 	unlink('images/'.$fetch12['give_img3']);
-	// }
+// 	$query=mysqli_query($conn,"update settings set give_img1='$gen_name21' where id=$id");
+// }
+// if($_FILES['give_img3']['size']!=0){
+// 	// $query12=mysqli_query($conn,"select give_img3 from settings where id='$id'");
+// 	// $fetch12=mysqli_fetch_assoc($query12);
+// 	// if($fetch12['give_img3']!=''){
+// 	// 	unlink('images/'.$fetch12['give_img3']);
+// 	// }
 
-	$date = date('Y-m-d h:i:s a', time());
-	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
-	$get_number = $d->getTimestamp();
-	$extension = strtolower(pathinfo($_FILES['give_img3']['name'], PATHINFO_EXTENSION));
-	$target_file = "images/".$get_number.".".$extension;
-	move_uploaded_file($_FILES['give_img3']["tmp_name"], "images/".$get_number.".".$extension);
-	$gen_name22=$get_number.".".$extension;
+// 	$date = date('Y-m-d h:i:s a', time());
+// 	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
+// 	$get_number = $d->getTimestamp();
+// 	$extension = strtolower(pathinfo($_FILES['give_img3']['name'], PATHINFO_EXTENSION));
+// 	$target_file = "images/".$get_number.".".$extension;
+// 	move_uploaded_file($_FILES['give_img3']["tmp_name"], "images/".$get_number.".".$extension);
+// 	$gen_name22=$get_number.".".$extension;
 
-	$query=mysqli_query($conn,"update settings set give_img3='$gen_name22' where id=$id");
-}
-if($_FILES['give_img2']['size']!=0){
-	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
-	// $fetch12=mysqli_fetch_assoc($query12);
-	// if($fetch12['give_img2']!=''){
-	// 	unlink('images/'.$fetch12['give_img2']);
-	// }
+// 	$query=mysqli_query($conn,"update settings set give_img3='$gen_name22' where id=$id");
+// }
+// if($_FILES['give_img2']['size']!=0){
+// 	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
+// 	// $fetch12=mysqli_fetch_assoc($query12);
+// 	// if($fetch12['give_img2']!=''){
+// 	// 	unlink('images/'.$fetch12['give_img2']);
+// 	// }
 
-	$date = date('Y-m-d h:i:s a', time());
-	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
-	$get_number = $d->getTimestamp();
-	$extension = strtolower(pathinfo($_FILES['give_img2']['name'], PATHINFO_EXTENSION));
-	$target_file = "images/".$get_number.".".$extension;
-	move_uploaded_file($_FILES['give_img2']["tmp_name"], "images/".$get_number.".".$extension);
-	$gen_name23=$get_number.".".$extension;
+// 	$date = date('Y-m-d h:i:s a', time());
+// 	$d = DateTime::createFromFormat('Y-m-d h:i:s a', $date);
+// 	$get_number = $d->getTimestamp();
+// 	$extension = strtolower(pathinfo($_FILES['give_img2']['name'], PATHINFO_EXTENSION));
+// 	$target_file = "images/".$get_number.".".$extension;
+// 	move_uploaded_file($_FILES['give_img2']["tmp_name"], "images/".$get_number.".".$extension);
+// 	$gen_name23=$get_number.".".$extension;
 
-	$query=mysqli_query($conn,"update settings set give_img2='$gen_name23' where id=$id");
-}
+// 	$query=mysqli_query($conn,"update settings set give_img2='$gen_name23' where id=$id");
+// }
 if($_FILES['sec9_img']['size']!=0){
 	// $query12=mysqli_query($conn,"select give_img2 from settings where id='$id'");
 	// $fetch12=mysqli_fetch_assoc($query12);
@@ -583,7 +583,7 @@ if($_FILES['sec14_img']['size']!=0){
 
 
 
-$query=mysqli_query($conn,"update settings set title='$title',content='$content',collect_title1='$collect_title1',collect_title2='$collect_title2',collect_title3='$collect_title3',collect_title4='$collect_title4',roadmap_per1='$roadmap_per1',roadmap_per2='$roadmap_per2',roadmap_per3='$roadmap_per3',roadmap_per4='$roadmap_per4',roadmap_per5='$roadmap_per5',roadmap_per6='$roadmap_per6',roadmap_per7='$roadmap_per7',roadmap_per8='$roadmap_per8',roadmap_per9='$roadmap_per9',roadmap_per10='$roadmap_per10',roadmap_content1='$roadmap_content1',roadmap_content2='$roadmap_content2',roadmap_content3='$roadmap_content3',roadmap_content4='$roadmap_content4',roadmap_content5='$roadmap_content5',roadmap_content6='$roadmap_content6',roadmap_content7='$roadmap_content7',roadmap_content8='$roadmap_content8',roadmap_content9='$roadmap_content9',roadmap_content10='$roadmap_content10',video_title='$video_title',video_link='$video_link',faq_title1='$faq_title1',faq_title2='$faq_title2',faq_title3='$faq_title3',faq_title4='$faq_title4',faq_title5='$faq_title5',faq_title6='$faq_title6',faq_content1='$faq_content1',faq_content2='$faq_content2',faq_content3='$faq_content3',faq_content4='$faq_content4',faq_content5='$faq_content5', faq_content6='$faq_content6',collect_content1='$collect_content1',collect_content2='$collect_content2',collect_content3='$collect_content3',collect_content4='$collect_content4',greatest_content='$greatest_content',greatest_content1='$greatest_content1',greatest_content2='$greatest_content2',greatest_content3='$greatest_content3',social_discord='$discord',social_instagram='$instagram',social_twitter='$twitter',section4_title='$section4_title',section4_content='$section4_content',give_content='$give_content',cryptocunt_content='$cryptocunt_content',CryptoCunts='$cryptocunt',Evolved='$evolved',AnonymousApe='$ape',FamousCryptoCunt='$famous',CryptoCuntGods='$gods',title_font='$title_font',para_font='$para_font',list_font='$list_font',date_time='$date_time',button_font='$button_font',subtitle_font='$subtitle_font',first_title='$first_title',second_title='$second_title',avatar_title='$avatar_title',sec6_heading='$sec6_heading',sec7_heading='$sec7_heading',sec10_heading='$sec10_heading',sec11_heading='$sec11_heading',sec13_heading='$sec13_heading',sec15_heading='$sec15_heading',sec16_heading='$sec16_heading',sec17_heading='$sec17_heading',sec8_heading='$sec8_heading',sec8_content='$sec8_content',sec9_heading='$sec9_heading',sec9_content='$sec9_content',sec12_heading='$sec12_heading',sec12_content='$sec12_content',sec14_heading='$sec14_heading',sec14_content='$sec14_content',text_under10='$text_under10' where id=$id");
+$query=mysqli_query($conn,"update settings set title='$title',content='$content',roadmap_per1='$roadmap_per1',roadmap_per2='$roadmap_per2',roadmap_per3='$roadmap_per3',roadmap_per4='$roadmap_per4',roadmap_per5='$roadmap_per5',roadmap_per6='$roadmap_per6',roadmap_per7='$roadmap_per7',roadmap_per8='$roadmap_per8',roadmap_per9='$roadmap_per9',roadmap_per10='$roadmap_per10',roadmap_content1='$roadmap_content1',roadmap_content2='$roadmap_content2',roadmap_content3='$roadmap_content3',roadmap_content4='$roadmap_content4',roadmap_content5='$roadmap_content5',roadmap_content6='$roadmap_content6',roadmap_content7='$roadmap_content7',roadmap_content8='$roadmap_content8',roadmap_content9='$roadmap_content9',roadmap_content10='$roadmap_content10',video_title='$video_title',video_link='$video_link',faq_title1='$faq_title1',faq_title2='$faq_title2',faq_title3='$faq_title3',faq_title4='$faq_title4',faq_title5='$faq_title5',faq_title6='$faq_title6',faq_content1='$faq_content1',faq_content2='$faq_content2',faq_content3='$faq_content3',faq_content4='$faq_content4',faq_content5='$faq_content5', faq_content6='$faq_content6',collect_content1='$collect_content1',collect_content2='$collect_content2',collect_content3='$collect_content3',collect_content4='$collect_content4',greatest_content='$greatest_content',greatest_content1='$greatest_content1',greatest_content2='$greatest_content2',greatest_content3='$greatest_content3',social_discord='$discord',social_instagram='$instagram',social_twitter='$twitter',section4_title='$section4_title',section4_content='$section4_content',cryptocunt_content='$cryptocunt_content',CryptoCunts='$cryptocunt',Evolved='$evolved',AnonymousApe='$ape',FamousCryptoCunt='$famous',CryptoCuntGods='$gods',title_font='$title_font',para_font='$para_font',list_font='$list_font',date_time='$date_time',button_font='$button_font',subtitle_font='$subtitle_font',first_title='$first_title',second_title='$second_title',avatar_title='$avatar_title',sec6_heading='$sec6_heading',sec10_heading='$sec10_heading',sec11_heading='$sec11_heading',sec13_heading='$sec13_heading',sec15_heading='$sec15_heading',sec16_heading='$sec16_heading',sec17_heading='$sec17_heading',sec8_heading='$sec8_heading',sec8_content='$sec8_content',sec9_heading='$sec9_heading',sec9_content='$sec9_content',sec12_heading='$sec12_heading',sec12_content='$sec12_content',sec14_heading='$sec14_heading',sec14_content='$sec14_content',text_under10='$text_under10' where id=$id");
 
 if($query){
 	$result_array['success']='Data updated successfully.';

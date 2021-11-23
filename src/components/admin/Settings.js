@@ -12,10 +12,10 @@ function Settings()  {
     const content = useRef(null);
     const section4_title = useRef(null);
     const section4_content = useRef(null);
-    const collect_title1 = useRef(null);
-    const collect_title2 = useRef(null);
-    const collect_title3 = useRef(null);
-    const collect_title4 = useRef(null);
+    // const collect_title1 = useRef(null);
+    // const collect_title2 = useRef(null);
+    // const collect_title3 = useRef(null);
+    // const collect_title4 = useRef(null);
     const roadmap_per1 = useRef(null);
     const roadmap_per2 = useRef(null);
     const roadmap_per3 = useRef(null);
@@ -61,7 +61,7 @@ function Settings()  {
     const second_title = useRef(null);
     const avatar_title = useRef(null);
     const sec6_heading = useRef(null);
-    const sec7_heading = useRef(null);
+    //const sec7_heading = useRef(null);
     const sec10_heading = useRef(null);
     const sec11_heading = useRef(null);
     const sec13_heading = useRef(null);
@@ -98,7 +98,7 @@ function Settings()  {
 	const [greatest_img3, setGreatestImg3] = useState('');
 	const [greatest_img4, setGreatestImg4] = useState('');
 	const [crypto_cunt_img, setCryptoCuntImg] = useState('');
-	const [section4Img, setSection4Img] = useState('');
+	//const [section4Img, setSection4Img] = useState('');
 	const [giveImg1, setGiveImg1] = useState('');
 	const [giveImg2, setGiveImg2] = useState('');
 	const [giveImg3, setGiveImg3] = useState('');
@@ -114,7 +114,7 @@ function Settings()  {
     const [ greatest_content2,setGreatestContent2] = useState('');
     const [ greatest_content3,setGreatestContent3] = useState('');
     const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
-    const [ give_content,setGiveContent] = useState('');
+    //const [ give_content,setGiveContent] = useState('');
 	const [Opacity, setOpacity] = useState('1');
 	const [PointerEvents, setPointerEvents] = useState('');
     const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});
@@ -164,36 +164,22 @@ function Settings()  {
             setErrors('Please enter heading for section 5');	
           }else if(sec6_heading.current.value===''){
             setErrors('Please enter heading for section 6');	
-          }else if(collect_title1.current.value===''){
-            setErrors('Please enter collection title1');	
           }else if(collect_content1===''){
             setErrors('Please enter collection content1');	
           }else if(collect_content1.length>500){
             setErrors('Maximum collection content1 should be 500 characters.');	
-          }else if(collect_title2.current.value===''){
-            setErrors('Please enter collection title2');	
           }else if(collect_content2===''){
             setErrors('Please enter collection content2');	
           }else if(collect_content2.length>500){
             setErrors('Maximum collection content2 should be 500 characters.');	
-          }else if(collect_title3.current.value===''){
-            setErrors('Please enter collection title3');	
           }else if(collect_content3===''){
             setErrors('Please enter collection content3');	
           }else if(collect_content3.length>500){
             setErrors('Maximum collection content3 should be 500 characters.');	
-          }else if(collect_title4.current.value===''){
-            setErrors('Please enter collection title4');	
           }else if(collect_content4===''){
             setErrors('Please enter content for section 4.');	
           }else if(collect_content4.length>500){
             setErrors('Maximum collection content4 should be 500 characters.');	
-          }else if(sec7_heading.current.value===''){
-            setErrors('Please enter heading for section 7');	
-          }else if(give_content===''){
-            setErrors('Please enter collection content4');	
-          }else if(give_content.length>600){
-            setErrors('Maximum content for section 7 should be 600 characters.');	
           }else if(sec8_heading.current.value===''){
             setErrors('Please enter heading for section 8');	
           }else if(sec8_content.current.value===''){
@@ -420,18 +406,18 @@ function Settings()  {
     const changeCryptoCuntImage=(event)=>{
 		setCryptoCuntImg(event.target.files[0]);
     }
-    const changeSection4Img=(event)=>{
-		setSection4Img(event.target.files[0]);
-    }
-    const changeGiveImg1=(event)=>{
-		setGiveImg1(event.target.files[0]);
-    }
-    const changeGiveImg2=(event)=>{
-		setGiveImg2(event.target.files[0]);
-    }
-    const changeGiveImg3=(event)=>{
-		setGiveImg3(event.target.files[0]);
-    }
+    // const changeSection4Img=(event)=>{
+	// 	setSection4Img(event.target.files[0]);
+    // }
+    // const changeGiveImg1=(event)=>{
+	// 	setGiveImg1(event.target.files[0]);
+    // }
+    // const changeGiveImg2=(event)=>{
+	// 	setGiveImg2(event.target.files[0]);
+    // }
+    // const changeGiveImg3=(event)=>{
+	// 	setGiveImg3(event.target.files[0]);
+    // }
     const changeSec9Img=(event)=>{
 		setSec9Img(event.target.files[0]);
     }
@@ -474,9 +460,9 @@ function Settings()  {
     const changeDiscordValue=()=>{
         setDiscordValue(!discordValue);
     };
-    const changeGiveContent=(value)=>{
-        setGiveContent(value);
-    };
+    // const changeGiveContent=(value)=>{
+    //     setGiveContent(value);
+    // };
     const changeCryptoCuntContent=(value)=>{
         setCryptoCuntContent(value);
     };
@@ -502,7 +488,7 @@ function Settings()  {
         data.append('second_title', second_title.current.value);
         data.append('avatar_title', avatar_title.current.value);
         data.append('sec6_heading', sec6_heading.current.value);
-        data.append('sec7_heading', sec7_heading.current.value);
+        //data.append('sec7_heading', sec7_heading.current.value);
         data.append('sec10_heading', sec10_heading.current.value);
         data.append('sec11_heading', sec11_heading.current.value);
         data.append('sec13_heading', sec13_heading.current.value);
@@ -523,15 +509,15 @@ function Settings()  {
         data.append('content', content.current.value);
         data.append('section4_title', section4_title.current.value);
         data.append('section4_content', section4_content.current.value);
-        data.append('collect_title1', collect_title1.current.value);
-        data.append('collect_title2', collect_title2.current.value);
-        data.append('collect_title3', collect_title3.current.value);
-        data.append('collect_title4', collect_title4.current.value);
+        // data.append('collect_title1', collect_title1.current.value);
+        // data.append('collect_title2', collect_title2.current.value);
+        // data.append('collect_title3', collect_title3.current.value);
+        // data.append('collect_title4', collect_title4.current.value);
         data.append('collect_content1', collect_content1);
         data.append('collect_content2', collect_content2);
         data.append('collect_content3', collect_content3);
         data.append('collect_content4', collect_content4);
-        data.append('give_content', give_content);
+        //data.append('give_content', give_content);
         data.append('cryptocunt_content', crypto_cunt_content);
         data.append('greatest_content', greatest_content);
         data.append('greatest_content1', greatest_content1);
@@ -593,10 +579,10 @@ function Settings()  {
         data.append('greatest_img3', greatest_img3);
         data.append('greatest_img4', greatest_img4);
         data.append('crypto_cunt_img', crypto_cunt_img);
-        data.append('section4_img', section4Img);
-        data.append('give_img1', giveImg1);
-        data.append('give_img2', giveImg2);
-        data.append('give_img3', giveImg3);
+        // data.append('section4_img', section4Img);
+        // data.append('give_img1', giveImg1);
+        // data.append('give_img2', giveImg2);
+        // data.append('give_img3', giveImg3);
         data.append('cryptocunt', cryptocunt);
         data.append('sec9_img', sec9Img);
         data.append('sec12_img', sec12Img);
@@ -644,10 +630,10 @@ function Settings()  {
                 setGreatestImg3('');
                 setGreatestImg4('');
                 setCryptoCuntImg('');
-                setSection4Img('');
-                setGiveImg1('');
-                setGiveImg2('');
-                setGiveImg3('');
+                // setSection4Img('');
+                // setGiveImg1('');
+                // setGiveImg2('');
+                // setGiveImg3('');
                 setSec9Img('');
                 setSec12Img('');
                 setSec14Img('');
@@ -720,7 +706,7 @@ function Settings()  {
                 second_title.current.value=response.updated_data.second_title;
                 avatar_title.current.value=response.updated_data.avatar_title;
                 sec6_heading.current.value=response.updated_data.sec6_heading;
-                sec7_heading.current.value=response.updated_data.sec7_heading;
+                //sec7_heading.current.value=response.updated_data.sec7_heading;
                 sec10_heading.current.value=response.updated_data.sec10_heading;
                 sec11_heading.current.value=response.updated_data.sec11_heading;
                 sec13_heading.current.value=response.updated_data.sec13_heading;
@@ -741,10 +727,10 @@ function Settings()  {
                 content.current.value=response.updated_data.content;
                 section4_title.current.value=response.updated_data.section4_title;
                 section4_content.current.value=response.updated_data.section4_content;
-                collect_title1.current.value=response.updated_data.collect_title1;
-                collect_title2.current.value=response.updated_data.collect_title2;
-                collect_title3.current.value=response.updated_data.collect_title3;
-                collect_title4.current.value=response.updated_data.collect_title4;
+                // collect_title1.current.value=response.updated_data.collect_title1;
+                // collect_title2.current.value=response.updated_data.collect_title2;
+                // collect_title3.current.value=response.updated_data.collect_title3;
+                // collect_title4.current.value=response.updated_data.collect_title4;
                 setCollectContent1(response.updated_data.collect_content1);
                 setCollectContent2(response.updated_data.collect_content2);
                 setCollectContent3(response.updated_data.collect_content3);
@@ -753,7 +739,7 @@ function Settings()  {
                 setGreatestContent1(response.updated_data.greatest_content1);
                 setGreatestContent2(response.updated_data.greatest_content2);
                 setGreatestContent3(response.updated_data.greatest_content3);
-                setGiveContent(response.updated_data.give_content);
+                //setGiveContent(response.updated_data.give_content);
                 setCryptoCuntContent(response.updated_data.crypto_cunt_content);
                 roadmap_per1.current.value=response.updated_data.roadmap_per1;
                 roadmap_per2.current.value=response.updated_data.roadmap_per2;
@@ -934,11 +920,11 @@ function Settings()  {
                             <h4>Update Section 4</h4>
                             <form>
                                 <div className="settings_form_data">
-                                    <img src={Path+'images/'+settingsData.section4_img} className="imgs"></img>
+                                    {/* <img src={Path+'images/'+settingsData.section4_img} className="imgs"></img>
                                     <div className="form_data">
                                         <label className="form_label">Image</label>
                                         <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeSection4Img}></input>
-                                    </div>
+                                    </div> */}
                                     <div className="form_data">
                                         <label className="form_label">Title</label>
                                         <textarea className="form-control" ref={section4_title} style={{height:"50px"}}></textarea>
@@ -1007,10 +993,10 @@ function Settings()  {
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg1}></input>
                                             </div>
-                                            <div className="form_data">
+                                            {/* <div className="form_data">
                                                 <label className="form_label">Title</label>
                                                 <input type="text" className="form-control"  ref={collect_title1}></input>
-                                            </div>
+                                            </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
                                                 <ReactQuill value={collect_content1} onChange={changeCollectContent1} />
@@ -1025,10 +1011,10 @@ function Settings()  {
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg2}></input>
                                             </div>
-                                            <div className="form_data">
+                                            {/* <div className="form_data">
                                                 <label className="form_label">Title</label>
                                                 <input type="text" className="form-control"  ref={collect_title2}></input>
-                                            </div>
+                                            </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
                                                 <ReactQuill value={collect_content2} onChange={changeCollectContent2} />
@@ -1043,10 +1029,10 @@ function Settings()  {
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg3}></input>
                                             </div>
-                                            <div className="form_data">
+                                            {/* <div className="form_data">
                                                 <label className="form_label">Title</label>
                                                 <input type="text" className="form-control"  ref={collect_title3}></input>
-                                            </div>
+                                            </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
                                                 <ReactQuill value={collect_content3} onChange={changeCollectContent3} />
@@ -1061,10 +1047,10 @@ function Settings()  {
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg4}></input>
                                             </div>
-                                            <div className="form_data">
+                                            {/* <div className="form_data">
                                                 <label className="form_label">Title</label>
                                                 <input type="text" className="form-control" ref={collect_title4}></input>
-                                            </div>
+                                            </div> */}
                                             <div className="form_data">
                                                 <label className="form_label">Content</label>
                                                 <ReactQuill value={collect_content4} onChange={changeCollectContent4} />
@@ -1075,7 +1061,7 @@ function Settings()  {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
                             <h4>Update Section 7</h4>
                             <div className="row">
@@ -1125,10 +1111,10 @@ function Settings()  {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
                         <div className="settings_div">
-                        <h4>Update section 8</h4>
+                        <h4>Update section 7</h4>
                             <form>
                                 <div className="form_data">
                                     <label className="form_label">Title</label>
@@ -1143,7 +1129,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
                         <div className="settings_div">
-                        <h4>Update section 9</h4>
+                        <h4>Update section 8</h4>
                         <img src={Path+'images/'+settingsData.sec9_img} className="banner_img"></img>
                             <form>
                                 <div className="form_data">
@@ -1163,7 +1149,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Update section 10</h4>
+                            <h4>Update section 9</h4>
                             <div className="row">
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label className="form_label">Heading</label>
@@ -1234,7 +1220,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Update section 11</h4>
+                            <h4>Update section 10</h4>
                             <form>
                             <div className="row">
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1347,7 +1333,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
                         <div className="settings_div">
-                        <h4>Update section 12</h4>
+                        <h4>Update section 11</h4>
                         <img src={Path+'images/'+settingsData.sec12_img} className="banner_img"></img>
                             <form>
                                 <div className="form_data">
@@ -1367,7 +1353,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Update section 13</h4>
+                            <h4>Update section 12</h4>
                             <form>
                             <div className="row">
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1390,7 +1376,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
                         <div className="settings_div">
-                        <h4>Update section 14</h4>
+                        <h4>Update section 13</h4>
                         <img src={Path+'images/'+settingsData.sec14_img} className="banner_img"></img>
                             <form>
                                 <div className="form_data">
@@ -1410,7 +1396,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Update section 15</h4>
+                            <h4>Update section 14</h4>
                             <form>
                             <div className="row">
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -1483,7 +1469,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div" style={{paddingBottom:"198px"}}>
-                            <h4>Update section 16</h4>
+                            <h4>Update section 15</h4>
                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label className="form_label">Heading</label>
                                 <textarea className="form-control" ref={sec16_heading} style={{height:"50px"}}></textarea>
@@ -1516,7 +1502,7 @@ function Settings()  {
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Update section 17</h4>
+                            <h4>Update section 16</h4>
                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label className="form_label">Heading</label>
                                 <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>

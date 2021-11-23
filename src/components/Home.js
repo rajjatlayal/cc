@@ -130,17 +130,16 @@ function Home()  {
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="third_section">
+                    <div className="container third_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-12" style={{textAlign:"center"}}>
-                            <img src={Path+'images/'+settingsData.section4_img} alt="Avatar"/>
-
-                            </div>
-                            <div className="col-xl-5 col-lg-3 col-md-9 col-sm-9 col-xs-12 third_section_content">
+                            {/* <div className="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-12" style={{textAlign:"center"}}>
+                                <img src={Path+'images/'+settingsData.section4_img} alt="Avatar"/>
+                            </div> */}
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 third_section_content">
                                 <h5 style={{fontSize:settingsData.subtitle_font+'px'}}>{settingsData.section4_title}</h5>
                                 <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.section4_content}</p>
                             </div>
-                            <div className="col-xl-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 third_section_content"></div>
+                            {/* <div className="col-xl-1 col-lg-3 col-md-12 col-sm-12 col-xs-12 third_section_content"></div> */}
                         </div>
                     </div>
                 </div>
@@ -170,7 +169,7 @@ function Home()  {
                         {/* <h3 style={{fontSize:settingsData.title_font+'px'}}> Collect The Following:</h3> */}
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                                <h5>{settingsData.collect_title1}</h5>
+                                {/* <h5>{settingsData.collect_title1}</h5> */}
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
@@ -194,7 +193,7 @@ function Home()  {
                                 </div> 
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                                <h5>{settingsData.collect_title2}</h5>
+                                {/* <h5>{settingsData.collect_title2}</h5> */}
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
@@ -223,7 +222,7 @@ function Home()  {
                                 </div> 
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                            <h5>{settingsData.collect_title3}</h5>
+                            {/* <h5>{settingsData.collect_title3}</h5> */}
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
@@ -252,7 +251,7 @@ function Home()  {
                                 </div> 
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                            <h5>{settingsData.collect_title4}</h5>
+                            {/* <h5>{settingsData.collect_title4}</h5> */}
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
@@ -283,9 +282,8 @@ function Home()  {
                         </div>
                     </div>
                 </div>
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                {/* <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container sixth_section">
-                        {/* <h3 style={{fontSize:settingsData.title_font+'px'}}><span style={{color:"#72F595",fontWeight:"600"}}>CRYPTOCUNTS</span> THAT ARE</h3> */}
                         <h3 style={{fontSize:settingsData.title_font+'px'}}>{settingsData.sec7_heading}</h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -295,20 +293,6 @@ function Home()  {
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div className="under_sixth2" dangerouslySetInnerHTML={{ __html: settingsData.give_content }} style={{fontSize:settingsData.list_font+'px'}}>
-                                    {/* <h5>111 Famous CryptoCunts Perks:</h5>
-                                    <ul>
-                                        <li>1/1 rare collectable
-                                            <p>Seriously rare, only 1 like this will ever be
-                                            available</p>
-                                        </li>
-                                        <li>
-                                            Commercial Rights
-                                            <p>It's Your Cunt Do With It What You Want</p>
-                                        </li>
-                                        <li>PVP video game avatar w/ the power to influence all other Crypto and Anonymous Ape Cunts</li>
-                                        <li>It's Your Cunt Play With It Stake To Earn</li>
-                                        <li>It's Your Cunt Play With It Stake To Earn Pimp Your Cunt Out and Earn</li>
-                                    </ul> */}
                                 </div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -323,7 +307,7 @@ function Home()  {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="row" style={{margin:"0",width:"100%",background:"#12232D",padding:"50px 0px"}}>
                     <div className="container seventh_section">
                         {/* <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0"}}>THE FOREPLAY</h3> */}
@@ -514,12 +498,14 @@ function Home()  {
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container eleventh_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>{settingsData.sec13_heading}</h3>
-                        <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.video_title}</p>
-                    </div>
-                    <div className="container video_section">
-                        <iframe width="100%" height="300px" src={settingsData.video_link} title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
+                    <div style={{width:"820px",margin:"auto"}}>
+                        <div className="eleventh_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px"}}>{settingsData.sec13_heading}</h3>
+                            <p style={{fontSize:settingsData.para_font+'px'}}>{settingsData.video_title}</p>
+                        </div>
+                        <div className="video_section">
+                            <iframe width="100%" height="300px" src={settingsData.video_link} title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
+                        </div>
                     </div>
                 </div>  
                 <div className="row" style={{margin:"0",width:"100%"}}>
