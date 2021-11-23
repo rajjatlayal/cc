@@ -991,7 +991,9 @@ p.p4 img {
     margin-right: 0px;
     padding: 15px;
   }
-
+  .home_navbar_right_div {
+    width: 50%;
+  }
   .home_navbar_right_div ul {
     list-style: none;
     display: inline-flex;
@@ -999,7 +1001,7 @@ p.p4 img {
     justify-content: right;
     margin-bottom: 0;
     position: relative;
-    bottom: 22px;
+    bottom: 0px;
     flex: 0 0 auto;
   }
   .home_navbar_left_div {
