@@ -232,9 +232,10 @@ img.cent-img {
 .home_navbar_right_div ul {
   list-style: none;
   display: inline-flex;
-  width: 100%;
+  /* width: 100%; */
   justify-content: right;
   margin-bottom: 0;
+  float: right;
 }
 .home_navbar_right_div ul li {
   margin-left: 12px;

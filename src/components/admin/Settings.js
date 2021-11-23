@@ -122,10 +122,14 @@ function Settings()  {
     const [ greatest_content3,setGreatestContent3] = useState('');
     const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
     
-    const [ gods_img,setGodsImage] = useState('');
+    const [ gods_img,setGodsImg] = useState('');
     const [ ape_img,setApeImg] = useState('');
-    const [ famous_img,setFamousImage] = useState('');
-    // const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
+    const [ famous_img,setFamousImg] = useState('');
+    const [ evolved_img,setEvolvedImg] = useState('');
+    const [ gods_content,setGodsContent] = useState('');
+    const [ ape_content,setApeContent] = useState('');
+    const [ famous_content,setFamousContent] = useState('');
+    const [ evolved_content,setEvolvedContent] = useState('');
 
     //const [ give_content,setGiveContent] = useState('');
 	const [Opacity, setOpacity] = useState('1');
@@ -396,6 +400,18 @@ function Settings()  {
     const changeSec14Img=(event)=>{
 		setSec14Img(event.target.files[0]);
     }
+    const changeGodsImg=(event)=>{
+		setGodsImg(event.target.files[0]);
+    }
+    const changeFamousImg=(event)=>{
+		setFamousImg(event.target.files[0]);
+    }
+    const changeEvolvedImg=(event)=>{
+		setEvolvedImg(event.target.files[0]);
+    }
+    const changeApeImg=(event)=>{
+		setApeImg(event.target.files[0]);
+    }
     const changeCollectContent1=(value)=>{
         setCollectContent1(value);
     };
@@ -434,6 +450,18 @@ function Settings()  {
     // };
     const changeCryptoCuntContent=(value)=>{
         setCryptoCuntContent(value);
+    };
+    const changeGodsContent=(value)=>{
+        setGodsContent(value);
+    };
+    const changeEvolvedContent=(value)=>{
+        setEvolvedContent(value);
+    };
+    const changeFamousContent=(value)=>{
+        setFamousContent(value);
+    };
+    const changeApeContent=(value)=>{
+        setApeContent(value);
     };
     const changeGods=()=>{
         setGods(!gods);
@@ -488,6 +516,10 @@ function Settings()  {
         data.append('collect_content4', collect_content4);
         //data.append('give_content', give_content);
         data.append('cryptocunt_content', crypto_cunt_content);
+        data.append('famous_content', famous_content);
+        data.append('ape_content', ape_content);
+        data.append('gods_content', gods_content);
+        data.append('evolved_content', evolved_content);
         data.append('greatest_content', greatest_content);
         data.append('greatest_content1', greatest_content1);
         data.append('greatest_content2', greatest_content2);
@@ -548,6 +580,10 @@ function Settings()  {
         data.append('greatest_img3', greatest_img3);
         data.append('greatest_img4', greatest_img4);
         data.append('crypto_cunt_img', crypto_cunt_img);
+        data.append('ape_img', ape_img);
+        data.append('famous_img', famous_img);
+        data.append('evolved_img', evolved_img);
+        data.append('gods_img', gods_img);
         // data.append('section4_img', section4Img);
         // data.append('give_img1', giveImg1);
         // data.append('give_img2', giveImg2);
