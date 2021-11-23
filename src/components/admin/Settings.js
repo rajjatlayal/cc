@@ -74,7 +74,7 @@ function Settings()  {
     const sec13_heading = useRef(null);
     const sec15_heading = useRef(null);
     const sec16_heading = useRef(null);
-    const sec17_heading = useRef(null);
+    // const sec17_heading = useRef(null);
     const sec8_heading = useRef(null);
     const sec8_content = useRef(null);
     const sec9_heading = useRef(null);
@@ -277,8 +277,6 @@ function Settings()  {
             setErrors('Please enter faq answer6');	
           }else if(sec16_heading.current.value===''){
             setErrors('Please enter heading for section 16');	
-          }else if(sec17_heading.current.value===''){
-            setErrors('Please enter heading for section 17');	
           }else if(crypto_cunt_content===''){
             setErrors('Please enter cryptocunt content.');	
           }else if(head_font.current.value===''){
@@ -459,7 +457,7 @@ function Settings()  {
         data.append('sec13_heading', sec13_heading.current.value);
         data.append('sec15_heading', sec15_heading.current.value);
         data.append('sec16_heading', sec16_heading.current.value);
-        data.append('sec17_heading', sec17_heading.current.value);
+        // data.append('sec17_heading', sec17_heading.current.value);
         data.append('sec8_heading', sec8_heading.current.value);
         data.append('sec8_content', sec8_content.current.value);
         data.append('sec9_heading', sec9_heading.current.value);
@@ -684,7 +682,7 @@ function Settings()  {
                 sec13_heading.current.value=response.updated_data.sec13_heading;
                 sec15_heading.current.value=response.updated_data.sec15_heading;
                 sec16_heading.current.value=response.updated_data.sec16_heading;
-                sec17_heading.current.value=response.updated_data.sec17_heading;
+                // sec17_heading.current.value=response.updated_data.sec17_heading;
                 sec8_heading.current.value=response.updated_data.sec8_heading;
                 sec8_content.current.value=response.updated_data.sec8_content;
                 sec9_heading.current.value=response.updated_data.sec9_heading;
@@ -1482,10 +1480,10 @@ function Settings()  {
                     <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
                             <h4>Update section 16</h4>
-                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label className="form_label">Heading</label>
                                 <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
-                            </div>
+                            </div> */}
                             <img src={Path+'images/'+settingsData.crypto_cunt_img} className="imgs"></img>
                             <form>
                                 <div className="settings_form_data">
