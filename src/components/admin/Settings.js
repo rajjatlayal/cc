@@ -44,12 +44,16 @@ function Settings()  {
     const faq_title4 = useRef(null);
     const faq_title5 = useRef(null);
     const faq_title6 = useRef(null);
+    const faq_title7 = useRef(null);
+    const faq_title8 = useRef(null);
     const faq_content1 = useRef(null);
     const faq_content2 = useRef(null);
     const faq_content3 = useRef(null);
     const faq_content4 = useRef(null);
     const faq_content5 = useRef(null);
     const faq_content6 = useRef(null);
+    const faq_content7 = useRef(null);
+    const faq_content8 = useRef(null);
     const title_font = useRef(null);
     const para_font = useRef(null);
     const list_font = useRef(null);
@@ -119,7 +123,7 @@ function Settings()  {
     const [ greatest_content,setGreatestContent] = useState('');
     const [ greatest_content1,setGreatestContent1] = useState('');
     const [ greatest_content2,setGreatestContent2] = useState('');
-    const [ greatest_content3,setGreatestContent3] = useState('');
+    // const [ greatest_content3,setGreatestContent3] = useState('');
     const [ crypto_cunt_content,setCryptoCuntContent] = useState('');
     
     const [ gods_img,setGodsImg] = useState('');
@@ -201,8 +205,6 @@ function Settings()  {
             setErrors('Please enter greatest roadmap content');	
           }else if(greatest_content2===''){
             setErrors('Please enter greatest roadmap content');	
-          }else if(greatest_content3===''){
-            setErrors('Please enter greatest roadmap content');	
           }else if(sec11_heading.current.value===''){
             setErrors('Please enter heading for section 11');	
           }else if(roadmap_per1.current.value===''){
@@ -263,28 +265,36 @@ function Settings()  {
             setErrors('Please enter heading for section 15');	
           }else if(faq_title1.current.value===''){
             setErrors('Please enter faq question1');
-          }else if(faq_title2.current.value===''){
-            setErrors('Please enter faq question2');	
-          }else if(faq_title3.current.value===''){
-            setErrors('Please enter faq question3');	
-          }else if(faq_title4.current.value===''){
-            setErrors('Please enter faq question4');	
-          }else if(faq_title5.current.value===''){
-            setErrors('Please enter faq question5');	
-          }else if(faq_title6.current.value===''){
-            setErrors('Please enter faq question6');	
           }else if(faq_content1.current.value===''){
             setErrors('Please enter faq answer1');	
+          }else if(faq_title2.current.value===''){
+            setErrors('Please enter faq question2');	
           }else if(faq_content2.current.value===''){
             setErrors('Please enter faq answer2');	
+          }else if(faq_title3.current.value===''){
+            setErrors('Please enter faq question3');	
           }else if(faq_content3.current.value===''){
             setErrors('Please enter faq answer3');	
+          }else if(faq_title4.current.value===''){
+            setErrors('Please enter faq question4');	
           }else if(faq_content4.current.value===''){
             setErrors('Please enter faq answer4');	
+          }else if(faq_title5.current.value===''){
+            setErrors('Please enter faq question5');	
           }else if(faq_content5.current.value===''){
             setErrors('Please enter faq answer5');	
+          }else if(faq_title6.current.value===''){
+            setErrors('Please enter faq question6');	
           }else if(faq_content6.current.value===''){
             setErrors('Please enter faq answer6');	
+          }else if(faq_title7.current.value===''){
+            setErrors('Please enter faq question7');	
+          }else if(faq_content7.current.value===''){
+            setErrors('Please enter faq answer7');	
+          }else if(faq_title8.current.value===''){
+            setErrors('Please enter faq question8');	
+          }else if(faq_content8.current.value===''){
+            setErrors('Please enter faq answer8');	
           }else if(sec16_heading.current.value===''){
             setErrors('Please enter heading for section 16');	
           }else if(crypto_cunt_content===''){
@@ -433,9 +443,9 @@ function Settings()  {
     const changeGreatestContent2=(value)=>{
         setGreatestContent2(value);
     };
-    const changeGreatestContent3=(value)=>{
-        setGreatestContent3(value);
-    };
+    // const changeGreatestContent3=(value)=>{
+    //     setGreatestContent3(value);
+    // };
     const changeTwitterValue=()=>{
         setTwitterValue(!twitterValue);
     };
@@ -523,7 +533,7 @@ function Settings()  {
         data.append('greatest_content', greatest_content);
         data.append('greatest_content1', greatest_content1);
         data.append('greatest_content2', greatest_content2);
-        data.append('greatest_content3', greatest_content3);
+        // data.append('greatest_content3', greatest_content3);
         data.append('roadmap_per1', roadmap_per1.current.value);
         data.append('roadmap_per2', roadmap_per2.current.value);
         data.append('roadmap_per3', roadmap_per3.current.value);
@@ -552,12 +562,16 @@ function Settings()  {
         data.append('faq_title4', faq_title4.current.value);
         data.append('faq_title5', faq_title5.current.value);
         data.append('faq_title6', faq_title6.current.value);
+        data.append('faq_title7', faq_title7.current.value);
+        data.append('faq_title8', faq_title8.current.value);
         data.append('faq_content1', faq_content1.current.value);
         data.append('faq_content2', faq_content2.current.value);
         data.append('faq_content3', faq_content3.current.value);
         data.append('faq_content4', faq_content4.current.value);
         data.append('faq_content5', faq_content5.current.value);
         data.append('faq_content6', faq_content6.current.value);
+        data.append('faq_content7', faq_content7.current.value);
+        data.append('faq_content8', faq_content8.current.value);
         data.append('twitter', twitterValue);
         data.append('discord', discordValue);
         data.append('instagram', instagramValue);
@@ -754,7 +768,7 @@ function Settings()  {
                 setGreatestContent(response.updated_data.greatest_content);
                 setGreatestContent1(response.updated_data.greatest_content1);
                 setGreatestContent2(response.updated_data.greatest_content2);
-                setGreatestContent3(response.updated_data.greatest_content3);
+                //setGreatestContent3(response.updated_data.greatest_content3);
                 setFamousContent(response.updated_data.famous_content);
                 setApeContent(response.updated_data.ape_content);
                 setGodsContent(response.updated_data.gods_content);
@@ -789,12 +803,16 @@ function Settings()  {
                 faq_title4.current.value=response.updated_data.faq_title4;
                 faq_title5.current.value=response.updated_data.faq_title5;
                 faq_title6.current.value=response.updated_data.faq_title6;
+                faq_title7.current.value=response.updated_data.faq_title7;
+                faq_title8.current.value=response.updated_data.faq_title8;
                 faq_content1.current.value=response.updated_data.faq_content1;
                 faq_content2.current.value=response.updated_data.faq_content2;
                 faq_content3.current.value=response.updated_data.faq_content3;
                 faq_content4.current.value=response.updated_data.faq_content4;
                 faq_content5.current.value=response.updated_data.faq_content5;
                 faq_content6.current.value=response.updated_data.faq_content6;
+                faq_content7.current.value=response.updated_data.faq_content7;
+                faq_content8.current.value=response.updated_data.faq_content8;
                 title_font.current.value=response.updated_data.title_font;
                 para_font.current.value=response.updated_data.para_font;
                 list_font.current.value=response.updated_data.list_font;
@@ -1182,49 +1200,61 @@ function Settings()  {
                                     <label className="form_label">Heading</label>
                                     <textarea className="form-control" ref={sec10_heading} style={{height:"50px"}}></textarea>
                                 </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+'images/'+settingsData.greatest_img1} className="imgs"></img>
+                                    {/* <img src={Path+'images/'+settingsData.greatest_img1} className="imgs"></img> */}
                                         <form>
-                                            <div className="settings_form_data">
+                                            {/* <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg1}></input>
-                                            </div>
+                                            </div> */}
                                             <div>
-                                                <label style={{textAlign:"left",width:"100%"}}>Content</label>
+                                                <label style={{textAlign:"left",width:"100%"}}>Content1</label>
                                                 <ReactQuill value={greatest_content} onChange={changeGreatestContent} />
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div className="three_img">
+                                    <img src={Path+'images/'+settingsData.greatest_img1} className="imgs"></img>
                                     <img src={Path+'images/'+settingsData.greatest_img2} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
+                                            <label style={{textAlign:"left",width:"100%"}}>Image1</label>
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg1}></input>
+                                            </div>
+                                            <div className="settings_form_data">
+                                            <label style={{textAlign:"left",width:"100%"}}>Image2</label>
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg2}></input>
                                             </div>
                                             <div>
-                                                <label style={{textAlign:"left",width:"100%"}}>Content</label>
+                                                <label style={{textAlign:"left",width:"100%"}}>Content2</label>
                                                 <ReactQuill value={greatest_content1} onChange={changeGreatestContent1}  style={{color:"black"}} />
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.greatest_img3} className="imgs"></img>
+                                    <img src={Path+'images/'+settingsData.greatest_img4} className="imgs"></img>
                                         <form>
                                             <div className="settings_form_data">
+                                                <label style={{textAlign:"left",width:"100%"}}>Image1</label>
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg3}></input>
                                             </div>
+                                            <div className="settings_form_data">
+                                                <label style={{textAlign:"left",width:"100%"}}>Image2</label>
+                                                <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGreatestImg4}></input>
+                                            </div>
                                             <div>
-                                                <label style={{textAlign:"left",width:"100%"}}>Content</label>
+                                                <label style={{textAlign:"left",width:"100%"}}>Content3</label>
                                                 <ReactQuill value={greatest_content2} onChange={changeGreatestContent2} />
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div className="three_img">
                                     <img src={Path+'images/'+settingsData.greatest_img4} className="imgs"></img>
                                         <form>
@@ -1237,7 +1267,7 @@ function Settings()  {
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style={{marginTop:"16px"}}>
                                     <label>Under section content</label>
                                     <textarea className="form-control" ref={text_under10}></textarea>
@@ -1488,6 +1518,26 @@ function Settings()  {
                                     <div className="form_data">
                                         <label className="form_label">Answer</label>
                                         <textarea className="form-control"  ref={faq_content6}></textarea>
+                                    </div>
+                                </div>
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="form_data">
+                                        <label className="form_label">Question 7</label>
+                                        <input type="text" className="form-control"  ref={faq_title7}></input>
+                                    </div>
+                                    <div className="form_data">
+                                        <label className="form_label">Answer</label>
+                                        <textarea className="form-control"  ref={faq_content7}></textarea>
+                                    </div>
+                                </div>
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="form_data">
+                                        <label className="form_label">Question 8</label>
+                                        <input type="text" className="form-control"  ref={faq_title8}></input>
+                                    </div>
+                                    <div className="form_data">
+                                        <label className="form_label">Answer</label>
+                                        <textarea className="form-control"  ref={faq_content8}></textarea>
                                     </div>
                                 </div>
                             </div>

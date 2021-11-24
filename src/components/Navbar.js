@@ -19,13 +19,16 @@ export default function Navbar() {
     )		
   }
   const openLink=()=>{
-    window.open("http://twitter.com/");
+    window.open(settingsData.twitter_link);
   }
   const openLink1=()=>{
-    window.open("https://discord.com/");
+    window.open(settingsData.discord_link);
   }
   const openLink2=()=>{
-    window.open("https://www.instagram.com/?hl=en");
+    window.open(settingsData.insta_link);
+  }
+  const discordLink=()=>{
+    window.open("https://discord.gg/hjrtqattwp");
   }
   useEffect(() => {
       get_data();
@@ -33,13 +36,13 @@ export default function Navbar() {
   return (
     <>
       <div className="container-fluid home_navbar">
-          <div className="row" style={{width:"100%",margin:"0"}}>
+          <div className="row top_bar" style={{width:"100%",margin:"0"}}>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 home_navbar_left_div">
                   <h4>CRYPTOCUNTS</h4>
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 home_navbar_right_div">
                   <ul>
-                      {/* <li><Link to="/admin/login" style={{fontSize:"17px",textDecoration:"none",color:"white"}}>Admin login</Link></li> */}
+                      <li><span className="top_btn" onClick={discordLink}>Join our discord</span></li>
                       {settingsData.social_twitter==='1' ?
                       (<li><span onClick={openLink}><Twitter color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_discord==='1' ?

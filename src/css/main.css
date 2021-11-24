@@ -949,6 +949,9 @@ p.p4 img {
 }
 /*----------- MEDIA QUERY ---------------*/
 @media screen and (max-width: 440px) and (min-width: 300px) {
+  .top_bar{
+    justify-content: center;
+  }
   .third_section_content h5 {
     word-break: break-word;
     font-size: 20px !important;
@@ -973,6 +976,10 @@ p.p4 img {
   }
   .second_section h3 {
     font-size: 25px !important;
+  }.home_navbar_left_div{
+    text-align: center;
+  }.home_navbar_right_div{
+    text-align: center;
   }
 
   .col-xl-6.col-lg-3.col-md-3.col-sm-3.col-xs-3 img {
@@ -1004,15 +1011,14 @@ p.p4 img {
     list-style: none;
     display: inline-flex;
     width: 100%;
-    justify-content: right;
+    justify-content: center;
     margin-bottom: 0;
     position: relative;
     bottom: 0px;
     flex: 0 0 auto;
-  }
-  .home_navbar_left_div {
-    flex: 0 0 auto;
-    width: 50% !important;
+    padding-left: 0;
+    margin-top: 10px;
+    float: initial !important;
   }
   .banner {
     display: none;
@@ -1317,6 +1323,18 @@ px
   }
 }
 @media screen and (max-width: 767px) and (min-width: 431px) {
+  .top_bar{
+    justify-content: center;
+  }.home_navbar_left_div{
+    text-align: center;
+  }.home_navbar_right_div{
+    text-align: center;
+  }
+  .home_navbar_right_div ul {
+    padding-left: 0;
+    margin-top: 10px;
+    float: initial !important;
+  }
   .login_right_div {
     display: none;
   }
@@ -1342,14 +1360,6 @@ px
   }
   #nav_accordion {
     padding-top: 40px;
-  }
-  .home_navbar_left_div {
-    flex: 0 0 auto;
-    width: 50% !important;
-  }
-  .home_navbar_right_div {
-    flex: 0 0 auto;
-    width: 50% !important;
   }
   .countdown span {
     height: 90px !important;
@@ -1395,9 +1405,6 @@ px
     text-align: center;
     margin-top: 68px;
   }
-  ul.tl li .item-title {
-    height: auto !important;
-  }
   .road_line {
     height: 100%;
   }
@@ -1420,7 +1427,8 @@ px
     color: white;
     height: 150px;
     padding-left: 0px;
-    width: 148%;
+    width: 112%;
+    height: auto !important;
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 768px) {
@@ -1590,4 +1598,11 @@ p {
 }
 .ql-editor p strong {
   color: black !important;
+}.top_btn{
+  font-size: 17px;
+  text-decoration: none;
+  color: #72f595;
+  border: 1px solid #72f595;
+  padding: 2px 12px;
+  border-radius: 2px;
 }

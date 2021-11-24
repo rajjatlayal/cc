@@ -223,18 +223,18 @@ function Home()  {
 
 
                         <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
                                 </div>
-                            </div>
-                            <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                            </div> */}
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content }}>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="row" style={{margin:"0",width:"100%"}}>
+                        {/* <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img2}/></p>
@@ -244,28 +244,52 @@ function Home()  {
                                 <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
                                 </div>
-                            </div>
-                            <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content2 }}>
+                            </div> */}
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
+                                </div>
+                                <div className="row" style={{width:"100%",margin:"0"}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="nineth_image_div">
+                                            <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="nineth_image_div">
+                                            <p><img src={Path+'images/'+settingsData.greatest_img2}/></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
                                 </div>
-                            </div>
-                            <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content3 }}>
+                            </div> */}
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content2 }}>
+                                </div>
+                                <div className="row" style={{width:"100%",margin:"0"}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="nineth_image_div">
+                                            <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div className="nineth_image_div">
+                                            <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -381,6 +405,12 @@ function Home()  {
                         </Accordion>
                         <Accordion title={settingsData.faq_title6}>
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content6}</p>
+                        </Accordion>
+                        <Accordion title={settingsData.faq_title7}>
+                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content7}</p>
+                        </Accordion>
+                        <Accordion title={settingsData.faq_title8}>
+                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content8}</p>
                         </Accordion>
                     </div>
                 </div>
