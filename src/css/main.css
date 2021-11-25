@@ -958,6 +958,11 @@ p.p4 img {
     /* //height: 480px; */
     object-fit: fill !important;
   }
+  .flip-card-front{
+    background-color: transparent !important;
+  }.flip-card-inner{
+    box-shadow:none !important;
+  }
   .flip-card{
     height: 480px;
   }
@@ -1445,6 +1450,10 @@ px
   }.flip-card-front img{
     /* //height: 480px; */
     object-fit: fill !important;
+  }.flip-card-front{
+    background-color: transparent !important;
+  }.flip-card-inner{
+    box-shadow:none !important;
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 768px) {
