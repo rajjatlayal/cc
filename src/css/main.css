@@ -951,6 +951,12 @@ p.p4 img {
 @media screen and (max-width: 440px) and (min-width: 300px) {
   .top_bar{
     justify-content: center;
+  }.flip-card-back{
+    font-size: 14px !important;
+  }.flip-card-front img{
+    height: 480px;
+  }.flip-card{
+    height: 480px;
   }
   .third_section_content h5 {
     word-break: break-word;
@@ -1149,7 +1155,7 @@ px
     padding-top: 20px !important;
   }
   p {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
   .container.seventh_section h3 {
     font-size: 24px !important;
@@ -1429,6 +1435,12 @@ px
     padding-left: 0px;
     width: 112%;
     height: auto !important;
+  }.flip-card-back{
+    font-size: 14px !important;
+  }.flip-card-front img{
+    height: 450px;
+  }.flip-card{
+    height: 450px;
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 768px) {
