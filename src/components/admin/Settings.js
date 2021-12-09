@@ -9,7 +9,9 @@ import 'react-quill/dist/quill.snow.css';
 function Settings()  {
     let history = useHistory();
     const title = useRef(null);
-    const content = useRef(null);
+    // const content = useRef(null);
+    const [ content,setContent] = useState('');
+
     const section4_title = useRef(null);
     const section4_content = useRef(null);
     // const collect_title1 = useRef(null);
@@ -171,7 +173,7 @@ function Settings()  {
             setErrors('Please enter second title');		   
           }else if(title.current.value===''){
             setErrors('Please enter third title');		   
-          }else if(content.current.value===''){
+          }else if(content===''){
             setErrors('Please enter content');	
           }else if(section4_title.current.value===''){
             setErrors('Please enter content');	
@@ -425,6 +427,9 @@ function Settings()  {
     const changeCollectContent1=(value)=>{
         setCollectContent1(value);
     };
+    const changeContent=(value)=>{
+        setContent(value);
+    };
     const changeCollectContent2=(value)=>{
         setCollectContent2(value);
     };
@@ -513,7 +518,8 @@ function Settings()  {
         data.append('text_under10', text_under10.current.value);
         
         data.append('title', title.current.value);
-        data.append('content', content.current.value);
+        // data.append('content', content.current.value);
+        data.append('content', content);
         data.append('section4_title', section4_title.current.value);
         data.append('section4_content', section4_content.current.value);
         // data.append('collect_title1', collect_title1.current.value);
@@ -754,7 +760,8 @@ function Settings()  {
                 text_under10.current.value=response.updated_data.text_under10;
 
                 title.current.value=response.updated_data.title;
-                content.current.value=response.updated_data.content;
+                // content.current.value=response.updated_data.content;
+                setContent(response.updated_data.content);
                 section4_title.current.value=response.updated_data.section4_title;
                 section4_content.current.value=response.updated_data.section4_content;
                 // collect_title1.current.value=response.updated_data.collect_title1;
@@ -912,7 +919,9 @@ function Settings()  {
                                     </div>
                                     <div className="form_data">
                                         <label className="form_label">Content</label>
-                                        <textarea className="form-control" ref={content}></textarea>
+                                        {/* <textarea className="form-control" ref={content}></textarea> */}
+
+                                        <ReactQuill value={content} onChange={changeContent} style={{color:"black"}} />
                                     </div>
                                 </div>
                             </form>

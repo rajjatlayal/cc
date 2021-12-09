@@ -8,6 +8,7 @@ import { Path } from './admin/Path.js';
 
 function Home()  {
     const [settingsData, setSettingsData] = useState('');
+    const [timer, setTimer] = useState('');
     const [active_class, setActiveClass] = useState('cryptocunt');
     const [currentDate, setCurrentDate] = useState('');
     const [faq, setFaq] = useState("");
@@ -30,8 +31,9 @@ function Home()  {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
         // Output the result in an element with id="demo"
-        document.getElementById("countdown").innerHTML = days + "D " + hours + "H " + minutes + "M " + seconds + "S ";
-            
+        //document.getElementById("countdown").innerHTML = days + "D " + hours + "H " + minutes + "M " + seconds + "S ";
+        setShowCountDown(true);
+        setTimer(days + "D " + hours + "H " + minutes + "M " + seconds + "S ");   
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);
@@ -72,7 +74,7 @@ function Home()  {
     };
     useEffect(() => {
         get_data();
-    }, [faq]);	
+    }, []);	
     return (
         <div className="container-fluid p-0" style={{background:"#0F1922"}}>
             <Navbar/>
@@ -83,7 +85,7 @@ function Home()  {
             </div>
             <div className="countdown">
                 {showCountDown &&
-                (<span id="countdown"></span>)}
+                (<span id="countdown">{timer}</span>)}
                 {!showCountDown &&
                 (<button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button>)}
             </div> 
@@ -91,11 +93,14 @@ function Home()  {
                 <div className="banner">
                 </div>
                 <div className="second_section">
-                    <h1 style={{fontSize:settingsData.head_font+'px',fontWeight:settingsData.head_weight,color:"white"}}>{settingsData.first_title}</h1>
-                    <p><img  src={Path+'images/'+settingsData.banner2}/></p>
-                    <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px",fontWeight:settingsData.title_weight}}>{settingsData.second_title}</h3>
-                    <span style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.title}</span> 
-                    <h6 style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.content}</h6>
+                    {/* <h1 style={{fontSize:settingsData.head_font+'px',fontWeight:settingsData.head_weight,color:"white"}}>{settingsData.first_title}</h1> */}
+                    {/* <p><img  src={Path+'images/'+settingsData.banner2}/></p> */}
+                    {/* <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px",fontWeight:settingsData.title_weight}}>{settingsData.second_title}</h3> */}
+                    {/* <span style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.title}</span>  */}
+                    {/* <h6 style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.content}</h6> */}
+                    <div dangerouslySetInnerHTML={{ __html: settingsData.content }} style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight,color: "#ffffff"}}>
+                                            
+                                        </div>
                     <div className="row" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
@@ -129,7 +134,8 @@ function Home()  {
                         </div>
                     </div>
                 </div>
-                <div className="row" style={{margin:"0",width:"100%"}}>
+               
+                {/* <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fourth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.avatar_title}
                         </h3>
@@ -147,7 +153,8 @@ function Home()  {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
+
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fifth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.sec6_heading}</h3>
@@ -203,36 +210,39 @@ function Home()  {
                         </div>
                     </div>
                 </div>
-                <div className="row" style={{margin:"0",width:"100%",background:"#12232D",padding:"50px 0px"}}>
+
+                {/* <div className="row" style={{margin:"0",width:"100%",background:"#12232D",padding:"50px 0px"}}>
                     <div className="container seventh_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec8_heading}</h3>
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec8_content}</p>
                     </div>
-                </div>
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div> */}
+
+                {/* <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container eighth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec9_heading}</h3>
                         <p><img  src={Path+'images/'+settingsData.sec9_img}/></p>
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec9_content}</p>
                         <h5 style={{fontSize:settingsData.subtitle_font+'px',color:"#72F595",marginTop:"50px",fontWeight:settingsData.subtitle_weight}}>{settingsData.sec10_heading}</h5>
                     </div>
-                </div>
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div> */}
+
+                {/* <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container nineth_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
 
 
-                        <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="row" style={{margin:"0",width:"100%"}}> */}
                             {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
                                 </div>
                             </div> */}
-                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content }}>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
@@ -246,13 +256,13 @@ function Home()  {
                             </div>
                         </div> */}
 
-                        <div className="row" style={{margin:"0",width:"100%"}}>
+                        {/* <div className="row" style={{margin:"0",width:"100%"}}> */}
                             {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
                                 </div>
                             </div> */}
-                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
                                 </div>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
@@ -268,15 +278,15 @@ function Home()  {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
-                        <div className="row" style={{margin:"0",width:"100%"}}>
+                        {/* <div className="row" style={{margin:"0",width:"100%"}}> */}
                             {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
                                 <div className="nineth_image_div">
                                     <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
                                 </div>
                             </div> */}
-                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content2 }}>
                                 </div>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
@@ -295,12 +305,14 @@ function Home()  {
                         </div>
                     </div>    
                     </div>
-                </div>
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div> */}
+                
+                {/* <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container tenth_section" style={{maxWidth:"800px"}}>
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.text_under10}</p>
                     </div>
-                </div>
+                </div> */}
+
                 <div className="container roadmap">
                     <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff",fontWeight:settingsData.title_weight}}>{settingsData.sec11_heading}</h3>
                     <div className="history-tl-container">
@@ -361,7 +373,7 @@ function Home()  {
                     <div className="container eighth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec12_heading}</h3>
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec12_content}</p>
-                        <img  src={Path+'images/'+settingsData.sec12_img}/>
+                        {/* <img  src={Path+'images/'+settingsData.sec12_img}/> */}
                     </div>
                 </div>
                 <div className="row" style={{margin:"0",width:"100%"}}>
@@ -370,15 +382,15 @@ function Home()  {
                             <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec13_heading}</h3>
                             <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.video_title}</p>
                         </div>
-                        <div className="video_section">
+                        {/* <div className="video_section">
                             <iframe width="100%" height="300px" src={settingsData.video_link} title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
-                        </div>
+                        </div> */}
                     </div>
                 </div>  
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container twelth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec14_heading}</h3>
-                        <img  src={Path+'images/'+settingsData.sec14_img}/>
+                        {/* <img  src={Path+'images/'+settingsData.sec14_img}/> */}
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec14_content}</p>
                     </div>
                 </div> 
