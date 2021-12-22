@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-octivius-dev-232555-authRole",
+      "UnauthRoleArn": "arn:aws:iam::983576079561:role/amplify-octivius-dev-232555-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::983576079561:role/amplify-octivius-dev-232555-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-octivius-dev-232555-deployment",
+      "UnauthRoleName": "amplify-octivius-dev-232555-unauthRole",
+      "StackName": "amplify-octivius-dev-232555",
+      "StackId": "arn:aws:cloudformation:us-east-2:983576079561:stack/amplify-octivius-dev-232555/0aff1820-5e99-11ec-be5b-027d72036f18",
+      "AmplifyAppId": "d17lgp0cma6spk"
+    },
+    "categories": {
+      "auth": {
+        "octiviuse1c35102": {}
+      },
+      "storage": {
+        "octivius76661650": {
+          "bucketName": "amplify-octivius-dev-232555-deployment",
+          "region": "us-east-2"
+        }
+      }
+    }
+  }
+}

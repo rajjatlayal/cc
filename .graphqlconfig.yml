@@ -1,0 +1,18 @@
+projects:
+  Octivius:
+    schemaPath: amplify/backend/api/Octivius/build/schema.graphql
+    includes:
+      - 'src/g[/raphq/**/*.tsl'
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src
+        region: us-east-2
+        apiId: null
+        maxDepth: 2
+extensions:
+  amplify:
+    version: 3

@@ -2,7 +2,7 @@ import './css/main.css';
 import {Switch,useHistory , Route,BrowserRouter as Router,Redirect } from 'react-router-dom';
 import Home from './components/Home';
 import AdminLogin from './components/admin/AdminLogin';
-import Settings from './components/admin/Settings';
+import Setting from './components/admin/Settings';
 import ChangePassword from './components/admin/ChangePassword';
 // import Mint from './components/admin/Mint';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -25,7 +25,7 @@ function App() {
           }}/>
           <Route path="/home" exact component={Home}/>
           <Route path="/admin/login" exact component={AdminLogin}/>
-          <Route path="/admin/settings" exact component={Settings}/>
+          <Route path="/admin/settings" exact component={Setting}/>
           <Route path="/admin/change_password" exact component={ChangePassword}/>
           {/* <Route path="/admin/mint" exact component={Mint}/> */}
         </Switch>

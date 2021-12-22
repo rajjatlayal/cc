@@ -1,14 +1,19 @@
-import React,{useState,useRef} from "react";
+import React,{useState,useRef,useEffect} from "react";
 import {useHistory } from "react-router-dom";
 import eventBus from "../../eventBus";
 import { Server,PersonFill,LockFill } from 'react-bootstrap-icons';
 import { Path } from './Path.js';
-
+import { DataStore,Predicates } from '@aws-amplify/datastore';
+import {Admin} from './../../models';
+import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import awsconfig from './../../aws-exports';
+Amplify.configure(awsconfig);
 function Login()  {
   let history = useHistory();
   const username = useRef(null);
   const pwd = useRef(null);
 	const [Opacity, setOpacity] = useState('1');
+	// const [loginData, setLoginData] = useState([]);
 	const [PointerEvents, setPointerEvents] = useState('');
   const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});
 	const [Loader, setLoader] = useState(false);
@@ -18,7 +23,6 @@ function Login()  {
       setErrors('');
     }
     const show_notification=(response)=>{	
-      console.log('sdfsd');   
 	   if(response.failed!=null){
 		   setNotification({success:'',failed:response.failed,show_failed:true,show_success:false});
 	   }else if(response.success!=null){
@@ -38,43 +42,27 @@ function Login()  {
         }	
       return formIsValid;
     }
-  const login_data=(event)=>{
-    event.preventDefault();
-    const data = new FormData();
-    data.append('username', username.current.value);
-    data.append('password', pwd.current.value);
-    if(handleValidation()){	
-      setLoader(true);
-      setOpacity('0.5');
-      setPointerEvents('none');
-      fetch(Path+"login.php", {
-        method: "POST",       
-        body: data				
-      })
-      .then(res => res.json())
-      .then(response=>{
-        setLoader(false);
-        setOpacity('');
-        setPointerEvents('');
-        if(response.failed==='done'){
-          localStorage.setItem('token', response.token);
-          eventBus.dispatch("token", { message: response.token});
+    const login_data = async (event) => {
+      event.preventDefault();
+      if(handleValidation()){	
+        const original = await DataStore.query(Admin,'01bdf76d-b12d-4581-aefc-b7a264d3ec22');
+        setLoader(true);
+        setOpacity('0.5');
+        setPointerEvents('none');
+        if((original.username===username.current.value) &&(original.password===pwd.current.value)){
+          setLoader(false);
+          setOpacity('');
+          setPointerEvents('');
+          localStorage.setItem('token', original.id);
           history.push('/admin/settings');
         }else{
-          show_notification(response);
+          setLoader(false);
+          setOpacity('');
+          setPointerEvents('');
+          setNotification({success:'',failed:'Invalid credentials',show_failed:true,show_success:false});
         }
-        }
-      )
-      .catch(err => {
-        setLoader(false);
-				setOpacity('');
-				setPointerEvents('');
-        setErrors('Some problem occured.');
-        setTimeout(hide_notification, 4000);
-        return err;
-      })
+      }
     }
-  }
     return (
         <div className="row row_class">
             <div className="container admin_container">

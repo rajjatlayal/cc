@@ -3,8 +3,9 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { QuestionLg } from 'react-bootstrap-icons';
 import { Accordion } from 'react-bootstrap-accordion';
-import {Tabs, Tab} from 'react-bootstrap-tabs';
 import { Path } from './admin/Path.js';
+import { DataStore,Predicates } from '@aws-amplify/datastore';
+import {Settings} from './../models';
 
 function Home()  {
     const [settingsData, setSettingsData] = useState('');
@@ -42,32 +43,55 @@ function Home()  {
         }, 1000);
     }
     const get_data=()=>{
-		fetch(Path+"get_settings_data.php", { 
-			method: "POST",       
-			body: JSON.stringify({
-				token: localStorage.getItem('token'),
-			}), 	
-		})
-		.then(res => res.json())
-		.then(response=>{
-            setSettingsData(response.updated_data);
-            setFaq(response.updated_data.faq_content1);
-            if(response.updated_data.cryptocunts==='1'){
+        DataStore.query(Settings,'9916452e-cbef-4e28-b459-016bf0f5a713').then((data)=>{
+            setSettingsData(data);
+
+            setFaq(data.faq_content1);
+            if(data.CryptoCunts==='true'){
                 setActiveClass('cryptocunt');
-            }else if(response.updated_data.evolved==='1'){
+            }else if(data.Evolved==='true'){
                 setActiveClass('evolved');
-            }else if(response.updated_data.ape==='1'){
+            }else if(data.AnonymousApe==='true'){
                 setActiveClass('ape');
-            }else if(response.updated_data.famous==='1'){
+            }else if(data.FamousCryptoCunt==='true'){
                 setActiveClass('famous');
-            }else if(response.updated_data.gods==='1'){
+            }else if(data.CryptoCuntGods==='true'){
                 setActiveClass('gods');
             }
-            if(response.updated_data.show_date_time!==''){
-                get_countdown(response.updated_data.show_date_time);
-            }
-        }
-		)		
+            get_countdown(data.date_time);
+            // if(data.show_date_time!==''){
+            //     get_countdown(data.show_date_time);
+            // }
+        }).catch((err)=>{
+            console.log(err);
+        })
+
+		// fetch(Path+"get_settings_data.php", { 
+		// 	method: "POST",       
+		// 	body: JSON.stringify({
+		// 		token: localStorage.getItem('token'),
+		// 	}), 	
+		// })
+		// .then(res => res.json())
+		// .then(response=>{
+        //     setSettingsData(response.updated_data);
+        //     setFaq(response.updated_data.faq_content1);
+        //     if(response.updated_data.cryptocunts==='1'){
+        //         setActiveClass('cryptocunt');
+        //     }else if(response.updated_data.evolved==='1'){
+        //         setActiveClass('evolved');
+        //     }else if(response.updated_data.ape==='1'){
+        //         setActiveClass('ape');
+        //     }else if(response.updated_data.famous==='1'){
+        //         setActiveClass('famous');
+        //     }else if(response.updated_data.gods==='1'){
+        //         setActiveClass('gods');
+        //     }
+        //     if(response.updated_data.show_date_time!==''){
+        //         get_countdown(response.updated_data.show_date_time);
+        //     }
+        // }
+		// )		
 	}
     const changeActiveClass = (value) => {
        setActiveClass(value);
@@ -80,7 +104,7 @@ function Home()  {
             <Navbar/>
             <div className="row landing_page" style={{width:"100%",margin:"0"}}>
             <div className="row banner_image" style={{width:"100%",margin:"0",padding:"0"}}>
-            <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+"images/"+settingsData.banner1+"')"}}>
+            <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
                 
             </div>
             <div className="countdown">
@@ -104,22 +128,22 @@ function Home()  {
                     <div className="row" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+'images/'+settingsData.img1}/>
+                                <img src={Path+settingsData.img1}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+'images/'+settingsData.img2}/>
+                                <img src={Path+settingsData.img2}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+'images/'+settingsData.img3}/>
+                                <img src={Path+settingsData.img3}/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+'images/'+settingsData.img4}/>
+                                <img src={Path+settingsData.img4}/>
                             </div>
                         </div>
                     </div>
@@ -163,7 +187,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+'images/'+settingsData.collect_img1} alt="Avatar"/>
+                                        <img src={Path+settingsData.collect_img1} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content1 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                             
@@ -175,7 +199,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+'images/'+settingsData.collect_img2} alt="Avatar"/>
+                                        <img src={Path+settingsData.collect_img2} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content2 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                             
@@ -187,7 +211,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+'images/'+settingsData.collect_img3} alt="Avatar"/>
+                                        <img src={Path+settingsData.collect_img3} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content3 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                            
@@ -199,7 +223,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+'images/'+settingsData.collect_img4} alt="Avatar"/>
+                                        <img src={Path+settingsData.collect_img4} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content4 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                             
@@ -426,29 +450,29 @@ function Home()  {
                         </Accordion>
                     </div>
                 </div>
-                {(settingsData.cryptocunts ==='1' || settingsData.evolved ==='1' || settingsData.ape ==='1' ||settingsData.famous ==='1' ||settingsData.gods ==='1') &&
+                {(settingsData.CryptoCunts ==='true' || settingsData.Evolved ==='true' || settingsData.AnonymousApe ==='true' ||settingsData.FamousCryptoCunt ==='true' ||settingsData.CryptoCuntGods ==='true') &&
                 (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fourt_section" id="exTab1">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",fontWeight:settingsData.title_weight}}>{settingsData.sec16_heading}</h3>
 
                         <ul className="nav nav-tabs mb-3" id="ex1" role="tablist">
-                            {settingsData.cryptocunts==='1' &&
+                            {settingsData.CryptoCunts==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('cryptocunt')}>
                                 <a className={active_class==='cryptocunt' ? 'nav-link active' : 'nav-link '}>CryptoCunt</a>
                             </li>)}
-                            {settingsData.evolved==='1' &&
+                            {settingsData.Evolved==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('evolved')}>
                                 <a className={active_class==='evolved' ? 'nav-link active' : 'nav-link '}>Evolved</a>
                             </li>)}
-                            {settingsData.ape==='1' &&
+                            {settingsData.AnonymousApe==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('ape')}>
                                 <a className={active_class==='ape' ? 'nav-link active' : 'nav-link '}>Anonymous Ape</a>
                             </li>)}
-                            {settingsData.famous==='1' &&
+                            {settingsData.FamousCryptoCunt==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('famous')}>
                                 <a className={active_class==='famous' ? 'nav-link active' : 'nav-link '}>Famous CryptoCunt</a>
                             </li>)}
-                            {settingsData.gods==='1' &&
+                            {settingsData.CryptoCuntGods==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('gods')}>
                                 <a className={active_class==='gods' ? 'nav-link active' : 'nav-link '}>CryptoCunt Gods</a>
                             </li>)}
@@ -457,10 +481,10 @@ function Home()  {
                             <div className={active_class==='cryptocunt' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunts</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.crypto_cunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.cryptocunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.crypto_cunt_img} /></p>
+                                        <p><img src={Path+settingsData.crypto_cunt_img} /></p>
                                     </div>
                                 </div>
                             </div>
@@ -470,7 +494,7 @@ function Home()  {
                                     <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.evolved_img} /></p>
+                                        <p><img src={Path+settingsData.evolved_img} /></p>
                                     </div>
                                 </div>
                             </div>
@@ -480,7 +504,7 @@ function Home()  {
                                     <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.ape_img} /></p>
+                                        <p><img src={Path+settingsData.ape_img} /></p>
                                     </div>
                                 </div>
                             </div>
@@ -490,7 +514,7 @@ function Home()  {
                                     <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.famous_img} /></p>
+                                        <p><img src={Path+settingsData.famous_img} /></p>
                                     </div>
                                 </div>
                             </div>
@@ -500,7 +524,7 @@ function Home()  {
                                     <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6">
-                                        <p><img src={Path+'images/'+settingsData.gods_img} /></p>
+                                        <p><img src={Path+settingsData.gods_img} /></p>
                                     </div>
                                 </div>
                             </div>

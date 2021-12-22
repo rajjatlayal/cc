@@ -1,13 +1,18 @@
 import React,{useState,useRef,useEffect} from "react";
+import {useHistory } from "react-router-dom";
 import Sidebar from './Sidebar';
 import AdminNavbar from './AdminNavbar';
 import { Lock} from 'react-bootstrap-icons';
 import { Path } from './Path.js';
+import { DataStore,Predicates } from '@aws-amplify/datastore';
+import {Admin} from './../../models';
 function Settings()  {
+    let history = useHistory();
     const old_password = useRef(null);
     const new_password = useRef(null);
     const confirm_password = useRef(null);
 	const [Opacity, setOpacity] = useState('');
+	const [OldPassword, setOldPassword] = useState('');
 	const [PointerEvents, setPointerEvents] = useState('');
     const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});
 	const [Loader, setLoader] = useState(false);
@@ -41,38 +46,42 @@ function Settings()  {
 		}	
 		return formIsValid;
     }
-    const Password_data=(event)=>{
+    const Password_data=async (event)=>{
         event.preventDefault();
-        const data = new FormData();
-        data.append('old_password', old_password.current.value);
-        data.append('new_password', new_password.current.value);
-        //data.append('token', localStorage.getItem('token'));
         if(handleValidation()){	
-            setLoader(true);
-            setOpacity('0.5');
-            setPointerEvents('none');
-            fetch(Path+"change_password.php", {
-                method: "POST",       
-                body: data				
-            })
-            .then(res => res.json())
-            .then(response=>{	
-                setLoader(false);
-                setOpacity('');
-                setPointerEvents('');
-                show_notification(response);
-                }
-            )
-            .catch(err => {
-                setLoader(false);
-                setOpacity('');
-                setPointerEvents('');
-                setErrors('Some problem occured.');
-                setTimeout(hide_notification, 4000);
-                return err;
-            })
+            const original = await DataStore.query(Admin,'01bdf76d-b12d-4581-aefc-b7a264d3ec22')
+            if(old_password.current.value!==OldPassword){
+                setErrors('Old password is not correct');		   
+            }else{
+                setErrors('');	
+                await DataStore.save(
+                    Admin.copyOf(original, updated => {
+                    updated.password=`${new_password.current.value}`;
+                    })
+                ).then((data)=>{
+                    setOldPassword(data.password);
+                    setNotification({success:'Password updated successfully.',failed:'',show_failed:false,show_success:true});
+                    setTimeout(hide_notification, 4000);
+                }).catch((err)=>{
+                    setNotification({success:'',failed:err,show_failed:true,show_success:false});
+                    setTimeout(hide_notification, 4000);
+                    setErrors('');	
+                    // console.log(err);
+                })
+            }
         }
     }
+    useEffect(() => {
+        if(localStorage.getItem('token')!==null && localStorage.getItem('token')!==undefined && localStorage.getItem('token')!==''){
+            DataStore.query(Admin,'01bdf76d-b12d-4581-aefc-b7a264d3ec22').then((data)=>{
+                setOldPassword(data.password);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }else{
+            history.push('/admin/login');
+        }
+    }, []);	
     return (
         <>
         <AdminNavbar/>

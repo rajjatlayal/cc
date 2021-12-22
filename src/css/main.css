@@ -709,7 +709,7 @@ h6 {
   border-radius: 24px !important;
 }
 .nav-item {
-  margin-right: 40px;
+  margin-right: 10px;
 }
 .nav-tabs .nav-link {
   background: #132227 !important;
@@ -1342,6 +1342,8 @@ px
   h2,
   h3 {
     font-size: 24px !important;
+  }.col-12.right_banner{
+    min-height: 200px;
   }
 }
 @media screen and (max-width: 767px) and (min-width: 431px) {
@@ -1462,6 +1464,8 @@ px
     background-color: transparent !important;
   }.flip-card-inner{
     box-shadow:none !important;
+  }.col-12.right_banner{
+    min-height: 280px;
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 768px) {
@@ -1505,6 +1509,8 @@ px
   }
   .second_section p img {
     width: 100%;
+  }.col-12.right_banner{
+    min-height: 340px;
   }
 }
 @media screen and (max-width: 1300px) and (min-width: 1001px) {

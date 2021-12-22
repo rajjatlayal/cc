@@ -1,0 +1,12 @@
+{
+  "AppSyncApiName": "Octivius",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authoctiviuse1c35102",
+      "Outputs.UserPoolId"
+    ]
+  },
+  "AuthModeLastUpdated": "2021-12-20T07:24:47.506Z"
+}
