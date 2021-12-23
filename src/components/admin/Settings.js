@@ -103,6 +103,7 @@ function Setting()  {
     const sec14_heading = useRef(null);
     const sec14_content = useRef(null);
     const text_under10 = useRef(null);
+    const banner1_link = useRef(null);
 
 
 	const [logo, setLogo] = useState('');
@@ -165,6 +166,7 @@ function Setting()  {
     const [famous, setFamous] = useState('false');
     const [gods, setGods] = useState('false');
     const [evolved, setEvolved] = useState('false');
+    const [showtimer, setTimer] = useState('false');
 
     const [logoname, setLogoName] = useState('');
     const [banner1name, setBanner1Name] = useState('');
@@ -208,6 +210,9 @@ function Setting()  {
     }
     const handleValidation=()=>{
         let formIsValid = false;
+        //   if(banner1_link.current.value===''){
+        //     setErrors('Please enter embeded video link for first banner.');		   
+        //   }else 
           if(first_title.current.value===''){
             setErrors('Please enter first title');		   
           }else if(second_title.current.value===''){
@@ -565,6 +570,13 @@ function Setting()  {
     const changeApeContent=(value)=>{
         setApeContent(value);
     };
+    const changeTimer=()=>{
+        if(showtimer==='false'){
+            setTimer('true');
+        }else{
+            setTimer('false');
+        }
+    };
     const changeGods=()=>{
         if(gods==='false'){
             setGods('true');
@@ -610,6 +622,7 @@ function Setting()  {
             await DataStore.save(
                 Settings.copyOf(original, updated => {
                 updated.first_title=`${first_title.current.value}`;
+                // updated.banner1_link=`${banner1_link.current.value}`;
                 updated.second_title=`${second_title.current.value}`;
                 updated.avatar_title=`${avatar_title.current.value}`;
                 updated.sec6_heading=`${sec6_heading.current.value}`;
@@ -728,6 +741,7 @@ function Setting()  {
                 updated.sec12_img=`${sec12_imgname}`;
                 updated.sec14_img=`${sec14_imgname}`;
                 updated.date_time=`${date_time.current.value}`;
+                // updated.showTimer=`${showtimer}`;
                 })
             ).then((data)=>{
                 const ReactS3Client=new S3(config);
@@ -861,6 +875,8 @@ function Setting()  {
             setEvolved(data.Evolved);
             setFamous(data.FamousCryptoCunt	);
             setGods(data.CryptoCuntGods);
+            // setTimer(data.showTimer);
+            // banner1_link.current.value=data.banner1_link;
             first_title.current.value=data.first_title;
             second_title.current.value=data.second_title;
             avatar_title.current.value=data.avatar_title;
@@ -1033,7 +1049,7 @@ function Setting()  {
                             </form>
                         </div>
                     </div>
-                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div className="settings_div">
                             <h4>Change Banner1</h4>
                             <img src={Path+settingsData.banner1} className="banner_img"></img>
@@ -1043,13 +1059,18 @@ function Setting()  {
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    </div> */}
+                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="settings_div">
-                            <h4>Change Banner2</h4>
+                            <h4>Change Banner1 and Banner2</h4>
+                            <div className="settings_form_data" style={{marginBottom:"16px"}}>
+                                <label>Banner1</label>
+                                <input type="text" className="form-control" ref={banner1_link}></input>
+                            </div>
                             <img src={Path+settingsData.banner2} className="banner_img"></img>
                             <form>
                                 <div className="settings_form_data">
+                                    <label>Banner2</label>
                                     <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeBanner2}></input>
                                 </div>
                             </form>
@@ -1915,7 +1936,14 @@ function Setting()  {
                                             <input type="text" className="form-control" ref={button_weight}></input>
                                         </div>
                                     </div>
-                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" style={{marginTop:"26px"}}>
+                                        <label style={{marginRight:"10px"}}>Add/Remove countdown timer</label>
+                                        <span onClick={changeTimer} className="toggle_icon">
+                                            {showtimer==='true' ?
+                                            (<ToggleOn size={28} color="#4B4B4B" />):(<ToggleOff size={28} color="#4B4B4B" />)}
+                                        </span>
+                                    </div>
+                                    <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                         <label>Date/Time for countdown timer</label>
                                         <input type="datetime-local" className="form-control" ref={date_time}></input>
                                     </div>

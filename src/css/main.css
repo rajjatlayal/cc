@@ -1344,6 +1344,8 @@ px
     font-size: 24px !important;
   }.col-12.right_banner{
     min-height: 200px;
+  }.banner_image iframe{
+    height: 250px;
   }
 }
 @media screen and (max-width: 767px) and (min-width: 431px) {
@@ -1466,6 +1468,8 @@ px
     box-shadow:none !important;
   }.col-12.right_banner{
     min-height: 280px;
+  }.banner_image iframe{
+    height: 300px;
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 768px) {
@@ -1511,6 +1515,8 @@ px
     width: 100%;
   }.col-12.right_banner{
     min-height: 340px;
+  }.banner_image iframe{
+    height: 300px;
   }
 }
 @media screen and (max-width: 1300px) and (min-width: 1001px) {

@@ -104,15 +104,19 @@ function Home()  {
             <Navbar/>
             <div className="row landing_page" style={{width:"100%",margin:"0"}}>
             <div className="row banner_image" style={{width:"100%",margin:"0",padding:"0"}}>
-            <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
+            {/* <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
                 
-            </div>
+            </div> */}
+            <iframe width="100%" height="500px" src={settingsData.video_link+'?autoplay=1'} style={{borderRadius:"0px",padding:"0"}} allow="autoplay"></iframe>
+            {/* {settingsData.showTimer ? */}
+            (
             <div className="countdown">
                 {showCountDown &&
                 (<span id="countdown">{timer}</span>)}
                 {!showCountDown &&
                 (<button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button>)}
-            </div> 
+            </div>
+            {/* ):('')} */}
             </div>
                 <div className="banner">
                 </div>
