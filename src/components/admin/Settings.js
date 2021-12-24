@@ -210,10 +210,9 @@ function Setting()  {
     }
     const handleValidation=()=>{
         let formIsValid = false;
-        //   if(banner1_link.current.value===''){
-        //     setErrors('Please enter embeded video link for first banner.');		   
-        //   }else 
-          if(first_title.current.value===''){
+          if(banner1_link.current.value===''){
+            setErrors('Please enter embeded video link for first banner.');		   
+          }else if(first_title.current.value===''){
             setErrors('Please enter first title');		   
           }else if(second_title.current.value===''){
             setErrors('Please enter second title');		   
@@ -622,7 +621,7 @@ function Setting()  {
             await DataStore.save(
                 Settings.copyOf(original, updated => {
                 updated.first_title=`${first_title.current.value}`;
-                // updated.banner1_link=`${banner1_link.current.value}`;
+                updated.banner1_link=`${banner1_link.current.value}`;
                 updated.second_title=`${second_title.current.value}`;
                 updated.avatar_title=`${avatar_title.current.value}`;
                 updated.sec6_heading=`${sec6_heading.current.value}`;
@@ -741,7 +740,7 @@ function Setting()  {
                 updated.sec12_img=`${sec12_imgname}`;
                 updated.sec14_img=`${sec14_imgname}`;
                 updated.date_time=`${date_time.current.value}`;
-                // updated.showTimer=`${showtimer}`;
+                updated.showTimer=`${showtimer}`;
                 })
             ).then((data)=>{
                 const ReactS3Client=new S3(config);
@@ -866,6 +865,7 @@ function Setting()  {
     }
     const get_data=()=>{
         DataStore.query(Settings,'9916452e-cbef-4e28-b459-016bf0f5a713').then((data)=>{
+            console.log(data);
             setSettingsData(data);
             setTwitterValue(data.social_twitter);
             setInstagramValue(data.social_instagram);
@@ -875,8 +875,8 @@ function Setting()  {
             setEvolved(data.Evolved);
             setFamous(data.FamousCryptoCunt	);
             setGods(data.CryptoCuntGods);
-            // setTimer(data.showTimer);
-            // banner1_link.current.value=data.banner1_link;
+            setTimer(data.showTimer);
+            banner1_link.current.value=data.banner1_link;
             first_title.current.value=data.first_title;
             second_title.current.value=data.second_title;
             avatar_title.current.value=data.avatar_title;

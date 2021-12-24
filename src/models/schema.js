@@ -948,6 +948,20 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "banner1_link": {
+                    "name": "banner1_link",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "showTimer": {
+                    "name": "showTimer",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -1059,5 +1073,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "3e1a57a5eff77c8f6162d6663568ca1d"
+    "version": "d8d8f40b116d53c9f0bcc70cf9b720d6"
 };

@@ -107,8 +107,8 @@ function Home()  {
             {/* <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
                 
             </div> */}
-            <iframe width="100%" height="500px" src={settingsData.video_link+'?autoplay=1'} style={{borderRadius:"0px",padding:"0"}} allow="autoplay"></iframe>
-            {/* {settingsData.showTimer ? */}
+            <iframe width="100%" height="500px" src={settingsData.banner1_link+'?autoplay=1'} style={{borderRadius:"0px",padding:"0"}} allow="autoplay"></iframe>
+            {settingsData.showTimer==='true' ?
             (
             <div className="countdown">
                 {showCountDown &&
@@ -116,7 +116,7 @@ function Home()  {
                 {!showCountDown &&
                 (<button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button>)}
             </div>
-            {/* ):('')} */}
+            ):('')}
             </div>
                 <div className="banner">
                 </div>

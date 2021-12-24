@@ -148,6 +148,8 @@ export declare class Settings {
   readonly sec9_img?: string;
   readonly sec12_img?: string;
   readonly sec14_img?: string;
+  readonly banner1_link?: string;
+  readonly showTimer?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Settings, SettingsMetaData>);

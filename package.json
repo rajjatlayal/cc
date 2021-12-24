@@ -1,10 +1,10 @@
 {
   "name": "crypto-cunts",
-  "homepage": "https://develop-new.d35kn6gtaaca6.amplifyapp.com/",
+  "homepage": "https://develop-new.d17lgp0cma6spk.amplifyapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@aws-amplify/cli": "^7.6.3",
+    "@aws-amplify/cli": "^7.6.5",
     "@aws-amplify/core": "^4.3.10",
     "@aws-amplify/datastore": "^3.7.2",
     "@fortawesome/fontawesome-free": "^5.15.4",
