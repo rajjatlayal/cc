@@ -1,0 +1,19 @@
+{
+    "AppSyncApiName": "Octivius",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authoctiviuse1c35102",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-octivius-dev-232555-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/653cd55919a637c4da0af78dc64d318dece3f332"
+}
