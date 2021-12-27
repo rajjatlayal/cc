@@ -222,6 +222,7 @@ function Settings()  {
     const changeAvatar2=(event)=>{
 		setAvatar2(event.target.files[0]);
     }
+    
     const changeAvatar3=(event)=>{
 		setAvatar3(event.target.files[0]);
     }
