@@ -1,4 +1,7 @@
 version: 1
+env:
+  variables:
+    USER_BRANCH: dev
 backend:
   phases:
     build:
