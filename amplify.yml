@@ -1,7 +1,4 @@
 version: 1
-env:
-  variables:
-    USER_BRANCH: dev
 backend:
   phases:
     build:
@@ -15,7 +12,7 @@ frontend:
         - npm install
     build:
       commands:
-        - CI=npm run build
+        - npm run build
   artifacts:
     baseDirectory: build
     files:

@@ -1,14 +1,19 @@
-import React,{useState,useRef} from "react";
+import React,{useState,useRef,useEffect} from "react";
 import {useHistory } from "react-router-dom";
 import eventBus from "../../eventBus";
 import { Server,PersonFill,LockFill } from 'react-bootstrap-icons';
 import { Path } from './Path.js';
-
+import { DataStore,Predicates } from '@aws-amplify/datastore';
+import {Admin} from './../../models';
+import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import awsconfig from './../../aws-exports';
+Amplify.configure(awsconfig);
 function Login()  {
   let history = useHistory();
   const username = useRef(null);
   const pwd = useRef(null);
 	const [Opacity, setOpacity] = useState('1');
+	// const [loginData, setLoginData] = useState([]);
 	const [PointerEvents, setPointerEvents] = useState('');
   const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});
 	const [Loader, setLoader] = useState(false);
@@ -17,9 +22,9 @@ function Login()  {
       setNotification({sucess:'',failed:'',show_failed:false,show_success:false});
       setErrors('');
     }
-    const show_notification=(response)=>{	   
+    const show_notification=(response)=>{	
 	   if(response.failed!=null){
-		   setNotification({success:'',failed:global.siteText[0][response.failed],show_failed:true,show_success:false});
+		   setNotification({success:'',failed:response.failed,show_failed:true,show_success:false});
 	   }else if(response.success!=null){
 		   setNotification({success:response.success,failed:'',show_failed:false,show_success:true});
 	   }
@@ -37,48 +42,34 @@ function Login()  {
         }	
       return formIsValid;
     }
-  const login_data=(event)=>{
-    event.preventDefault();
-    const data = new FormData();
-    data.append('username', username.current.value);
-    data.append('password', pwd.current.value);
-    console.log(handleValidation());
-    if(handleValidation()){	
-      setLoader(true);
-      setOpacity('0.5');
-      setPointerEvents('none');
-      fetch(Path+"login.php", {
-        method: "POST",       
-        body: data				
-      })
-      .then(res => res.json())
-      .then(response=>{
-        //console.log(response);	
-        setLoader(false);
-				setOpacity('');
-				setPointerEvents('');
-        localStorage.setItem('token', response.token);
-        eventBus.dispatch("token", { message: response.token});
-        history.push('/admin/settings');
+    const login_data = async (event) => {
+      event.preventDefault();
+      if(handleValidation()){	
+        const original = await DataStore.query(Admin,'01bdf76d-b12d-4581-aefc-b7a264d3ec22');
+        setLoader(true);
+        setOpacity('0.5');
+        setPointerEvents('none');
+        if((original.username===username.current.value) &&(original.password===pwd.current.value)){
+          setLoader(false);
+          setOpacity('');
+          setPointerEvents('');
+          localStorage.setItem('token', original.id);
+          history.push('/admin/settings');
+        }else{
+          setLoader(false);
+          setOpacity('');
+          setPointerEvents('');
+          setNotification({success:'',failed:'Invalid credentials',show_failed:true,show_success:false});
         }
-      )
-      .catch(err => {
-        setLoader(false);
-				setOpacity('');
-				setPointerEvents('');
-        setErrors('Some problem occured.');
-        setTimeout(hide_notification, 4000);
-        return err;
-      })
+      }
     }
-  }
     return (
         <div className="row row_class">
             <div className="container admin_container">
               <div className="row row_class">
                 <div className="login_left_div col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" style={{paddingRight:"0",margin:"auto"}}>
                     <div className="admin_div">
-                      <h2>Admin Login</h2>
+                      <h2 style={{color:"black"}}>Admin Login</h2>
                       <p>Sign in to your account</p>
                       {notification.show_success ? (<div className="alert alert-success" id="success2">{notification.success}
                         <button type="button" className="close" data-dismiss="alert"></button>

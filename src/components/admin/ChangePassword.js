@@ -12,7 +12,6 @@ function Settings()  {
     const new_password = useRef(null);
     const confirm_password = useRef(null);
 	const [Opacity, setOpacity] = useState('');
-    
 	const [OldPassword, setOldPassword] = useState('');
 	const [PointerEvents, setPointerEvents] = useState('');
     const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});

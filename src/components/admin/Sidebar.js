@@ -2,7 +2,7 @@
 import React,{useState,useEffect} from "react";
 import { Link,useHistory} from "react-router-dom";
 import eventBus from "../../eventBus";
-import { GearFill,Power,XSquare } from 'react-bootstrap-icons';
+import { GearFill,Power,XSquare,LockFill} from 'react-bootstrap-icons';
 
 export default function Sidebar() {
   let history = useHistory();
@@ -38,6 +38,9 @@ export default function Sidebar() {
         <ul className="nav flex-column" id="nav_accordion">  
           <li className="nav-item">
             <Link to="/admin/settings" className="nav-link"><span><GearFill size={18} color="#ffffff" /></span> Settings</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/admin/change_password" className="nav-link"><span><LockFill size={18} color="#ffffff" /></span> Change password</Link>
           </li>
           <li className="nav-item">
             <p onClick={logout}><span><Power size={18} color="#ffffff"/></span> Logout</p>
