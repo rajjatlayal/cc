@@ -56,6 +56,7 @@ export default function Navbar() {
                       (<li><span onClick={openLink1}><Discord color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_instagram==='true' ?
                       (<li><span onClick={openLink2}><Instagram color="#72F595" size={20}/></span></li>):('')}
+                      <link to='/admin/login'>Login</link>
                   </ul>
               </div>
           </div>
