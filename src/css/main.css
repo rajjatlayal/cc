@@ -1373,7 +1373,7 @@ px
     min-height: 200px;
   }.banner_image iframe{
     top: 50px !important;
-    height: 500px !important;
+    height: 236px !important;
   }
   /* body iframe{
     display: none;
@@ -1409,7 +1409,7 @@ px
   }
   .home_navbar_right_div ul {
     padding-left: 0;
-    margin-top: 0px;
+    margin-top: 6px;
     float: initial !important;
   }
   .login_right_div {
@@ -1527,7 +1527,8 @@ px
   }.roadmap{
     width: auto !important;
   }.home_navbar_left_div h4{
-    margin-bottom: -4px;
+    margin-bottom: 8px;
+    margin-top: 8px;
   }
   .countdown{
     margin-top: 0px !important;
