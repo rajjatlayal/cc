@@ -2,7 +2,7 @@ import React,{useState,useRef,useEffect} from "react";
 import {useHistory } from "react-router-dom";
 import eventBus from "../../eventBus";
 import { Server,PersonFill,LockFill } from 'react-bootstrap-icons';
-import { Path } from './Path.js';
+import { Path,admin_table_id } from './Path.js';
 import { DataStore,Predicates } from '@aws-amplify/datastore';
 import {Admin} from './../../models';
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
@@ -45,7 +45,7 @@ function Login()  {
     const login_data = async (event) => {
       event.preventDefault();
       if(handleValidation()){	
-        const original = await DataStore.query(Admin,'01bdf76d-b12d-4581-aefc-b7a264d3ec22');
+        const original = await DataStore.query(Admin,admin_table_id);
         setLoader(true);
         setOpacity('0.5');
         setPointerEvents('none');

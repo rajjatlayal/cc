@@ -3,7 +3,7 @@ import {useHistory } from "react-router-dom";
 import Sidebar from './Sidebar';
 import AdminNavbar from './AdminNavbar';
 import { GearFill,ToggleOn,ToggleOff } from 'react-bootstrap-icons';
-import { Path } from './Path.js';
+import { Path,setting_table_id,bucketName,dirName,region,accessKeyId,secretAccessKey } from './Path.js';
 import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css';
 import { DataStore,Predicates } from '@aws-amplify/datastore';
@@ -14,11 +14,11 @@ import S3 from 'react-aws-s3';
 
 Amplify.configure(awsconfig);
 const config = {
-    bucketName: 'amplify-octivius-dev-232555-deployment',
-    dirName: 'images', /* optional */
-    region: 'us-east-2',
-    accessKeyId: 'AKIA6KANT5TE4KQOFPXA',
-    secretAccessKey: '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',
+    bucketName: bucketName,
+    dirName: dirName, /* optional */
+    region: region,
+    accessKeyId: accessKeyId,
+    secretAccessKey: secretAccessKey,
 }
 function Setting()  {
     let history = useHistory();
@@ -617,7 +617,7 @@ function Setting()  {
             setLoader(true);
             setOpacity('0.5');
             setPointerEvents('none');
-            const original = await DataStore.query(Settings,'9916452e-cbef-4e28-b459-016bf0f5a713')
+            const original = await DataStore.query(Settings,setting_table_id)
             await DataStore.save(
                 Settings.copyOf(original, updated => {
                 updated.first_title=`${first_title.current.value}`;
@@ -864,8 +864,7 @@ function Setting()  {
         }
     }
     const get_data=()=>{
-        DataStore.query(Settings,'9916452e-cbef-4e28-b459-016bf0f5a713').then((data)=>{
-            console.log(data);
+        DataStore.query(Settings,setting_table_id).then((data)=>{
             setSettingsData(data);
             setTwitterValue(data.social_twitter);
             setInstagramValue(data.social_instagram);

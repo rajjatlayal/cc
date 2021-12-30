@@ -3,8 +3,9 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { QuestionLg } from 'react-bootstrap-icons';
 import { Accordion } from 'react-bootstrap-accordion';
-import { Path } from './admin/Path.js';
+import { Path,setting_table_id } from './admin/Path.js';
 import { DataStore,Predicates } from '@aws-amplify/datastore';
+import YoutubeEmbedVideo from "youtube-embed-video";
 import {Settings} from './../models';
 
 function Home()  {
@@ -43,7 +44,7 @@ function Home()  {
         }, 1000);
     }
     const get_data=()=>{
-        DataStore.query(Settings,'9916452e-cbef-4e28-b459-016bf0f5a713').then((data)=>{
+        DataStore.query(Settings,setting_table_id).then((data)=>{
             setSettingsData(data);
 
             setFaq(data.faq_content1);
@@ -107,7 +108,11 @@ function Home()  {
             {/* <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
                 
             </div> */}
-            <iframe width="100%" height="500px" src={settingsData.banner1_link+'?autoplay=1'} style={{borderRadius:"0px",padding:"0"}} allow="autoplay"></iframe>
+            {/* <iframe width="100%" height="500px" src={settingsData.banner1_link+'?autoplay=1&loop=1'} style={{borderRadius:"0px",padding:"0"}}></iframe> */}
+            <YoutubeEmbedVideo width="100%" height="500px" videoId="k7DYMvPoP00" autoplay={true} suggestions={false} loop={true}  controls={false} modestBranding={false} style={{borderRadius:"0px",padding:"0"}}/>
+            {/* <video autoPlay="autoplay" muted loop id="myVideo">
+                <source src={"/crypto_video.mp4"} type="video/mp4" />
+            </video> */}
             {settingsData.showTimer==='true' ?
             (
             <div className="countdown">
@@ -126,10 +131,9 @@ function Home()  {
                     {/* <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px",fontWeight:settingsData.title_weight}}>{settingsData.second_title}</h3> */}
                     {/* <span style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.title}</span>  */}
                     {/* <h6 style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.content}</h6> */}
-                    <div dangerouslySetInnerHTML={{ __html: settingsData.content }} style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight,color: "#ffffff"}}>
-                                            
-                                        </div>
-                    <div className="row" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
+                    <div dangerouslySetInnerHTML={{ __html: settingsData.content }} style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight,color: "#ffffff"}}></div>
+
+                    <div className="row imgs_div" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
                                 <img src={Path+settingsData.img1}/>
@@ -340,63 +344,64 @@ function Home()  {
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.text_under10}</p>
                     </div>
                 </div> */}
-
-                <div className="container roadmap">
-                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff",fontWeight:settingsData.title_weight}}>{settingsData.sec11_heading}</h3>
-                    <div className="history-tl-container">
-                        <ul className="tl">
-                            <li className="tl-item one" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per1}%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content1}</div>
-                            </li>
-                            <li className="tl-item two" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per2}%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content2}</div>
-                            </li>
-                            <li className="tl-item three" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per3}%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title four" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content3}</div>
-                            </li>
-                            <li className="tl-item four" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per4}%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content4}</div>
-                            </li>
-                            <li className="tl-item five" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per5}%</span>
-                                <p className="road_line fifty"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content5}</div>
-                            </li>
-                            <li className="tl-item six" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per6}%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content6}</div>
-                            </li>
-                            <li className="tl-item seven" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per7}%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content7}</div>
-                            </li>
-                            <li className="tl-item eight" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per8}%</span>
-                                <p className="road_line eighty"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content8}</div>
-                            </li>
-                            <li className="tl-item nine" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per9}%</span>
-                                <p className="road_line"></p>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content9}</div>
-                            </li>
-                            <li className="tl-item ten" ng-repeat="item in retailer_history">
-                                <span>{settingsData.roadmap_per10}%</span>
-                                <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content10}</div>
-                            </li>
-                        </ul>
+                <div className="outer_roadmap">
+                    <div className="container roadmap">
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff",fontWeight:settingsData.title_weight}}>{settingsData.sec11_heading}</h3>
+                        <div className="history-tl-container">
+                            <ul className="tl">
+                                <li className="tl-item one" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per1}%</span>
+                                    <p className="road_line"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content1}</div>
+                                </li>
+                                <li className="tl-item two" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per2}%</span>
+                                    <p className="road_line"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content2}</div>
+                                </li>
+                                <li className="tl-item three" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per3}%</span>
+                                    <p className="road_line"></p>
+                                    <div className="item-title four" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content3}</div>
+                                </li>
+                                <li className="tl-item four" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per4}%</span>
+                                    <p className="road_line"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content4}</div>
+                                </li>
+                                <li className="tl-item five" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per5}%</span>
+                                    <p className="road_line fifty"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content5}</div>
+                                </li>
+                                <li className="tl-item six" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per6}%</span>
+                                    <p className="road_line"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content6}</div>
+                                </li>
+                                <li className="tl-item seven" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per7}%</span>
+                                    <p className="road_line"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content7}</div>
+                                </li>
+                                <li className="tl-item eight" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per8}%</span>
+                                    <p className="road_line eighty"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content8}</div>
+                                </li>
+                                <li className="tl-item nine" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per9}%</span>
+                                    <p className="road_line"></p>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content9}</div>
+                                </li>
+                                <li className="tl-item ten" ng-repeat="item in retailer_history">
+                                    <span>{settingsData.roadmap_per10}%</span>
+                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content10}</div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                </div>   
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container eighth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec12_heading}</h3>
@@ -417,7 +422,7 @@ function Home()  {
                 </div>  
                 <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container twelth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec14_heading}</h3>
+                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"0px",fontWeight:settingsData.title_weight}}>{settingsData.sec14_heading}</h3>
                         {/* <img  src={Path+'images/'+settingsData.sec14_img}/> */}
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec14_content}</p>
                     </div>
@@ -485,9 +490,9 @@ function Home()  {
                             <div className={active_class==='cryptocunt' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunts</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.cryptocunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.cryptocunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
-                                    <div className="col-xl-6">
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <p><img src={Path+settingsData.crypto_cunt_img} /></p>
                                     </div>
                                 </div>
@@ -495,9 +500,9 @@ function Home()  {
                             <div className={active_class==='evolved' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Evolved</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
-                                    <div className="col-xl-6">
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <p><img src={Path+settingsData.evolved_img} /></p>
                                     </div>
                                 </div>
@@ -505,9 +510,9 @@ function Home()  {
                             <div className={active_class==='ape' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Anonymous Ape</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
-                                    <div className="col-xl-6">
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <p><img src={Path+settingsData.ape_img} /></p>
                                     </div>
                                 </div>
@@ -515,9 +520,9 @@ function Home()  {
                             <div className={active_class==='famous' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Famous CryptoCunt</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
-                                    <div className="col-xl-6">
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <p><img src={Path+settingsData.famous_img} /></p>
                                     </div>
                                 </div>
@@ -525,18 +530,17 @@ function Home()  {
                             <div className={active_class==='gods' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
                                 <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunt Gods</h3>
                                 <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
-                                    <div className="col-xl-6">
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <p><img src={Path+settingsData.gods_img} /></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button>
+                        {/* <button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button> */}
                     </div>
                 </div>)}
-
             </div>
             <Footer/>
         </div>

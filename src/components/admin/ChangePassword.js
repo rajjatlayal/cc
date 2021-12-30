@@ -3,7 +3,7 @@ import {useHistory } from "react-router-dom";
 import Sidebar from './Sidebar';
 import AdminNavbar from './AdminNavbar';
 import { Lock} from 'react-bootstrap-icons';
-import { Path } from './Path.js';
+import { Path,admin_table_id } from './Path.js';
 import { DataStore,Predicates } from '@aws-amplify/datastore';
 import {Admin} from './../../models';
 function Settings()  {
@@ -49,7 +49,7 @@ function Settings()  {
     const Password_data=async (event)=>{
         event.preventDefault();
         if(handleValidation()){	
-            const original = await DataStore.query(Admin,'01bdf76d-b12d-4581-aefc-b7a264d3ec22')
+            const original = await DataStore.query(Admin,admin_table_id)
             if(old_password.current.value!==OldPassword){
                 setErrors('Old password is not correct');		   
             }else{
@@ -73,7 +73,7 @@ function Settings()  {
     }
     useEffect(() => {
         if(localStorage.getItem('token')!==null && localStorage.getItem('token')!==undefined && localStorage.getItem('token')!==''){
-            DataStore.query(Admin,'01bdf76d-b12d-4581-aefc-b7a264d3ec22').then((data)=>{
+            DataStore.query(Admin,admin_table_id).then((data)=>{
                 setOldPassword(data.password);
             }).catch((err)=>{
                 console.log(err);

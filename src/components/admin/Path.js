@@ -1,3 +1,10 @@
 //export const Path = 'http://localhost/octivius/src/components/admin/backend/';
 //export const Path = 'https://developerssupport.com/cc/backend/';
 export const Path = 'https://amplify-octivius-dev-232555-deployment.s3.us-east-2.amazonaws.com/images/';
+export const setting_table_id='9916452e-cbef-4e28-b459-016bf0f5a713';
+export const admin_table_id='01bdf76d-b12d-4581-aefc-b7a264d3ec22';
+export const bucketName='amplify-octivius-dev-232555-deployment';
+export const dirName='images';
+export const region='us-east-2';
+export const accessKeyId='AKIA6KANT5TE4KQOFPXA';
+export const secretAccessKey= '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';

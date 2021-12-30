@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <div className="container-fluid">
           <div className="row footer">
-              <p>© 2021 Crytocunts</p>
+              <p>© 2021 CRYPTOCUNTS CLUB</p>
           </div>
       </div>
     </>

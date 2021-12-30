@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import { Link} from "react-router-dom";
 import { Twitter,Discord,Instagram } from 'react-bootstrap-icons';
-import { Path } from './admin/Path.js';
+import { Path,setting_table_id } from './admin/Path.js';
 import { DataStore,Predicates } from '@aws-amplify/datastore';
 import {Settings} from './../models';
 
@@ -19,7 +19,7 @@ export default function Navbar() {
     //         setSettingsData(response.updated_data);
     //     }
     // )	
-      DataStore.query(Settings,'9916452e-cbef-4e28-b459-016bf0f5a713').then((data)=>{
+      DataStore.query(Settings,setting_table_id).then((data)=>{
           setSettingsData(data);
       }).catch((err)=>{
           console.log(err);
@@ -56,7 +56,6 @@ export default function Navbar() {
                       (<li><span onClick={openLink1}><Discord color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_instagram==='true' ?
                       (<li><span onClick={openLink2}><Instagram color="#72F595" size={20}/></span></li>):('')}
-                      <Link to='/admin/login'>Login</Link>
                   </ul>
               </div>
           </div>
