@@ -5,7 +5,8 @@ import { QuestionLg } from 'react-bootstrap-icons';
 import { Accordion } from 'react-bootstrap-accordion';
 import { Path,setting_table_id } from './admin/Path.js';
 import { DataStore,Predicates } from '@aws-amplify/datastore';
-import YoutubeEmbedVideo from "youtube-embed-video";
+// import YoutubeEmbedVideo from "youtube-embed-video";
+import ReactPlayer from 'react-player'
 import {Settings} from './../models';
 
 function Home()  {
@@ -109,10 +110,11 @@ function Home()  {
                 
             </div> */}
             {/* <iframe width="100%" height="500px" src={settingsData.banner1_link+'?autoplay=1&loop=1'} style={{borderRadius:"0px",padding:"0"}}></iframe> */}
-            <YoutubeEmbedVideo width="100%" height="500px" videoId="k7DYMvPoP00" autoplay={true} suggestions={false} loop={true}  controls={false} modestBranding={false} style={{borderRadius:"0px",padding:"0"}}/>
+            {/* <YoutubeEmbedVideo width="100%" height="500px" videoId="k7DYMvPoP00?autoplay=1&loop=1" autoplay={true} suggestions={false} controls={false}  style={{borderRadius:"0px",padding:"0"}} /> */}
             {/* <video autoPlay="autoplay" muted loop id="myVideo">
                 <source src={"/crypto_video.mp4"} type="video/mp4" />
             </video> */}
+            <ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoplay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
             {settingsData.showTimer==='true' ?
             (
             <div className="countdown">

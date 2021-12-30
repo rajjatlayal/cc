@@ -961,6 +961,11 @@ p.p4 img {
 }
 /*----------- MEDIA QUERY ---------------*/
 @media screen and (max-width: 440px) and (min-width: 300px) {
+  .banner_image div {
+    height: auto !important; 
+     width: 100% !important;
+    padding: 0;
+  }
   .top_bar{
     justify-content: center;
   }.flip-card-back{
@@ -1373,7 +1378,7 @@ px
     min-height: 200px;
   }.banner_image iframe{
     top: 50px !important;
-    height: 236px !important;
+    height: 180px !important;
   }
   /* body iframe{
     display: none;
@@ -1521,7 +1526,8 @@ px
     min-height: 280px;
   }.banner_image iframe{
     height: 300px;
-  }.outer_roadmap{
+  }
+  .outer_roadmap{
     padding-left: 24px !important;
     padding-right: 24px !important;
   }.roadmap{
@@ -1779,3 +1785,8 @@ p {
 }.ytp-watermark:hover{
   opacity: 0 !important;
 }
+/* .banner_image div{
+  height: 500px !important;
+  width: 100% !important;
+  padding: 0;
+}  */
