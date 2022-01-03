@@ -97,7 +97,10 @@ function Home()  {
 	}
     const changeActiveClass = (value) => {
        setActiveClass(value);
-    };
+    }
+    const MintNow=()=>{
+        window.open('https://etherscan.io/address/0x8b63608aea9c2301c74db0a74a6de5bf416cb248');
+    }
     useEffect(() => {
         get_data();
     }, []);	
@@ -121,7 +124,7 @@ function Home()  {
                 {showCountDown &&
                 (<span id="countdown">{timer}</span>)}
                 {!showCountDown &&
-                (<button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button>)}
+                (<button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}} onClick={MintNow}>MINT NOW</button>)}
             </div>
             ):('')}
             </div>
