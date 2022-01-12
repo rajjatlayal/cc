@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React,{useEffect } from "react";
 import {useHistory } from "react-router-dom";
 import { Power,Justify } from 'react-bootstrap-icons';

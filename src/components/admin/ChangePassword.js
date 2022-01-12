@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React,{useState,useRef,useEffect} from "react";
 import {useHistory } from "react-router-dom";
 import Sidebar from './Sidebar';

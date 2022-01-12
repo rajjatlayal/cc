@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React,{useState,useRef} from "react";
 import {useHistory } from "react-router-dom";
 import { Server,PersonFill,LockFill } from 'react-bootstrap-icons';

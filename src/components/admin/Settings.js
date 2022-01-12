@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React,{useState,useRef,useEffect} from "react";
 import {useHistory } from "react-router-dom";
 import Sidebar from './Sidebar';
@@ -8,11 +9,11 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { DataStore } from '@aws-amplify/datastore';
 import {Settings} from './../../models';
-import { Amplify } from 'aws-amplify';
-import awsconfig from './../../aws-exports';
+// import { Amplify } from 'aws-amplify';
+// import awsconfig from './../../aws-exports';
 import S3 from 'react-aws-s3';
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 const config = {
     bucketName: bucketName,
     dirName: dirName, /* optional */

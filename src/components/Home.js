@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React,{useState,useEffect} from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Accordion } from 'react-bootstrap-accordion';
 import { Path,setting_table_id } from './admin/Path.js';
-import { DataStore } from '@aws-amplify/datastore';
+import { DataStore,Predicates } from '@aws-amplify/datastore';
+import { Amplify,Hub} from 'aws-amplify';
 // import YoutubeEmbedVideo from "youtube-embed-video";
 import ReactPlayer from 'react-player'
 import {Settings} from './../models';
@@ -45,54 +47,25 @@ function Home()  {
     }
     const get_data=()=>{
         DataStore.query(Settings,setting_table_id).then((data)=>{
-            setSettingsData(data);
-
-            setFaq(data.faq_content1);
-            if(data.CryptoCunts==='true'){
-                setActiveClass('cryptocunt');
-            }else if(data.Evolved==='true'){
-                setActiveClass('evolved');
-            }else if(data.AnonymousApe==='true'){
-                setActiveClass('ape');
-            }else if(data.FamousCryptoCunt==='true'){
-                setActiveClass('famous');
-            }else if(data.CryptoCuntGods==='true'){
-                setActiveClass('gods');
+            if(data!==undefined && data!==''){
+                setSettingsData(data);
+                setFaq(data.faq_content1);
+                if(data.CryptoCunts==='true'){
+                    setActiveClass('cryptocunt');
+                }else if(data.Evolved==='true'){
+                    setActiveClass('evolved');
+                }else if(data.AnonymousApe==='true'){
+                    setActiveClass('ape');
+                }else if(data.FamousCryptoCunt==='true'){
+                    setActiveClass('famous');
+                }else if(data.CryptoCuntGods==='true'){
+                    setActiveClass('gods');
+                }
+                get_countdown(data.date_time);
             }
-            get_countdown(data.date_time);
-            // if(data.show_date_time!==''){
-            //     get_countdown(data.show_date_time);
-            // }
         }).catch((err)=>{
             console.log(err);
-        })
-
-		// fetch(Path+"get_settings_data.php", { 
-		// 	method: "POST",       
-		// 	body: JSON.stringify({
-		// 		token: localStorage.getItem('token'),
-		// 	}), 	
-		// })
-		// .then(res => res.json())
-		// .then(response=>{
-        //     setSettingsData(response.updated_data);
-        //     setFaq(response.updated_data.faq_content1);
-        //     if(response.updated_data.cryptocunts==='1'){
-        //         setActiveClass('cryptocunt');
-        //     }else if(response.updated_data.evolved==='1'){
-        //         setActiveClass('evolved');
-        //     }else if(response.updated_data.ape==='1'){
-        //         setActiveClass('ape');
-        //     }else if(response.updated_data.famous==='1'){
-        //         setActiveClass('famous');
-        //     }else if(response.updated_data.gods==='1'){
-        //         setActiveClass('gods');
-        //     }
-        //     if(response.updated_data.show_date_time!==''){
-        //         get_countdown(response.updated_data.show_date_time);
-        //     }
-        // }
-		// )		
+        })	
 	}
     const changeActiveClass = (value) => {
        setActiveClass(value);
@@ -101,7 +74,19 @@ function Home()  {
         window.open('https://etherscan.io/address/0x8b63608aea9c2301c74db0a74a6de5bf416cb248');
     }
     useEffect(() => {
-        get_data();
+        const removeListener = Hub.listen("datastore", async (capsule) => {
+            const {
+              payload: { event, data },
+            } = capsule;
+            if (event === "ready") {
+              get_data();
+            }
+          });
+          // Start the DataStore, this kicks-off the sync process.
+          DataStore.start();
+          return () => {
+            removeListener();
+          };
     },[]);// eslint-disable-line react-hooks/exhaustive-deps	
     return (
         <div className="container-fluid p-0" style={{background:"#0F1922"}}>
@@ -116,8 +101,9 @@ function Home()  {
             {/* <video autoPlay="autoplay" muted loop id="myVideo">
                 <source src={"/crypto_video.mp4"} type="video/mp4" />
             </video> */}
-            <ReactPlayer url={settingsData.banner1_link!==undefined ? settingsData.banner1_link+'?autoplay=1&loop=1' : ''} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
-            {settingsData.showTimer==='true' ?
+            {settingsData!==undefined && settingsData!=='' ?
+            (<ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>):('')}
+            {settingsData!==undefined && settingsData!=='' && settingsData.showTimer==='true' ?
             (
             <div className="countdown">
                 {showCountDown &&
@@ -129,12 +115,14 @@ function Home()  {
             </div>
                 <div className="banner">
                 </div>
-                <div className="second_section">
+                {settingsData!==undefined && settingsData!=='' ?
+                (<div className="second_section">
                     {/* <h1 style={{fontSize:settingsData.head_font+'px',fontWeight:settingsData.head_weight,color:"white"}}>{settingsData.first_title}</h1> */}
                     {/* <p><img  src={Path+'images/'+settingsData.banner2}/></p> */}
                     {/* <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px",fontWeight:settingsData.title_weight}}>{settingsData.second_title}</h3> */}
                     {/* <span style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.title}</span>  */}
                     {/* <h6 style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.content}</h6> */}
+                    
                     <div dangerouslySetInnerHTML={{ __html: settingsData.content }} style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight,color: "#ffffff"}}></div>
 
                     <div className="row imgs_div" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
@@ -159,8 +147,9 @@ function Home()  {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div>):('')}
+                {settingsData!==undefined && settingsData!=='' ?
+                (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container third_section">
                         <div className="row" style={{margin:"0",width:"100%"}}>
                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 third_section_content">
@@ -169,7 +158,7 @@ function Home()  {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>):('')}
                
                 {/* <div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fourth_section">
@@ -190,8 +179,8 @@ function Home()  {
                         </div>
                     </div>
                 </div> */}
-
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                {settingsData!==undefined && settingsData!=='' ?
+                (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fifth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.sec6_heading}</h3>
                         <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
@@ -245,7 +234,7 @@ function Home()  {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>):('')}
 
                 {/* <div className="row" style={{margin:"0",width:"100%",background:"#12232D",padding:"50px 0px"}}>
                     <div className="container seventh_section">
@@ -348,7 +337,8 @@ function Home()  {
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.text_under10}</p>
                     </div>
                 </div> */}
-                <div className="outer_roadmap">
+                {settingsData!==undefined && settingsData!=='' ?
+                (<div className="outer_roadmap">
                     <div className="container roadmap">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff",fontWeight:settingsData.title_weight}}>{settingsData.sec11_heading}</h3>
                         <div className="history-tl-container">
@@ -405,15 +395,17 @@ function Home()  {
                             </ul>
                         </div>
                     </div>
-                </div>   
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div> ):('')} 
+                {settingsData!==undefined && settingsData!=='' ? 
+                (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container eighth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec12_heading}</h3>
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec12_content}</p>
                         {/* <img  src={Path+'images/'+settingsData.sec12_img}/> */}
                     </div>
-                </div>
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div>):('')}
+                {settingsData!==undefined && settingsData!=='' ?
+                (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div style={{width:"820px",margin:"auto"}}>
                         <div className="eleventh_section">
                             <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec13_heading}</h3>
@@ -423,15 +415,17 @@ function Home()  {
                             <iframe width="100%" height="300px" src={settingsData.video_link} title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
                         </div> */}
                     </div>
-                </div>  
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div>):('')}
+                {settingsData!==undefined && settingsData!=='' ?
+                (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container twelth_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"0px",fontWeight:settingsData.title_weight}}>{settingsData.sec14_heading}</h3>
                         {/* <img  src={Path+'images/'+settingsData.sec14_img}/> */}
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec14_content}</p>
                     </div>
-                </div> 
-                <div className="row" style={{margin:"0",width:"100%"}}>
+                </div>):('')}
+                {settingsData!==undefined && settingsData!=='' ? 
+                (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container thirt_section">
                         <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec15_heading}</h3>
                         <div className="accor1">
@@ -462,7 +456,9 @@ function Home()  {
                         <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content8}</p>
                         </Accordion>
                     </div>
-                </div>
+                </div>):('')}
+                {settingsData!==undefined && settingsData!=='' ?
+                (<React.Fragment>
                 {(settingsData.CryptoCunts ==='true' || settingsData.Evolved ==='true' || settingsData.AnonymousApe ==='true' ||settingsData.FamousCryptoCunt ==='true' ||settingsData.CryptoCuntGods ==='true') &&
                 (<div className="row" style={{margin:"0",width:"100%"}}>
                     <div className="container fourt_section" id="exTab1">
@@ -545,6 +541,7 @@ function Home()  {
                         {/* <button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button> */}
                     </div>
                 </div>)}
+                </React.Fragment>):('')}
             </div>
             <Footer/>
         </div>

@@ -9,7 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // @ts-ignore
 import 'bootstrap/dist/js/bootstrap.min.js'
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
+import { DataStore } from '@aws-amplify/datastore';
+DataStore.start()
 function App() {
   // const history = useHistory();
   return (

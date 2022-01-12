@@ -1,24 +1,14 @@
+/* eslint-disable */
 import React,{useState,useEffect} from "react";
 import { Twitter,Discord,Instagram } from 'react-bootstrap-icons';
 import { setting_table_id } from './admin/Path.js';
-import { DataStore } from '@aws-amplify/datastore';
+import { DataStore,Predicates } from '@aws-amplify/datastore';
 import {Settings} from './../models';
-
+import { Amplify,Hub} from 'aws-amplify';
 export default function Navbar() {
   const [settingsData, setSettingsData] = useState('');
-    const get_data=()=>{
-    // fetch(Path+"get_settings_data.php", { 
-    //   method: "POST",       
-    //   body: JSON.stringify({
-    //     token: localStorage.getItem('token'),
-    //   }), 	
-    // })
-    // .then(res => res.json())
-    // .then(response=>{
-    //         setSettingsData(response.updated_data);
-    //     }
-    // )	
-      DataStore.query(Settings,setting_table_id).then((data)=>{
+    const get_data=async()=>{
+      const data= await DataStore.query(Settings,setting_table_id).then((data)=>{
           setSettingsData(data);
       }).catch((err)=>{
           console.log(err);
@@ -37,8 +27,20 @@ export default function Navbar() {
     window.open("https://discord.gg/hjrtqattwp");
   }
   useEffect(() => {
-      get_data();
-  }, []);	
+    const removeListener = Hub.listen("datastore", async (capsule) => {
+      const {
+        payload: { event, data },
+      } = capsule;
+      if (event === "ready") {
+        get_data();
+      }
+    });
+    // Start the DataStore, this kicks-off the sync process.
+    DataStore.start();
+    return () => {
+      removeListener();
+    };
+  }, [settingsData]);	
   return (
     <>
       <div className="container-fluid home_navbar">
@@ -47,7 +49,8 @@ export default function Navbar() {
                   <h4>CRYPTOCUNTS CLUB</h4>
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 home_navbar_right_div">
-                  <ul>
+              {settingsData ?
+                  (<ul>
                       <li><span className="top_btn" onClick={discordLink}>Join our discord</span></li>
                       {settingsData.social_twitter==='true' ?
                       (<li><span onClick={openLink}><Twitter color="#72F595" size={20}/></span></li>):('')}
@@ -55,7 +58,7 @@ export default function Navbar() {
                       (<li><span onClick={openLink1}><Discord color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_instagram==='true' ?
                       (<li><span onClick={openLink2}><Instagram color="#72F595" size={20}/></span></li>):('')}
-                  </ul>
+                  </ul>):('')}
               </div>
           </div>
       </div>
