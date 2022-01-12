@@ -1,11 +1,10 @@
-import React,{useState,useRef,useEffect} from "react";
+import React,{useState,useRef} from "react";
 import {useHistory } from "react-router-dom";
-import eventBus from "../../eventBus";
 import { Server,PersonFill,LockFill } from 'react-bootstrap-icons';
-import { Path,admin_table_id } from './Path.js';
-import { DataStore,Predicates } from '@aws-amplify/datastore';
+import { admin_table_id } from './Path.js';
+import { DataStore } from '@aws-amplify/datastore';
 import {Admin} from './../../models';
-import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import awsconfig from './../../aws-exports';
 Amplify.configure(awsconfig);
 function Login()  {
@@ -18,18 +17,6 @@ function Login()  {
   const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});
 	const [Loader, setLoader] = useState(false);
 	const [errors, setErrors] = useState('');
-    const hide_notification=()=>{
-      setNotification({sucess:'',failed:'',show_failed:false,show_success:false});
-      setErrors('');
-    }
-    const show_notification=(response)=>{	
-	   if(response.failed!=null){
-		   setNotification({success:'',failed:response.failed,show_failed:true,show_success:false});
-	   }else if(response.success!=null){
-		   setNotification({success:response.success,failed:'',show_failed:false,show_success:true});
-	   }
-	   setTimeout(hide_notification, 4000);
-    }	
     const handleValidation=()=>{
       let formIsValid = false;
         if(username.current.value===''){

@@ -6,9 +6,9 @@ import { GearFill,ToggleOn,ToggleOff } from 'react-bootstrap-icons';
 import { Path,setting_table_id,bucketName,dirName,region,accessKeyId,secretAccessKey } from './Path.js';
 import ReactQuill from 'react-quill'; 
 import 'react-quill/dist/quill.snow.css';
-import { DataStore,Predicates } from '@aws-amplify/datastore';
+import { DataStore } from '@aws-amplify/datastore';
 import {Settings} from './../../models';
-import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import awsconfig from './../../aws-exports';
 import S3 from 'react-aws-s3';
 
@@ -126,9 +126,9 @@ function Setting()  {
 	const [greatest_img4, setGreatestImg4] = useState('');
 	const [crypto_cunt_img, setCryptoCuntImg] = useState('');
 	//const [section4Img, setSection4Img] = useState('');
-	const [giveImg1, setGiveImg1] = useState('');
-	const [giveImg2, setGiveImg2] = useState('');
-	const [giveImg3, setGiveImg3] = useState('');
+	// const [giveImg1, setGiveImg1] = useState('');
+	// const [giveImg2, setGiveImg2] = useState('');
+	// const [giveImg3, setGiveImg3] = useState('');
 	const [sec14Img, setSec14Img] = useState('');
 	const [sec12Img, setSec12Img] = useState('');
 	const [sec9Img, setSec9Img] = useState('');
@@ -194,19 +194,10 @@ function Setting()  {
     const [sec9_imgname, setSec9ImgName] = useState('');
     const [sec12_imgname, setSec12ImgName] = useState('');
     const [sec14_imgname, setSec14ImgName] = useState('');
-    const [dataa, setDataa] = useState([]);
+    // const [dataa, setDataa] = useState([]);
     const hide_notification=()=>{
       setNotification({sucess:'',failed:'',show_failed:false,show_success:false});
       setErrors('');
-    }
-    const show_notification=(response)=>{	   
-	   if(response.failed!=null){
-		   setNotification({success:'',failed:global.siteText[0][response.failed],show_failed:true,show_success:false});
-	   }else if(response.success!=null){
-		   setNotification({success:response.success,failed:'',show_failed:false,show_success:true});
-	   }
-       get_data();
-	   setTimeout(hide_notification, 4000);
     }
     const handleValidation=()=>{
         let formIsValid = false;
@@ -379,10 +370,10 @@ function Setting()  {
         return formIsValid;
     }
     
-    const changeBanner1=(event)=>{
-		setBanner1(event.target.files[0]);
-		setBanner1Name(event.target.files[0].name);
-    }
+    // const changeBanner1=(event)=>{
+	// 	setBanner1(event.target.files[0]);
+	// 	setBanner1Name(event.target.files[0].name);
+    // }
     const changeLogo=(event)=>{
 		setLogo(event.target.files[0]);
         setLogoName(event.target.files[0].name);
@@ -1007,7 +998,7 @@ function Setting()  {
         }else{
             history.push('/admin/login');
         }
-    }, []);	
+    });	
     return (
         <>
         <AdminNavbar/>
@@ -1022,7 +1013,7 @@ function Setting()  {
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div className="settings_div">
                             <h4>Change Logo</h4>
-                            <img src={Path+settingsData.logo} className="logoo"></img>
+                            <img src={Path+settingsData.logo} className="logoo" alt=""></img>
                             <form>
                                 <div className="settings_form_data">
                                     <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeLogo}></input>
@@ -1066,7 +1057,7 @@ function Setting()  {
                                 <label>Banner1</label>
                                 <input type="text" className="form-control" ref={banner1_link}></input>
                             </div>
-                            <img src={Path+settingsData.banner2} className="banner_img"></img>
+                            <img src={Path+settingsData.banner2} className="banner_img" alt=""></img>
                             <form>
                                 <div className="settings_form_data">
                                     <label>Banner2</label>
@@ -1103,7 +1094,7 @@ function Setting()  {
                             <div className="row">
                                 <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.img1} className="imgs"></img>
+                                    <img src={Path+settingsData.img1} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeImg1}></input>
@@ -1113,7 +1104,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.img2} className="imgs"></img>
+                                    <img src={Path+settingsData.img2} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeImg2}></input>
@@ -1123,7 +1114,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.img3} className="imgs"></img>
+                                    <img src={Path+settingsData.img3} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeImg3}></input>
@@ -1133,7 +1124,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.img4} className="imgs"></img>
+                                    <img src={Path+settingsData.img4} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeImg4}></input>
@@ -1176,7 +1167,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.avatar1} className="imgs"></img>
+                                    <img src={Path+settingsData.avatar1} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeAvatar1}></input>
@@ -1186,7 +1177,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.avatar2} className="imgs"></img>
+                                    <img src={Path+settingsData.avatar2} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeAvatar2}></input>
@@ -1196,7 +1187,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.avatar3} className="imgs"></img>
+                                    <img src={Path+settingsData.avatar3} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeAvatar3}></input>
@@ -1217,7 +1208,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.collect_img1} className="imgs"></img>
+                                    <img src={Path+settingsData.collect_img1} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg1}></input>
@@ -1235,7 +1226,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.collect_img2} className="imgs"></img>
+                                    <img src={Path+settingsData.collect_img2} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg2}></input>
@@ -1253,7 +1244,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.collect_img3} className="imgs"></img>
+                                    <img src={Path+settingsData.collect_img3} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg3}></input>
@@ -1271,7 +1262,7 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.collect_img4} className="imgs"></img>
+                                    <img src={Path+settingsData.collect_img4} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCollectImg4}></input>
@@ -1359,7 +1350,7 @@ function Setting()  {
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
                         <div className="settings_div">
                         <h4>Update section 8</h4>
-                        <img src={Path+settingsData.sec9_img} className="banner_img"></img>
+                        <img src={Path+settingsData.sec9_img} className="banner_img" alt=""></img>
                             <form>
                                 <div className="form_data">
                                     <label className="form_label">Image</label>
@@ -1400,8 +1391,8 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.greatest_img1} className="imgs"></img>
-                                    <img src={Path+settingsData.greatest_img2} className="imgs"></img>
+                                    <img src={Path+settingsData.greatest_img1} className="imgs" alt=""></img>
+                                    <img src={Path+settingsData.greatest_img2} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                             <label style={{textAlign:"left",width:"100%"}}>Image1</label>
@@ -1420,8 +1411,8 @@ function Setting()  {
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div className="three_img">
-                                    <img src={Path+settingsData.greatest_img3} className="imgs"></img>
-                                    <img src={Path+settingsData.greatest_img4} className="imgs"></img>
+                                    <img src={Path+settingsData.greatest_img3} className="imgs" alt=""></img>
+                                    <img src={Path+settingsData.greatest_img4} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <label style={{textAlign:"left",width:"100%"}}>Image1</label>
@@ -1575,7 +1566,7 @@ function Setting()  {
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
                         <div className="settings_div">
                         <h4>Update section 11</h4>
-                        <img src={Path+settingsData.sec12_img} className="banner_img"></img>
+                        <img src={Path+settingsData.sec12_img} className="banner_img" alt=""></img>
                             <form>
                                 <div className="form_data">
                                     <label className="form_label">Image</label>
@@ -1618,7 +1609,7 @@ function Setting()  {
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-xs-12">
                         <div className="settings_div">
                         <h4>Update section 13</h4>
-                        <img src={Path+settingsData.sec14_img} className="banner_img"></img>
+                        <img src={Path+settingsData.sec14_img} className="banner_img" alt=""></img>
                             <form>
                                 <div className="form_data">
                                     <label className="form_label">Image</label>
@@ -1767,7 +1758,7 @@ function Setting()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+settingsData.crypto_cunt_img} className="imgs"></img>
+                                        <img src={Path+settingsData.crypto_cunt_img} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeCryptoCuntImage}></input>
@@ -1786,7 +1777,7 @@ function Setting()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+settingsData.evolved_img} className="imgs"></img>
+                                        <img src={Path+settingsData.evolved_img} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeEvolvedImg}></input>
@@ -1805,7 +1796,7 @@ function Setting()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+settingsData.ape_img} className="imgs"></img>
+                                        <img src={Path+settingsData.ape_img} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeApeImg}></input>
@@ -1824,7 +1815,7 @@ function Setting()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+settingsData.famous_img} className="imgs"></img>
+                                        <img src={Path+settingsData.famous_img} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeFamousImg}></input>
@@ -1843,7 +1834,7 @@ function Setting()  {
                                             <label className="form_label">Heading</label>
                                             <textarea className="form-control" ref={sec17_heading} style={{height:"50px"}}></textarea>
                                         </div> */}
-                                        <img src={Path+settingsData.gods_img} className="imgs"></img>
+                                        <img src={Path+settingsData.gods_img} className="imgs" alt=""></img>
                                         <form>
                                             <div className="settings_form_data">
                                                 <input type="file" className="form-control" accept=".jpg, .png, .jpeg" onChange={changeGodsImg}></input>

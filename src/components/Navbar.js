@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from "react";
-import { Link} from "react-router-dom";
 import { Twitter,Discord,Instagram } from 'react-bootstrap-icons';
-import { Path,setting_table_id } from './admin/Path.js';
-import { DataStore,Predicates } from '@aws-amplify/datastore';
+import { setting_table_id } from './admin/Path.js';
+import { DataStore } from '@aws-amplify/datastore';
 import {Settings} from './../models';
 
 export default function Navbar() {

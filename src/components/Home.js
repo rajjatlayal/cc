@@ -1,10 +1,9 @@
 import React,{useState,useEffect} from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { QuestionLg } from 'react-bootstrap-icons';
 import { Accordion } from 'react-bootstrap-accordion';
 import { Path,setting_table_id } from './admin/Path.js';
-import { DataStore,Predicates } from '@aws-amplify/datastore';
+import { DataStore } from '@aws-amplify/datastore';
 // import YoutubeEmbedVideo from "youtube-embed-video";
 import ReactPlayer from 'react-player'
 import {Settings} from './../models';
@@ -13,7 +12,7 @@ function Home()  {
     const [settingsData, setSettingsData] = useState('');
     const [timer, setTimer] = useState('');
     const [active_class, setActiveClass] = useState('cryptocunt');
-    const [currentDate, setCurrentDate] = useState('');
+    // const [currentDate, setCurrentDate] = useState('');
     const [faq, setFaq] = useState("");
     const [showCountDown, setShowCountDown] = useState(true);
     const get_countdown=(date_time)=>{
@@ -103,7 +102,7 @@ function Home()  {
     }
     useEffect(() => {
         get_data();
-    }, []);	
+    });	
     return (
         <div className="container-fluid p-0" style={{background:"#0F1922"}}>
             <Navbar/>
@@ -117,7 +116,7 @@ function Home()  {
             {/* <video autoPlay="autoplay" muted loop id="myVideo">
                 <source src={"/crypto_video.mp4"} type="video/mp4" />
             </video> */}
-            <ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoplay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
+            <ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
             {settingsData.showTimer==='true' ?
             (
             <div className="countdown">
@@ -141,22 +140,22 @@ function Home()  {
                     <div className="row imgs_div" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img1}/>
+                                <img src={Path+settingsData.img1} alt=""/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img2}/>
+                                <img src={Path+settingsData.img2} alt=""/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img3}/>
+                                <img src={Path+settingsData.img3} alt=""/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img4}/>
+                                <img src={Path+settingsData.img4} alt=""/>
                             </div>
                         </div>
                     </div>
@@ -472,23 +471,23 @@ function Home()  {
                         <ul className="nav nav-tabs mb-3" id="ex1" role="tablist">
                             {settingsData.CryptoCunts==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('cryptocunt')}>
-                                <a className={active_class==='cryptocunt' ? 'nav-link active' : 'nav-link '}>CryptoCunt</a>
+                                <span className={active_class==='cryptocunt' ? 'nav-link active' : 'nav-link '}>CryptoCunt</span>
                             </li>)}
                             {settingsData.Evolved==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('evolved')}>
-                                <a className={active_class==='evolved' ? 'nav-link active' : 'nav-link '}>Evolved</a>
+                                <span className={active_class==='evolved' ? 'nav-link active' : 'nav-link '}>Evolved</span>
                             </li>)}
                             {settingsData.AnonymousApe==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('ape')}>
-                                <a className={active_class==='ape' ? 'nav-link active' : 'nav-link '}>Anonymous Ape</a>
+                                <span className={active_class==='ape' ? 'nav-link active' : 'nav-link '}>Anonymous Ape</span>
                             </li>)}
                             {settingsData.FamousCryptoCunt==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('famous')}>
-                                <a className={active_class==='famous' ? 'nav-link active' : 'nav-link '}>Famous CryptoCunt</a>
+                                <span className={active_class==='famous' ? 'nav-link active' : 'nav-link '}>Famous CryptoCunt</span>
                             </li>)}
                             {settingsData.CryptoCuntGods==='true' &&
                             (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('gods')}>
-                                <a className={active_class==='gods' ? 'nav-link active' : 'nav-link '}>CryptoCunt Gods</a>
+                                <span className={active_class==='gods' ? 'nav-link active' : 'nav-link '}>CryptoCunt Gods</span>
                             </li>)}
                         </ul>
                         <div className="tab-content" id="ex1-content">
@@ -498,7 +497,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.cryptocunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.crypto_cunt_img} /></p>
+                                        <p><img src={Path+settingsData.crypto_cunt_img} alt=""/></p>
                                     </div>
                                 </div>
                             </div>
@@ -508,7 +507,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.evolved_img} /></p>
+                                        <p><img src={Path+settingsData.evolved_img} alt="" /></p>
                                     </div>
                                 </div>
                             </div>
@@ -518,7 +517,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.ape_img} /></p>
+                                        <p><img src={Path+settingsData.ape_img} alt=""/></p>
                                     </div>
                                 </div>
                             </div>
@@ -528,7 +527,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.famous_img} /></p>
+                                        <p><img src={Path+settingsData.famous_img} alt=""/></p>
                                     </div>
                                 </div>
                             </div>
@@ -538,7 +537,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.gods_img} /></p>
+                                        <p><img src={Path+settingsData.gods_img} alt=""/></p>
                                     </div>
                                 </div>
                             </div>

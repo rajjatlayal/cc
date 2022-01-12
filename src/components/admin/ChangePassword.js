@@ -3,8 +3,8 @@ import {useHistory } from "react-router-dom";
 import Sidebar from './Sidebar';
 import AdminNavbar from './AdminNavbar';
 import { Lock} from 'react-bootstrap-icons';
-import { Path,admin_table_id } from './Path.js';
-import { DataStore,Predicates } from '@aws-amplify/datastore';
+import { admin_table_id } from './Path.js';
+import { DataStore } from '@aws-amplify/datastore';
 import {Admin} from './../../models';
 function Settings()  {
     let history = useHistory();
@@ -17,18 +17,9 @@ function Settings()  {
     const [notification, setNotification] = useState({success:'',failed:'',show_success:false,show_failed:false});
 	const [Loader, setLoader] = useState(false);
     const [errors, setErrors] = useState('');
-	const [token, setToken] = useState(localStorage.getItem('token'));
     const hide_notification=()=>{
       setNotification({success:'',failed:'',show_failed:false,show_success:false});
       setErrors('');
-    }
-    const show_notification=(response)=>{	   
-	   if(response.failed!=null){
-		   setNotification({success:'',failed:response.failed,show_failed:true,show_success:false});
-	   }else if(response.success!=null){
-		   setNotification({success:response.success,failed:'',show_failed:false,show_success:true});
-	   }
-	   setTimeout(hide_notification, 4000);
     }
     const handleValidation=()=>{
         let formIsValid = false;
@@ -38,7 +29,7 @@ function Settings()  {
 			setErrors('Please enter new password.');
 		}else if(confirm_password.current.value===''){
 			setErrors('Please confirm your password.');
-		}else if(new_password.current.value!=confirm_password.current.value){
+		}else if(new_password.current.value!==confirm_password.current.value){
 			setErrors('New password and confirm password does not matched');
 		}else {
 			setErrors('');
@@ -49,6 +40,9 @@ function Settings()  {
     const Password_data=async (event)=>{
         event.preventDefault();
         if(handleValidation()){	
+            setLoader(true);
+            setOpacity('0.5');
+            setPointerEvents('none');
             const original = await DataStore.query(Admin,admin_table_id)
             if(old_password.current.value!==OldPassword){
                 setErrors('Old password is not correct');		   
@@ -59,6 +53,9 @@ function Settings()  {
                     updated.password=`${new_password.current.value}`;
                     })
                 ).then((data)=>{
+                    setLoader(false);
+                    setOpacity('');
+                    setPointerEvents('');
                     setOldPassword(data.password);
                     setNotification({success:'Password updated successfully.',failed:'',show_failed:false,show_success:true});
                     setTimeout(hide_notification, 4000);
@@ -81,7 +78,7 @@ function Settings()  {
         }else{
             history.push('/admin/login');
         }
-    }, []);	
+    });	
     return (
         <>
         <AdminNavbar/>

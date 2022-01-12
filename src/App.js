@@ -11,22 +11,16 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function App() {
-  const history = useHistory();
+  // const history = useHistory();
   return (
     <div className="app">
-      <Router basename={"/"} history= {history}>
+      <Router basename={"/"}>
       {/* <Router basename={"/cc/"} history= {history}> */}
         <Switch>
-          <Route exact path="/"
-            render={() => {
-              return (
-                <Redirect to="/home" />
-              )
-          }}/>
-          <Route path="/home" exact component={Home}/>
-          <Route path="/admin/login" exact component={AdminLogin}/>
-          <Route path="/admin/settings" exact component={Setting}/>
-          <Route path="/admin/change_password" exact component={ChangePassword}/>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/admin/login" component={AdminLogin}/>
+          <Route exact path="/admin/settings" component={Setting}/>
+          <Route exact path="/admin/change_password" component={ChangePassword}/>
           {/* <Route path="/admin/mint" exact component={Mint}/> */}
         </Switch>
       </Router>
