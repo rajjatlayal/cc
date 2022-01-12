@@ -1784,6 +1784,13 @@ p {
   display: none !important;
 }.ytp-watermark:hover{
   opacity: 0 !important;
+}.loader{
+  text-align: center;
+  top: 44%;
+  position: absolute;
+  left: 48%;
+}.loader img{
+  height:60px;
 }
 /* .banner_image div{
   height: 500px !important;

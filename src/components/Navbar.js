@@ -49,8 +49,7 @@ export default function Navbar() {
                   <h4>CRYPTOCUNTS CLUB</h4>
               </div>
               <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 home_navbar_right_div">
-              {settingsData ?
-                  (<ul>
+                    <ul>
                       <li><span className="top_btn" onClick={discordLink}>Join our discord</span></li>
                       {settingsData.social_twitter==='true' ?
                       (<li><span onClick={openLink}><Twitter color="#72F595" size={20}/></span></li>):('')}
@@ -58,7 +57,7 @@ export default function Navbar() {
                       (<li><span onClick={openLink1}><Discord color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_instagram==='true' ?
                       (<li><span onClick={openLink2}><Instagram color="#72F595" size={20}/></span></li>):('')}
-                  </ul>):('')}
+                  </ul>
               </div>
           </div>
       </div>

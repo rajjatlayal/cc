@@ -13,6 +13,7 @@ import {Settings} from './../models';
 function Home()  {
     const [settingsData, setSettingsData] = useState('');
     const [timer, setTimer] = useState('');
+    const [pageLoader, setPageLoader] = useState(true);
     const [active_class, setActiveClass] = useState('cryptocunt');
     // const [currentDate, setCurrentDate] = useState('');
     const [faq, setFaq] = useState("");
@@ -79,6 +80,7 @@ function Home()  {
               payload: { event, data },
             } = capsule;
             if (event === "ready") {
+              setPageLoader(false);
               get_data();
             }
           });
@@ -89,461 +91,454 @@ function Home()  {
           };
     },[]);// eslint-disable-line react-hooks/exhaustive-deps	
     return (
-        <div className="container-fluid p-0" style={{background:"#0F1922"}}>
-            <Navbar/>
-            <div className="row landing_page" style={{width:"100%",margin:"0"}}>
-            <div className="row banner_image" style={{width:"100%",margin:"0",padding:"0"}}>
-            {/* <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
-                
-            </div> */}
-            {/* <iframe width="100%" height="500px" src={settingsData.banner1_link+'?autoplay=1&loop=1'} style={{borderRadius:"0px",padding:"0"}}></iframe> */}
-            {/* <YoutubeEmbedVideo width="100%" height="500px" videoId="k7DYMvPoP00?autoplay=1&loop=1" autoplay={true} suggestions={false} controls={false}  style={{borderRadius:"0px",padding:"0"}} /> */}
-            {/* <video autoPlay="autoplay" muted loop id="myVideo">
-                <source src={"/crypto_video.mp4"} type="video/mp4" />
-            </video> */}
-            {settingsData!==undefined && settingsData!=='' ?
-            (<ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>):('')}
-            {settingsData!==undefined && settingsData!=='' && settingsData.showTimer==='true' ?
-            (
-            <div className="countdown">
-                {showCountDown &&
-                (<span id="countdown">{timer}</span>)}
-                {!showCountDown &&
-                (<button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}} onClick={MintNow}>MINT NOW</button>)}
-            </div>
-            ):('')}
-            </div>
-                <div className="banner">
-                </div>
-                {settingsData!==undefined && settingsData!=='' ?
-                (<div className="second_section">
-                    {/* <h1 style={{fontSize:settingsData.head_font+'px',fontWeight:settingsData.head_weight,color:"white"}}>{settingsData.first_title}</h1> */}
-                    {/* <p><img  src={Path+'images/'+settingsData.banner2}/></p> */}
-                    {/* <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px",fontWeight:settingsData.title_weight}}>{settingsData.second_title}</h3> */}
-                    {/* <span style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.title}</span>  */}
-                    {/* <h6 style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.content}</h6> */}
+        <div>
+            {!pageLoader ?
+            (<div className="container-fluid p-0" style={{background:"#0F1922"}}>
+                <Navbar/>
+                <div className="row landing_page" style={{width:"100%",margin:"0"}}>
+                <div className="row banner_image" style={{width:"100%",margin:"0",padding:"0"}}>
+                {/* <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
                     
-                    <div dangerouslySetInnerHTML={{ __html: settingsData.content }} style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight,color: "#ffffff"}}></div>
-
-                    <div className="row imgs_div" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
-                        <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <div className="section1_img">
-                                <img src={settingsData.img1!==undefined ? Path+settingsData.img1 : ''} alt=""/>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <div className="section1_img">
-                                <img src={settingsData.img2!==undefined ? Path+settingsData.img2 : ''} alt=""/>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <div className="section1_img">
-                                <img src={settingsData.img3!==undefined ? Path+settingsData.img3 :''} alt=""/>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <div className="section1_img">
-                                <img src={settingsData.img4!==undefined ? Path+settingsData.img4 : ''} alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                </div>):('')}
-                {settingsData!==undefined && settingsData!=='' ?
-                (<div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container third_section">
-                        <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 third_section_content">
-                                <h5 style={{fontSize:settingsData.subtitle_font+'px',fontWeight:settingsData.subtitle_weight}}>{settingsData.section4_title}</h5>
-                                <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.section4_content}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>):('')}
-               
-                {/* <div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container fourth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.avatar_title}
-                        </h3>
-                        <div className="row" style={{margin:"0",width:"100%",textAlign:"center"}}>
-                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth_section1">
-                                <p className="p-1"><img src={Path+'images/'+settingsData.avatar1}/></p>
-                            </div>
-                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth">
-                                <div className="line arrow-left"></div>
-                                <p className="p-2"><img className="cent-img" src={Path+'images/'+settingsData.avatar2}/></p>
-                                <div className="line2 arrow-right"></div>
-                            </div>
-                            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth_section2">
-                                <p className="p-3"><img src={Path+'images/'+settingsData.avatar3}/></p>
-                            </div>
-                        </div>
-                    </div>
                 </div> */}
-                {settingsData!==undefined && settingsData!=='' ?
-                (<div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container fifth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.sec6_heading}</h3>
-                        <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
-                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                                <div className="flip-card">
-                                    <div className="flip-card-inner">
-                                        <div className="flip-card-front">
-                                        <img src={settingsData.collect_img1!==undefined ? Path+settingsData.collect_img1 : ''} alt="Avatar"/>
-                                        </div>
-                                        <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content1 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                            
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                                <div className="flip-card">
-                                    <div className="flip-card-inner">
-                                        <div className="flip-card-front">
-                                        <img src={settingsData.collect_img2!==undefined ? Path+settingsData.collect_img2 :''} alt="Avatar"/>
-                                        </div>
-                                        <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content2 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                            
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                                <div className="flip-card">
-                                    <div className="flip-card-inner">
-                                        <div className="flip-card-front">
-                                        <img src={settingsData.collect_img3!==undefined ? Path+settingsData.collect_img3 : ''} alt="Avatar"/>
-                                        </div>
-                                        <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content3 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                           
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
-                                <div className="flip-card">
-                                    <div className="flip-card-inner">
-                                        <div className="flip-card-front">
-                                        <img src={settingsData.collect_img4 ? Path+settingsData.collect_img4 :''} alt="Avatar"/>
-                                        </div>
-                                        <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content4 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                            
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>):('')}
-
-                {/* <div className="row" style={{margin:"0",width:"100%",background:"#12232D",padding:"50px 0px"}}>
-                    <div className="container seventh_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec8_heading}</h3>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec8_content}</p>
-                    </div>
-                </div> */}
-
-                {/* <div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container eighth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec9_heading}</h3>
-                        <p><img  src={Path+'images/'+settingsData.sec9_img}/></p>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec9_content}</p>
-                        <h5 style={{fontSize:settingsData.subtitle_font+'px',color:"#72F595",marginTop:"50px",fontWeight:settingsData.subtitle_weight}}>{settingsData.sec10_heading}</h5>
-                    </div>
-                </div> */}
-
-                {/* <div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container nineth_section">
-                        <div className="row" style={{margin:"0",width:"100%"}}>
-
-
-                        <div className="row" style={{margin:"0",width:"100%"}}> */}
-                            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                                <div className="nineth_image_div">
-                                    <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
-                                </div>
-                            </div> */}
-                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content }}>
-                                </div>
-                            </div>
-                        </div> */}
-
-                        {/* <div className="row" style={{margin:"0",width:"100%"}}>
-                            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                                <div className="nineth_image_div">
-                                    <p><img src={Path+'images/'+settingsData.greatest_img2}/></p>
-                                </div>
-                            </div>
-                            <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
-                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
-                                </div>
-                            </div>
-                        </div> */}
-
-                        {/* <div className="row" style={{margin:"0",width:"100%"}}> */}
-                            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                                <div className="nineth_image_div">
-                                    <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
-                                </div>
-                            </div> */}
-                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
-                                </div>
-                                <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div className="nineth_image_div">
-                                            <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div className="nineth_image_div">
-                                            <p><img src={Path+'images/'+settingsData.greatest_img2}/></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
-
-                        {/* <div className="row" style={{margin:"0",width:"100%"}}> */}
-                            {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                                <div className="nineth_image_div">
-                                    <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
-                                </div>
-                            </div> */}
-                            {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content2 }}>
-                                </div>
-                                <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div className="nineth_image_div">
-                                            <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div className="nineth_image_div">
-                                            <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    
-                    </div>
-                </div> */}
+                {/* <iframe width="100%" height="500px" src={settingsData.banner1_link+'?autoplay=1&loop=1'} style={{borderRadius:"0px",padding:"0"}}></iframe> */}
+                {/* <YoutubeEmbedVideo width="100%" height="500px" videoId="k7DYMvPoP00?autoplay=1&loop=1" autoplay={true} suggestions={false} controls={false}  style={{borderRadius:"0px",padding:"0"}} /> */}
+                {/* <video autoPlay="autoplay" muted loop id="myVideo">
+                    <source src={"/crypto_video.mp4"} type="video/mp4" />
+                </video> */}
                 
-                {/* <div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container tenth_section" style={{maxWidth:"800px"}}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.text_under10}</p>
+                <ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
+                {settingsData.showTimer==='true' ?
+                (
+                <div className="countdown">
+                    {showCountDown &&
+                    (<span id="countdown">{timer}</span>)}
+                    {!showCountDown &&
+                    (<button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}} onClick={MintNow}>MINT NOW</button>)}
+                </div>
+                ):('')}
+                </div>
+                    <div className="banner">
                     </div>
-                </div> */}
-                {settingsData!==undefined && settingsData!=='' ?
-                (<div className="outer_roadmap">
-                    <div className="container roadmap">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff",fontWeight:settingsData.title_weight}}>{settingsData.sec11_heading}</h3>
-                        <div className="history-tl-container">
-                            <ul className="tl">
-                                <li className="tl-item one" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per1}%</span>
-                                    <p className="road_line"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content1}</div>
-                                </li>
-                                <li className="tl-item two" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per2}%</span>
-                                    <p className="road_line"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content2}</div>
-                                </li>
-                                <li className="tl-item three" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per3}%</span>
-                                    <p className="road_line"></p>
-                                    <div className="item-title four" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content3}</div>
-                                </li>
-                                <li className="tl-item four" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per4}%</span>
-                                    <p className="road_line"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content4}</div>
-                                </li>
-                                <li className="tl-item five" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per5}%</span>
-                                    <p className="road_line fifty"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content5}</div>
-                                </li>
-                                <li className="tl-item six" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per6}%</span>
-                                    <p className="road_line"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content6}</div>
-                                </li>
-                                <li className="tl-item seven" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per7}%</span>
-                                    <p className="road_line"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content7}</div>
-                                </li>
-                                <li className="tl-item eight" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per8}%</span>
-                                    <p className="road_line eighty"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content8}</div>
-                                </li>
-                                <li className="tl-item nine" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per9}%</span>
-                                    <p className="road_line"></p>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content9}</div>
-                                </li>
-                                <li className="tl-item ten" ng-repeat="item in retailer_history">
-                                    <span>{settingsData.roadmap_per10}%</span>
-                                    <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content10}</div>
-                                </li>
-                            </ul>
+                    <div className="second_section">
+                        {/* <h1 style={{fontSize:settingsData.head_font+'px',fontWeight:settingsData.head_weight,color:"white"}}>{settingsData.first_title}</h1> */}
+                        {/* <p><img  src={Path+'images/'+settingsData.banner2}/></p> */}
+                        {/* <h3 style={{fontSize:settingsData.title_font+'px',paddingTop:"20px",fontWeight:settingsData.title_weight}}>{settingsData.second_title}</h3> */}
+                        {/* <span style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.title}</span>  */}
+                        {/* <h6 style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.content}</h6> */}
+                        
+                        <div dangerouslySetInnerHTML={{ __html: settingsData.content }} style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight,color: "#ffffff"}}></div>
+
+                        <div className="row imgs_div" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
+                            <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div className="section1_img">
+                                    <img src={settingsData.img1!==undefined ? Path+settingsData.img1 : ''} alt=""/>
+                                </div>
+                            </div>
+                            <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div className="section1_img">
+                                    <img src={settingsData.img2!==undefined ? Path+settingsData.img2 : ''} alt=""/>
+                                </div>
+                            </div>
+                            <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div className="section1_img">
+                                    <img src={settingsData.img3!==undefined ? Path+settingsData.img3 :''} alt=""/>
+                                </div>
+                            </div>
+                            <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div className="section1_img">
+                                    <img src={settingsData.img4!==undefined ? Path+settingsData.img4 : ''} alt=""/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div> ):('')} 
-                {settingsData!==undefined && settingsData!=='' ? 
-                (<div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container eighth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec12_heading}</h3>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec12_content}</p>
-                        {/* <img  src={Path+'images/'+settingsData.sec12_img}/> */}
-                    </div>
-                </div>):('')}
-                {settingsData!==undefined && settingsData!=='' ?
-                (<div className="row" style={{margin:"0",width:"100%"}}>
-                    <div style={{width:"820px",margin:"auto"}}>
-                        <div className="eleventh_section">
-                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec13_heading}</h3>
-                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.video_title}</p>
+                   <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container third_section">
+                            <div className="row" style={{margin:"0",width:"100%"}}>
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 third_section_content">
+                                    <h5 style={{fontSize:settingsData.subtitle_font+'px',fontWeight:settingsData.subtitle_weight}}>{settingsData.section4_title}</h5>
+                                    <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.section4_content}</p>
+                                </div>
+                            </div>
                         </div>
-                        {/* <div className="video_section">
-                            <iframe width="100%" height="300px" src={settingsData.video_link} title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
-                        </div> */}
                     </div>
-                </div>):('')}
-                {settingsData!==undefined && settingsData!=='' ?
-                (<div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container twelth_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"0px",fontWeight:settingsData.title_weight}}>{settingsData.sec14_heading}</h3>
-                        {/* <img  src={Path+'images/'+settingsData.sec14_img}/> */}
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec14_content}</p>
+                
+                    {/* <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container fourth_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.avatar_title}
+                            </h3>
+                            <div className="row" style={{margin:"0",width:"100%",textAlign:"center"}}>
+                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth_section1">
+                                    <p className="p-1"><img src={Path+'images/'+settingsData.avatar1}/></p>
+                                </div>
+                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth">
+                                    <div className="line arrow-left"></div>
+                                    <p className="p-2"><img className="cent-img" src={Path+'images/'+settingsData.avatar2}/></p>
+                                    <div className="line2 arrow-right"></div>
+                                </div>
+                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 under_fourth_section2">
+                                    <p className="p-3"><img src={Path+'images/'+settingsData.avatar3}/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> */}
+                   <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container fifth_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',fontWeight:settingsData.title_weight}}>{settingsData.sec6_heading}</h3>
+                            <div className="row" style={{margin:"0",width:"100%",textAlign:"center",paddingTop:"30px"}}>
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
+                                    <div className="flip-card">
+                                        <div className="flip-card-inner">
+                                            <div className="flip-card-front">
+                                            <img src={settingsData.collect_img1!==undefined ? Path+settingsData.collect_img1 : ''} alt="Avatar"/>
+                                            </div>
+                                            <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content1 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                                
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
+                                    <div className="flip-card">
+                                        <div className="flip-card-inner">
+                                            <div className="flip-card-front">
+                                            <img src={settingsData.collect_img2!==undefined ? Path+settingsData.collect_img2 :''} alt="Avatar"/>
+                                            </div>
+                                            <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content2 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                                
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
+                                    <div className="flip-card">
+                                        <div className="flip-card-inner">
+                                            <div className="flip-card-front">
+                                            <img src={settingsData.collect_img3!==undefined ? Path+settingsData.collect_img3 : ''} alt="Avatar"/>
+                                            </div>
+                                            <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content3 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                            
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 under_fifth1">
+                                    <div className="flip-card">
+                                        <div className="flip-card-inner">
+                                            <div className="flip-card-front">
+                                            <img src={settingsData.collect_img4 ? Path+settingsData.collect_img4 :''} alt="Avatar"/>
+                                            </div>
+                                            <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content4 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                                
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>):('')}
-                {settingsData!==undefined && settingsData!=='' ? 
-                (<div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container thirt_section">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec15_heading}</h3>
-                        <div className="accor1">
-                            <Accordion show title={settingsData.faq_title1}>
-                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{faq}</p>
+
+                    {/* <div className="row" style={{margin:"0",width:"100%",background:"#12232D",padding:"50px 0px"}}>
+                        <div className="container seventh_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec8_heading}</h3>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec8_content}</p>
+                        </div>
+                    </div> */}
+
+                    {/* <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container eighth_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec9_heading}</h3>
+                            <p><img  src={Path+'images/'+settingsData.sec9_img}/></p>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec9_content}</p>
+                            <h5 style={{fontSize:settingsData.subtitle_font+'px',color:"#72F595",marginTop:"50px",fontWeight:settingsData.subtitle_weight}}>{settingsData.sec10_heading}</h5>
+                        </div>
+                    </div> */}
+
+                    {/* <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container nineth_section">
+                            <div className="row" style={{margin:"0",width:"100%"}}>
+
+
+                            <div className="row" style={{margin:"0",width:"100%"}}> */}
+                                {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                                    <div className="nineth_image_div">
+                                        <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
+                                    </div>
+                                </div> */}
+                                {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content }}>
+                                    </div>
+                                </div>
+                            </div> */}
+
+                            {/* <div className="row" style={{margin:"0",width:"100%"}}>
+                                <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                                    <div className="nineth_image_div">
+                                        <p><img src={Path+'images/'+settingsData.greatest_img2}/></p>
+                                    </div>
+                                </div>
+                                <div className="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-xs-12">
+                                    <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
+                                    </div>
+                                </div>
+                            </div> */}
+
+                            {/* <div className="row" style={{margin:"0",width:"100%"}}> */}
+                                {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                                    <div className="nineth_image_div">
+                                        <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
+                                    </div>
+                                </div> */}
+                                {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content1 }}>
+                                    </div>
+                                    <div className="row" style={{width:"100%",margin:"0"}}>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div className="nineth_image_div">
+                                                <p><img src={Path+'images/'+settingsData.greatest_img1}/></p>
+                                            </div>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div className="nineth_image_div">
+                                                <p><img src={Path+'images/'+settingsData.greatest_img2}/></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> */}
+
+                            {/* <div className="row" style={{margin:"0",width:"100%"}}> */}
+                                {/* <div className="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                                    <div className="nineth_image_div">
+                                        <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
+                                    </div>
+                                </div> */}
+                                {/* <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div className="nineth_div_text" dangerouslySetInnerHTML={{ __html: settingsData.greatest_content2 }}>
+                                    </div>
+                                    <div className="row" style={{width:"100%",margin:"0"}}>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div className="nineth_image_div">
+                                                <p><img src={Path+'images/'+settingsData.greatest_img3}/></p>
+                                            </div>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div className="nineth_image_div">
+                                                <p><img src={Path+'images/'+settingsData.greatest_img4}/></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                        </div>
+                    </div> */}
+                    
+                    {/* <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container tenth_section" style={{maxWidth:"800px"}}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.text_under10}</p>
+                        </div>
+                    </div> */}
+                    <div className="outer_roadmap">
+                        <div className="container roadmap">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#ffffff",fontWeight:settingsData.title_weight}}>{settingsData.sec11_heading}</h3>
+                            <div className="history-tl-container">
+                                <ul className="tl">
+                                    <li className="tl-item one" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per1}%</span>
+                                        <p className="road_line"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content1}</div>
+                                    </li>
+                                    <li className="tl-item two" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per2}%</span>
+                                        <p className="road_line"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content2}</div>
+                                    </li>
+                                    <li className="tl-item three" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per3}%</span>
+                                        <p className="road_line"></p>
+                                        <div className="item-title four" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content3}</div>
+                                    </li>
+                                    <li className="tl-item four" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per4}%</span>
+                                        <p className="road_line"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content4}</div>
+                                    </li>
+                                    <li className="tl-item five" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per5}%</span>
+                                        <p className="road_line fifty"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content5}</div>
+                                    </li>
+                                    <li className="tl-item six" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per6}%</span>
+                                        <p className="road_line"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content6}</div>
+                                    </li>
+                                    <li className="tl-item seven" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per7}%</span>
+                                        <p className="road_line"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content7}</div>
+                                    </li>
+                                    <li className="tl-item eight" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per8}%</span>
+                                        <p className="road_line eighty"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content8}</div>
+                                    </li>
+                                    <li className="tl-item nine" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per9}%</span>
+                                        <p className="road_line"></p>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content9}</div>
+                                    </li>
+                                    <li className="tl-item ten" ng-repeat="item in retailer_history">
+                                        <span>{settingsData.roadmap_per10}%</span>
+                                        <div className="item-title" style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.roadmap_content10}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container eighth_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec12_heading}</h3>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec12_content}</p>
+                            {/* <img  src={Path+'images/'+settingsData.sec12_img}/> */}
+                        </div>
+                    </div>
+                    <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div style={{width:"820px",margin:"auto"}}>
+                            <div className="eleventh_section">
+                                <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec13_heading}</h3>
+                                <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.video_title}</p>
+                            </div>
+                            {/* <div className="video_section">
+                                <iframe width="100%" height="300px" src={settingsData.video_link} title="YouTube video player" style={{borderRadius:"36px"}}></iframe>
+                            </div> */}
+                        </div>
+                    </div>
+                    <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container twelth_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"0px",fontWeight:settingsData.title_weight}}>{settingsData.sec14_heading}</h3>
+                            {/* <img  src={Path+'images/'+settingsData.sec14_img}/> */}
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.sec14_content}</p>
+                        </div>
+                    </div>
+                    <div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container thirt_section">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"20px",fontWeight:settingsData.title_weight}}>{settingsData.sec15_heading}</h3>
+                            <div className="accor1">
+                                <Accordion show title={settingsData.faq_title1}>
+                                <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{faq}</p>
+                                </Accordion>
+                            </div>
+                            <Accordion title={settingsData.faq_title2}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content2}</p> 
+                            </Accordion>
+                            <Accordion title={settingsData.faq_title3}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content3}</p>
+
+                            </Accordion>
+                            <Accordion title={settingsData.faq_title4}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content4}</p>
+                            </Accordion>
+                            <Accordion title={settingsData.faq_title5}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content5}</p>
+                            </Accordion>
+                            <Accordion title={settingsData.faq_title6}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content6}</p>
+                            </Accordion>
+                            <Accordion title={settingsData.faq_title7}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content7}</p>
+                            </Accordion>
+                            <Accordion title={settingsData.faq_title8}>
+                            <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content8}</p>
                             </Accordion>
                         </div>
-                        <Accordion title={settingsData.faq_title2}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content2}</p> 
-                        </Accordion>
-                        <Accordion title={settingsData.faq_title3}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content3}</p>
-
-                        </Accordion>
-                        <Accordion title={settingsData.faq_title4}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content4}</p>
-                        </Accordion>
-                        <Accordion title={settingsData.faq_title5}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content5}</p>
-                        </Accordion>
-                        <Accordion title={settingsData.faq_title6}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content6}</p>
-                        </Accordion>
-                        <Accordion title={settingsData.faq_title7}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content7}</p>
-                        </Accordion>
-                        <Accordion title={settingsData.faq_title8}>
-                        <p style={{fontSize:settingsData.para_font+'px',fontWeight:settingsData.para_weight}}>{settingsData.faq_content8}</p>
-                        </Accordion>
                     </div>
-                </div>):('')}
-                {settingsData!==undefined && settingsData!=='' ?
-                (<React.Fragment>
-                {(settingsData.CryptoCunts ==='true' || settingsData.Evolved ==='true' || settingsData.AnonymousApe ==='true' ||settingsData.FamousCryptoCunt ==='true' ||settingsData.CryptoCuntGods ==='true') &&
-                (<div className="row" style={{margin:"0",width:"100%"}}>
-                    <div className="container fourt_section" id="exTab1">
-                        <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",fontWeight:settingsData.title_weight}}>{settingsData.sec16_heading}</h3>
+                   
+                    {(settingsData.CryptoCunts ==='true' || settingsData.Evolved ==='true' || settingsData.AnonymousApe ==='true' ||settingsData.FamousCryptoCunt ==='true' ||settingsData.CryptoCuntGods ==='true') &&
+                    (<div className="row" style={{margin:"0",width:"100%"}}>
+                        <div className="container fourt_section" id="exTab1">
+                            <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",fontWeight:settingsData.title_weight}}>{settingsData.sec16_heading}</h3>
 
-                        <ul className="nav nav-tabs mb-3" id="ex1" role="tablist">
-                            {settingsData.CryptoCunts==='true' &&
-                            (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('cryptocunt')}>
-                                <span className={active_class==='cryptocunt' ? 'nav-link active' : 'nav-link '}>CryptoCunt</span>
-                            </li>)}
-                            {settingsData.Evolved==='true' &&
-                            (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('evolved')}>
-                                <span className={active_class==='evolved' ? 'nav-link active' : 'nav-link '}>Evolved</span>
-                            </li>)}
-                            {settingsData.AnonymousApe==='true' &&
-                            (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('ape')}>
-                                <span className={active_class==='ape' ? 'nav-link active' : 'nav-link '}>Anonymous Ape</span>
-                            </li>)}
-                            {settingsData.FamousCryptoCunt==='true' &&
-                            (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('famous')}>
-                                <span className={active_class==='famous' ? 'nav-link active' : 'nav-link '}>Famous CryptoCunt</span>
-                            </li>)}
-                            {settingsData.CryptoCuntGods==='true' &&
-                            (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('gods')}>
-                                <span className={active_class==='gods' ? 'nav-link active' : 'nav-link '}>CryptoCunt Gods</span>
-                            </li>)}
-                        </ul>
-                        <div className="tab-content" id="ex1-content">
-                            <div className={active_class==='cryptocunt' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
-                                <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunts</h3>
-                                <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.cryptocunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                            <ul className="nav nav-tabs mb-3" id="ex1" role="tablist">
+                                {settingsData.CryptoCunts==='true' &&
+                                (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('cryptocunt')}>
+                                    <span className={active_class==='cryptocunt' ? 'nav-link active' : 'nav-link '}>CryptoCunt</span>
+                                </li>)}
+                                {settingsData.Evolved==='true' &&
+                                (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('evolved')}>
+                                    <span className={active_class==='evolved' ? 'nav-link active' : 'nav-link '}>Evolved</span>
+                                </li>)}
+                                {settingsData.AnonymousApe==='true' &&
+                                (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('ape')}>
+                                    <span className={active_class==='ape' ? 'nav-link active' : 'nav-link '}>Anonymous Ape</span>
+                                </li>)}
+                                {settingsData.FamousCryptoCunt==='true' &&
+                                (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('famous')}>
+                                    <span className={active_class==='famous' ? 'nav-link active' : 'nav-link '}>Famous CryptoCunt</span>
+                                </li>)}
+                                {settingsData.CryptoCuntGods==='true' &&
+                                (<li className="nav-item" role="presentation" onClick={() => changeActiveClass('gods')}>
+                                    <span className={active_class==='gods' ? 'nav-link active' : 'nav-link '}>CryptoCunt Gods</span>
+                                </li>)}
+                            </ul>
+                            <div className="tab-content" id="ex1-content">
+                                <div className={active_class==='cryptocunt' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
+                                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunts</h3>
+                                    <div className="row" style={{width:"100%",margin:"0"}}>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.cryptocunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p><img src={settingsData.crypto_cunt_img!==undefined ? Path+settingsData.crypto_cunt_img :''} alt=""/></p>
+                                        </div>
                                     </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={settingsData.crypto_cunt_img!==undefined ? Path+settingsData.crypto_cunt_img :''} alt=""/></p>
+                                </div>
+                                <div className={active_class==='evolved' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
+                                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Evolved</h3>
+                                    <div className="row" style={{width:"100%",margin:"0"}}>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p><img src={settingsData.evolved_img!==undefined ? Path+settingsData.evolved_img:''} alt="" /></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={active_class==='ape' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
+                                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Anonymous Ape</h3>
+                                    <div className="row" style={{width:"100%",margin:"0"}}>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p><img src={settingsData.ape_img!==undefined ? Path+settingsData.ape_img :''} alt=""/></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={active_class==='famous' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
+                                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Famous CryptoCunt</h3>
+                                    <div className="row" style={{width:"100%",margin:"0"}}>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p><img src={settingsData.famous_img!==undefined ? Path+settingsData.famous_img :''} alt=""/></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={active_class==='gods' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
+                                    <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunt Gods</h3>
+                                    <div className="row" style={{width:"100%",margin:"0"}}>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
+                                        </div>
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <p><img src={settingsData.gods_img!==undefined ? Path+settingsData.gods_img:''} alt=""/></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className={active_class==='evolved' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
-                                <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Evolved</h3>
-                                <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={settingsData.evolved_img!==undefined ? Path+settingsData.evolved_img:''} alt="" /></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={active_class==='ape' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
-                                <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Anonymous Ape</h3>
-                                <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={settingsData.ape_img!==undefined ? Path+settingsData.ape_img :''} alt=""/></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={active_class==='famous' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
-                                <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>Famous CryptoCunt</h3>
-                                <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={settingsData.famous_img!==undefined ? Path+settingsData.famous_img :''} alt=""/></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={active_class==='gods' ? 'under_tab_content tab-pane fade show active' : 'under_tab_content tab-pane fade'}>
-                                <h3 style={{fontSize:settingsData.title_font+'px',color:"#72F595",marginBottom:"0",paddingBottom:"40px",fontWeight:settingsData.title_weight}}>CryptoCunt Gods</h3>
-                                <div className="row" style={{width:"100%",margin:"0"}}>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={settingsData.gods_img!==undefined ? Path+settingsData.gods_img:''} alt=""/></p>
-                                    </div>
-                                </div>
-                            </div>
+                            {/* <button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button> */}
                         </div>
-                        {/* <button className="mint_now" style={{fontSize:settingsData.button_font+'px',fontWeight:settingsData.button_weight}}>MINT NOW</button> */}
-                    </div>
-                </div>)}
-                </React.Fragment>):('')}
-            </div>
-            <Footer/>
+                    </div>)}
+                </div>
+                <Footer/>
+            </div>):(<div className="loader"><img src={"images/loaderr.gif"} alt=""></img></div>)}
         </div>
     );
 }
