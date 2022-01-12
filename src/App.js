@@ -1,5 +1,5 @@
 import './css/main.css';
-import {Switch,useHistory , Route,BrowserRouter as Router,Redirect } from 'react-router-dom';
+import {Switch , Route,BrowserRouter as Router } from 'react-router-dom';
 import Home from './components/Home';
 import AdminLogin from './components/admin/AdminLogin';
 import Setting from './components/admin/Settings';

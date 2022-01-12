@@ -78,7 +78,7 @@ function Settings()  {
         }else{
             history.push('/admin/login');
         }
-    });	
+    },[]);// eslint-disable-line react-hooks/exhaustive-deps	
     return (
         <>
         <AdminNavbar/>

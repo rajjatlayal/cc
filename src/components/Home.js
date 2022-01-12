@@ -102,7 +102,7 @@ function Home()  {
     }
     useEffect(() => {
         get_data();
-    });	
+    },[]);// eslint-disable-line react-hooks/exhaustive-deps	
     return (
         <div className="container-fluid p-0" style={{background:"#0F1922"}}>
             <Navbar/>
@@ -116,7 +116,7 @@ function Home()  {
             {/* <video autoPlay="autoplay" muted loop id="myVideo">
                 <source src={"/crypto_video.mp4"} type="video/mp4" />
             </video> */}
-            <ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
+            <ReactPlayer url={settingsData.banner1_link!==undefined ? settingsData.banner1_link+'?autoplay=1&loop=1' : ''} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
             {settingsData.showTimer==='true' ?
             (
             <div className="countdown">
@@ -140,22 +140,22 @@ function Home()  {
                     <div className="row imgs_div" style={{margin:"0",width:"100%",paddingTop:"40px"}}>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img1} alt=""/>
+                                <img src={settingsData.img1!==undefined ? Path+settingsData.img1 : ''} alt=""/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img2} alt=""/>
+                                <img src={settingsData.img2!==undefined ? Path+settingsData.img2 : ''} alt=""/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img3} alt=""/>
+                                <img src={settingsData.img3!==undefined ? Path+settingsData.img3 :''} alt=""/>
                             </div>
                         </div>
                         <div className="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <div className="section1_img">
-                                <img src={Path+settingsData.img4} alt=""/>
+                                <img src={settingsData.img4!==undefined ? Path+settingsData.img4 : ''} alt=""/>
                             </div>
                         </div>
                     </div>
@@ -199,7 +199,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+settingsData.collect_img1} alt="Avatar"/>
+                                        <img src={settingsData.collect_img1!==undefined ? Path+settingsData.collect_img1 : ''} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content1 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                             
@@ -211,7 +211,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+settingsData.collect_img2} alt="Avatar"/>
+                                        <img src={settingsData.collect_img2!==undefined ? Path+settingsData.collect_img2 :''} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content2 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                             
@@ -223,7 +223,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+settingsData.collect_img3} alt="Avatar"/>
+                                        <img src={settingsData.collect_img3!==undefined ? Path+settingsData.collect_img3 : ''} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content3 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                            
@@ -235,7 +235,7 @@ function Home()  {
                                 <div className="flip-card">
                                     <div className="flip-card-inner">
                                         <div className="flip-card-front">
-                                        <img src={Path+settingsData.collect_img4} alt="Avatar"/>
+                                        <img src={settingsData.collect_img4 ? Path+settingsData.collect_img4 :''} alt="Avatar"/>
                                         </div>
                                         <div className="flip-card-back" dangerouslySetInnerHTML={{ __html: settingsData.collect_content4 }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                             
@@ -497,7 +497,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.cryptocunt_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.crypto_cunt_img} alt=""/></p>
+                                        <p><img src={settingsData.crypto_cunt_img!==undefined ? Path+settingsData.crypto_cunt_img :''} alt=""/></p>
                                     </div>
                                 </div>
                             </div>
@@ -507,7 +507,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.evolved_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.evolved_img} alt="" /></p>
+                                        <p><img src={settingsData.evolved_img!==undefined ? Path+settingsData.evolved_img:''} alt="" /></p>
                                     </div>
                                 </div>
                             </div>
@@ -517,7 +517,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.ape_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.ape_img} alt=""/></p>
+                                        <p><img src={settingsData.ape_img!==undefined ? Path+settingsData.ape_img :''} alt=""/></p>
                                     </div>
                                 </div>
                             </div>
@@ -527,7 +527,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.famous_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.famous_img} alt=""/></p>
+                                        <p><img src={settingsData.famous_img!==undefined ? Path+settingsData.famous_img :''} alt=""/></p>
                                     </div>
                                 </div>
                             </div>
@@ -537,7 +537,7 @@ function Home()  {
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" dangerouslySetInnerHTML={{ __html: settingsData.gods_content }}  style={{fontSize:settingsData.list_font+'px',fontWeight:settingsData.list_weight}}>
                                     </div>
                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <p><img src={Path+settingsData.gods_img} alt=""/></p>
+                                        <p><img src={settingsData.gods_img!==undefined ? Path+settingsData.gods_img:''} alt=""/></p>
                                     </div>
                                 </div>
                             </div>

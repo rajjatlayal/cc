@@ -1,19 +1,19 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-octivius-dev-232555-authRole",
-      "UnauthRoleArn": "arn:aws:iam::983576079561:role/amplify-octivius-dev-232555-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::983576079561:role/amplify-octivius-dev-232555-authRole",
+      "AuthRoleName": "amplify-crystal-dev-125557-authRole",
+      "UnauthRoleArn": "arn:aws:iam::270808268604:role/amplify-crystal-dev-125557-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::270808268604:role/amplify-crystal-dev-125557-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-octivius-dev-232555-deployment",
-      "UnauthRoleName": "amplify-octivius-dev-232555-unauthRole",
-      "StackName": "amplify-octivius-dev-232555",
-      "StackId": "arn:aws:cloudformation:us-east-2:983576079561:stack/amplify-octivius-dev-232555/0aff1820-5e99-11ec-be5b-027d72036f18",
-      "AmplifyAppId": "d17lgp0cma6spk"
+      "DeploymentBucketName": "amplify-crystal-dev-125557-deployment",
+      "UnauthRoleName": "amplify-crystal-dev-125557-unauthRole",
+      "StackName": "amplify-crystal-dev-125557",
+      "StackId": "arn:aws:cloudformation:us-east-2:270808268604:stack/amplify-crystal-dev-125557/96470710-6f8a-11ec-87af-0281f383fa86",
+      "AmplifyAppId": "d8uiv46xkwsbf"
     }
   },
   "api": {
-    "Octivius": {
+    "crystal": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -32,25 +32,38 @@
             {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
-                "userPoolId": "authoctiviuse1c35102"
+                "userPoolId": "authcrystal872be20e"
               }
             }
           ]
         },
-        "GraphQLAPIIdOutput": "p6v2j4dis5ewhn3pdpazymtsj4",
-        "GraphQLAPIEndpointOutput": "https://vki5ayfelzcyhdsn2g73k465fi.appsync-api.us-east-2.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-lmgoubtcjjg5vmgjja3f3lyznu"
+        "GraphQLAPIIdOutput": "x3ggls6z35hzflh5zv5pnsunju",
+        "GraphQLAPIEndpointOutput": "https://kfkst2onhfcera6xswu5ca62f4.appsync-api.us-east-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-eow3tsapojbnbhtez7poivvoea"
       },
-      "lastPushTimeStamp": "2021-12-24T07:50:06.657Z",
+      "lastPushTimeStamp": "2022-01-07T08:53:29.391Z",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-octivius-dev-232555-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-        "logicalId": "apiOctivius"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-crystal-dev-125557-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apicrystal"
       },
-      "lastPushDirHash": "ntrscp0ieV5sIYEWIGiAzoslGSs="
+      "lastPushDirHash": "hJYZeLGZ+9KrrqsOT4ZUV6W3tug="
+    }
+  },
+  "storage": {
+    "crystal73a7dba2": {
+      "service": "S3",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "BucketName": "amplify-crystal-dev-125557-deployment",
+        "Region": "us-east-2"
+      },
+      "lastPushTimeStamp": "2022-01-07T08:50:52.965Z"
     }
   },
   "auth": {
-    "octiviuse1c35102": {
+    "crystal872be20e": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -74,32 +87,19 @@
         ]
       },
       "output": {
-        "UserPoolId": "us-east-2_n3UHkAHyz",
-        "AppClientIDWeb": "29hmd3hugmc08de9tmsi3kbgoc",
-        "AppClientID": "13adt1tai6cs9no5jij6ofs9up",
-        "IdentityPoolId": "us-east-2:64a6f905-ce69-4fc8-a036-bfe5edbac31c",
-        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:983576079561:userpool/us-east-2_n3UHkAHyz",
-        "IdentityPoolName": "octiviuse1c35102_identitypool_e1c35102__dev",
-        "UserPoolName": "octiviuse1c35102_userpool_e1c35102"
+        "UserPoolId": "us-east-2_xDEO5nMIv",
+        "AppClientIDWeb": "60hctm6o8jueebcffr80mem5ku",
+        "AppClientID": "3afj5t0rc9vsl5c69dp0ftekvl",
+        "IdentityPoolId": "us-east-2:8013f4fc-d177-4c00-bc4c-9da38bb9e537",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:270808268604:userpool/us-east-2_xDEO5nMIv",
+        "IdentityPoolName": "crystal872be20e_identitypool_872be20e__dev",
+        "UserPoolName": "crystal872be20e_userpool_872be20e"
       },
-      "lastPushTimeStamp": "2021-12-24T07:50:06.649Z",
+      "lastPushTimeStamp": "2022-01-07T08:53:29.379Z",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-octivius-dev-232555-deployment/amplify-cfn-templates/auth/octiviuse1c35102-cloudformation-template.json",
-        "logicalId": "authoctiviuse1c35102"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-crystal-dev-125557-deployment/amplify-cfn-templates/auth/crystal872be20e-cloudformation-template.json",
+        "logicalId": "authcrystal872be20e"
       }
-    }
-  },
-  "storage": {
-    "octivius76661650": {
-      "service": "S3",
-      "serviceType": "imported",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "output": {
-        "BucketName": "amplify-octivius-dev-232555-deployment",
-        "Region": "us-east-2"
-      },
-      "lastPushTimeStamp": "2021-12-17T11:02:04.058Z"
     }
   }
 }

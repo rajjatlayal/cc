@@ -1,6 +1,6 @@
 {
   "api": {
-    "Octivius": {
+    "crystal": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -19,7 +19,7 @@
             {
               "authenticationType": "AMAZON_COGNITO_USER_POOLS",
               "userPoolConfig": {
-                "userPoolId": "authoctiviuse1c35102"
+                "userPoolId": "authcrystal872be20e"
               }
             }
           ]
@@ -27,8 +27,16 @@
       }
     }
   },
+  "storage": {
+    "crystal73a7dba2": {
+      "service": "S3",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  },
   "auth": {
-    "octiviuse1c35102": {
+    "crystal872be20e": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -51,14 +59,6 @@
           "EMAIL"
         ]
       }
-    }
-  },
-  "storage": {
-    "octivius76661650": {
-      "service": "S3",
-      "serviceType": "imported",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
     }
   }
 }

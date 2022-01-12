@@ -152,17 +152,17 @@
         }
       }
     },
-    "apiOctivius": {
+    "apicrystal": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-octivius-dev-232555-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-crystal-dev-125557-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "Parameters": {
-          "AppSyncApiName": "Octivius",
+          "AppSyncApiName": "crystal",
           "DynamoDBBillingMode": "PAY_PER_REQUEST",
           "DynamoDBEnableServerSideEncryption": false,
           "AuthCognitoUserPoolId": {
             "Fn::GetAtt": [
-              "authoctiviuse1c35102",
+              "authcrystal872be20e",
               "Outputs.UserPoolId"
             ]
           },
@@ -172,21 +172,21 @@
           "unauthRoleName": {
             "Ref": "UnauthRoleName"
           },
-          "S3DeploymentBucket": "amplify-octivius-dev-232555-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/653cd55919a637c4da0af78dc64d318dece3f332",
+          "S3DeploymentBucket": "amplify-crystal-dev-125557-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/ebc54825fe95e25ae2af68bcf9b272deb9627f2e",
           "env": "dev"
         }
       }
     },
-    "authoctiviuse1c35102": {
+    "authcrystal872be20e": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-octivius-dev-232555-deployment/amplify-cfn-templates/auth/octiviuse1c35102-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-crystal-dev-125557-deployment/amplify-cfn-templates/auth/crystal872be20e-cloudformation-template.json",
         "Parameters": {
-          "identityPoolName": "octiviuse1c35102_identitypool_e1c35102",
+          "identityPoolName": "crystal872be20e_identitypool_872be20e",
           "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "octivie1c35102",
-          "userPoolName": "octiviuse1c35102_userpool_e1c35102",
+          "resourceNameTruncated": "crysta872be20e",
+          "userPoolName": "crystal872be20e_userpool_872be20e",
           "autoVerifiedAttributes": "email",
           "mfaConfiguration": "OFF",
           "mfaTypes": "SMS Text Message",
@@ -203,10 +203,10 @@
           "userpoolClientRefreshTokenValidity": 30,
           "userpoolClientWriteAttributes": "email",
           "userpoolClientReadAttributes": "email",
-          "userpoolClientLambdaRole": "octivie1c35102_userpoolclient_lambda_role",
+          "userpoolClientLambdaRole": "crysta872be20e_userpoolclient_lambda_role",
           "userpoolClientSetAttributes": false,
-          "sharedId": "e1c35102",
-          "resourceName": "octiviuse1c35102",
+          "sharedId": "872be20e",
+          "resourceName": "crystal872be20e",
           "authSelections": "identityPoolAndUserPool",
           "useDefault": "default",
           "userPoolGroupList": "",
@@ -235,7 +235,7 @@
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authoctiviuse1c35102"
+        "authcrystal872be20e"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -330,7 +330,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authoctiviuse1c35102",
+            "authcrystal872be20e",
             "Outputs.IdentityPoolId"
           ]
         },
