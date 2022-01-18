@@ -1402,6 +1402,8 @@ px
     margin-top: 0;
   }.under_tab_content h3{
     padding-bottom: 20px !important;
+  }#myVideo {
+    height: auto !important;
   }
 }
 @media screen and (max-width: 767px) and (min-width: 431px) {
@@ -1572,6 +1574,8 @@ px
     margin-top: -40px;
   }#exTab1 h3{
     margin-bottom: 18px;
+  }#myVideo {
+    height: auto !important;
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 768px) {
@@ -1634,6 +1638,8 @@ px
     padding-top: 20px;
   }.thirt_section {
     padding: 0px 16px;
+  }#myVideo {
+    height: auto !important;
   }
 }
 @media screen and (max-width: 1300px) and (min-width: 1001px) {
@@ -1779,6 +1785,14 @@ p {
   color: #72f595;
 }#myVideo{
   padding: 0;
+  height: 512px;
+  width: 100%;
+  background: black;
+}#myVideo1{
+  padding: 0;
+  height: 200px;
+  width: 100%;
+  background: black;
 }
 .yt-uix-sessionlink{
   display: none !important;

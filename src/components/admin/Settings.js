@@ -202,9 +202,10 @@ function Setting()  {
     }
     const handleValidation=()=>{
         let formIsValid = false;
-          if(banner1_link.current.value===''){
-            setErrors('Please enter embeded video link for first banner.');		   
-          }else if(first_title.current.value===''){
+        //   if(banner1_link.current.value===''){
+        //     setErrors('Please enter embeded video link for first banner.');		   
+        //   }else
+          if(first_title.current.value===''){
             setErrors('Please enter first title');		   
           }else if(second_title.current.value===''){
             setErrors('Please enter second title');		   
@@ -371,10 +372,10 @@ function Setting()  {
         return formIsValid;
     }
     
-    // const changeBanner1=(event)=>{
-	// 	setBanner1(event.target.files[0]);
-	// 	setBanner1Name(event.target.files[0].name);
-    // }
+    const changeBanner1=(event)=>{
+		setBanner1(event.target.files[0]);
+		setBanner1Name(event.target.files[0].name);
+    }
     const changeLogo=(event)=>{
 		setLogo(event.target.files[0]);
         setLogoName(event.target.files[0].name);
@@ -605,7 +606,7 @@ function Setting()  {
     };
     const update_data= async(event)=>{
         event.preventDefault();
-        if(handleValidation()){	
+        //if(handleValidation()){	
             setLoader(true);
             setOpacity('0.5');
             setPointerEvents('none');
@@ -613,7 +614,7 @@ function Setting()  {
             await DataStore.save(
                 Settings.copyOf(original, updated => {
                 updated.first_title=`${first_title.current.value}`;
-                updated.banner1_link=`${banner1_link.current.value}`;
+                // updated.banner1_link=`${banner1_link.current.value}`;
                 updated.second_title=`${second_title.current.value}`;
                 updated.avatar_title=`${avatar_title.current.value}`;
                 updated.sec6_heading=`${sec6_heading.current.value}`;
@@ -853,7 +854,7 @@ function Setting()  {
                 setErrors('');	
                 // console.log(err);
             })    
-        }
+        // }
     }
     const get_data=()=>{
         DataStore.query(Settings,setting_table_id).then((data)=>{
@@ -867,7 +868,7 @@ function Setting()  {
             setFamous(data.FamousCryptoCunt	);
             setGods(data.CryptoCuntGods);
             setTimer(data.showTimer);
-            banner1_link.current.value=data.banner1_link;
+            // banner1_link.current.value=data.banner1_link;
             first_title.current.value=data.first_title;
             second_title.current.value=data.second_title;
             avatar_title.current.value=data.avatar_title;
@@ -1055,8 +1056,9 @@ function Setting()  {
                         <div className="settings_div">
                             <h4>Change Banner1 and Banner2</h4>
                             <div className="settings_form_data" style={{marginBottom:"16px"}}>
-                                <label>Banner1</label>
-                                <input type="text" className="form-control" ref={banner1_link}></input>
+                                <label>Upload video for Banner1</label>
+                                {/* <input type="text" className="form-control" ref={banner1_link}></input> */}
+                                <input type="file" className="form-control" onChange={changeBanner1}></input>
                             </div>
                             <img src={settingsData.banner2!==undefined ? Path+settingsData.banner2:''} className="banner_img" alt=""></img>
                             <form>

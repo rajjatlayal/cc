@@ -6,7 +6,6 @@ import { Accordion } from 'react-bootstrap-accordion';
 import { Path,setting_table_id } from './admin/Path.js';
 import { DataStore,Predicates } from '@aws-amplify/datastore';
 import { Amplify,Hub} from 'aws-amplify';
-// import YoutubeEmbedVideo from "youtube-embed-video";
 import ReactPlayer from 'react-player'
 import {Settings} from './../models';
 
@@ -14,6 +13,7 @@ function Home()  {
     const [settingsData, setSettingsData] = useState('');
     const [timer, setTimer] = useState('');
     const [pageLoader, setPageLoader] = useState(true);
+    const [video, setVideo] = useState('');
     const [active_class, setActiveClass] = useState('cryptocunt');
     // const [currentDate, setCurrentDate] = useState('');
     const [faq, setFaq] = useState("");
@@ -62,6 +62,7 @@ function Home()  {
                 }else if(data.CryptoCuntGods==='true'){
                     setActiveClass('gods');
                 }
+                setVideo(data.banner1);
                 get_countdown(data.date_time);
             }
         }).catch((err)=>{
@@ -100,13 +101,11 @@ function Home()  {
                 {/* <div className="col-12 right_banner" style={{backgroundImage:"url('"+Path+settingsData.banner1+"')"}}>
                     
                 </div> */}
-                {/* <iframe width="100%" height="500px" src={settingsData.banner1_link+'?autoplay=1&loop=1'} style={{borderRadius:"0px",padding:"0"}}></iframe> */}
-                {/* <YoutubeEmbedVideo width="100%" height="500px" videoId="k7DYMvPoP00?autoplay=1&loop=1" autoplay={true} suggestions={false} controls={false}  style={{borderRadius:"0px",padding:"0"}} /> */}
-                {/* <video autoPlay="autoplay" muted loop id="myVideo">
-                    <source src={"/crypto_video.mp4"} type="video/mp4" />
+                {/* <video autoPlay="autoplay" muted loop id="myVideo" controls preload={"auto"}>
+                    <source src={(video!==undefined && video!=='') ? Path+video : ''} type="video/mp4" />
                 </video> */}
-                
-                <ReactPlayer url={settingsData.banner1_link+'?autoplay=1&loop=1'} loop={true} autoPlay={true} muted={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0"}}/>
+                {/* <ReactPlayer url={(video!==undefined && video!=='') ? Path+video+'?autoplay=1':''} loop={true} muted={true} controls={true} width="100%" height="500px" style={{borderRadius:"0px",padding:"0",background:"black"}}/> */}
+                <div dangerouslySetInnerHTML={{ __html: `<video loop muted autoplay playsinline src="${(video!==undefined && video!=='') ? Path+video : ''}" id="myVideo"/>` }} style={{padding:"0"}}></div>
                 {settingsData.showTimer==='true' ?
                 (
                 <div className="countdown">

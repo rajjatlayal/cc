@@ -5,7 +5,7 @@ import { Server,PersonFill,LockFill } from 'react-bootstrap-icons';
 import { admin_table_id } from './Path.js';
 import { DataStore } from '@aws-amplify/datastore';
 import {Admin} from './../../models';
-import { Amplify } from 'aws-amplify';
+import { Amplify,Hub } from 'aws-amplify';
 import awsconfig from './../../aws-exports';
 Amplify.configure(awsconfig);
 function Login()  {
@@ -51,6 +51,18 @@ function Login()  {
         }
       }
     }
+    useEffect(() => {
+      const removeListener = Hub.listen("datastore", async (capsule) => {
+          const {
+            payload: { event, data },
+          } = capsule;
+        });
+        // Start the DataStore, this kicks-off the sync process.
+        DataStore.start();
+        return () => {
+          removeListener();
+        };
+    },[]);// eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="row row_class">
             <div className="container admin_container">
