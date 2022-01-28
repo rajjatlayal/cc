@@ -73,7 +73,7 @@ function Home()  {
        setActiveClass(value);
     }
     const MintNow=()=>{
-        window.open('https://etherscan.io/address/0x8b63608aea9c2301c74db0a74a6de5bf416cb248');
+        window.open('https://mint.cryptocunts.club/');
     }
     useEffect(() => {
         const removeListener = Hub.listen("datastore", async (capsule) => {
