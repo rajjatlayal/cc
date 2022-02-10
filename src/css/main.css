@@ -670,6 +670,7 @@ h6 {
 .accordion-button {
   background: #07111a !important;
   color: white !important;
+  font-size: 22px;
 }
 .accordion-item {
   border: none !important;
