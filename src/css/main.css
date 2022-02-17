@@ -675,7 +675,6 @@ h6 {
 .accordion-button {
   background: #07111a !important;
   color: white !important;
-  font-size: 22px;
 }
 .accordion-item {
   border: none !important;
@@ -961,11 +960,17 @@ p.p4 img {
   /* margin-top: 36px; */
 }
 /*----------- MEDIA QUERY ---------------*/
+
 @media screen and (max-width: 440px) and (min-width: 300px) {
   .banner_image div {
     height: auto !important; 
      width: 100% !important;
     padding: 0;
+  }.accordion-body p {
+	  font-size:14px;
+	  margin-bottom:4px;
+  }.accordion-button {
+	  font-size:14px !important;
   }
   .top_bar{
     justify-content: center;
@@ -1407,6 +1412,11 @@ px
     height: auto !important;
   }
 }
+@media screen and (max-width: 2000px) and (min-width: 768px) {
+	.accordion-button {
+	  font-size:22px !important;
+	}
+}
 @media screen and (max-width: 767px) and (min-width: 431px) {
   .top_bar{
     justify-content: center;
@@ -1414,6 +1424,12 @@ px
     text-align: center;
   }.home_navbar_right_div{
     text-align: center;
+  }
+  .accordion-body p {
+	  font-size:15px;
+	  margin-bottom:4px;
+  }.accordion-button {
+	  font-size:15px !important;
   }
   .home_navbar_right_div ul {
     padding-left: 0;
