@@ -1823,6 +1823,8 @@ p {
   left: 48%;
 }.loader img{
   height:60px;
+}.social_li{
+ display:block !important;
 }
 /* .banner_image div{
   height: 500px !important;
