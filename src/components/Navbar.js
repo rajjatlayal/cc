@@ -52,11 +52,11 @@ export default function Navbar() {
                     <ul>
                       <li><span className="top_btn" onClick={discordLink}>Join our discord</span></li>
                       {settingsData.social_twitter==='true' ?
-                      (<li><span onClick={openLink}><Twitter color="#72F595" size={20}/></span></li>):('')}
+                      (<li className="social_li"><span onClick={openLink}><Twitter color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_discord==='true' ?
-                      (<li><span onClick={openLink1}><Discord color="#72F595" size={20}/></span></li>):('')}
+                      (<li className="social_li"><span onClick={openLink1}><Discord color="#72F595" size={20}/></span></li>):('')}
                       {settingsData.social_instagram==='true' ?
-                      (<li><span onClick={openLink2}><Instagram color="#72F595" size={20}/></span></li>):('')}
+                      (<li className="social_li"><span onClick={openLink2}><Instagram color="#72F595" size={20}/></span></li>):('')}
                   </ul>
               </div>
           </div>
