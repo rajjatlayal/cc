@@ -27,6 +27,7 @@ export default function Navbar() {
     window.open("https://discord.gg/hjrtqattwp");
   }
   useEffect(() => {
+    get_data();
     const removeListener = Hub.listen("datastore", async (capsule) => {
       const {
         payload: { event, data },
@@ -40,7 +41,7 @@ export default function Navbar() {
     return () => {
       removeListener();
     };
-  }, [settingsData]);	
+  }, []);	
   return (
     <>
       <div className="container-fluid home_navbar">
