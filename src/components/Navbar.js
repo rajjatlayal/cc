@@ -21,7 +21,7 @@ export default function Navbar() {
     window.open(settingsData.discord_link);
   }
   const openLink2=()=>{
-    window.open(settingsData.insta_link);
+    window.open("https://instagram.com/cryptocvntsclub?igshid=YmMyMTA2M2Y=");
   }
   const discordLink=()=>{
     window.open("https://discord.gg/hjrtqattwp");
