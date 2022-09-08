@@ -1,0 +1,9 @@
+export const Path = 'https://amplify-unobtainum-dev-170143-deployment.s3.us-east-2.amazonaws.com/uploads/';
+export const setting_table_id='146d1833-8eb6-4b2b-973b-5c595d5cf49d';
+export const admin_table_id='c10a6e7b-559b-4ce0-8bb8-4bb008198be9';
+export const bucketName='amplify-unobtainum-dev-170143-deployment';
+export const dirName='uploads';
+export const region='us-east-2';
+export const accessKeyId='AKIATMBOXAAHOY4ZSLSA';
+export const secretAccessKey= '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';
+export const admin_email= '';
