@@ -1,0 +1,44 @@
+{
+	"tokens": [
+        {
+            "chainId": 1,
+            "name": "Dai",
+            "address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "decimals": 18,
+            "symbol": "DAI",
+            "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/4943.png"
+        },
+        {
+            "chainId": 1,
+            "name": "Maker",
+            "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+            "decimals": 18,
+            "symbol": "MKR",
+            "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/1518.png"
+        },
+        {
+            "chainId": 1,
+            "name": "UNI COIN",
+            "address": "0xe6877ea9c28fbdec631ffbc087956d0023a76bf2",
+            "decimals": 18,
+            "symbol": "UNI",
+            "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/4113.png"
+        },
+        {
+            "chainId": 1,
+            "name": "WETH",
+            "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "decimals": 18,
+            "symbol": "WETH",
+            "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png"
+        },
+        {
+            "chainId": 1,
+            "name": "PRIMCOIN",
+            "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "decimals": 18,
+            "symbol": "PRIM",
+            "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/2396.png"
+        } 
+    ]
+}
